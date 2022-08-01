@@ -1,7 +1,9 @@
-import {types, getEnv, applySnapshot, getSnapshot} from 'mobx-state-tree';
-import {PageStore} from './Page';
-import {when, reaction} from 'mobx';
-let pagIndex = 1;
+import * as React from 'react';
+import axios from 'axios';
+import copy from 'copy-to-clipboard';
+
+import {render as renderAmis} from 'amis';
+import {ToastComponent, AlertComponent, alert, confirm, toast} from 'amis-ui';
 let entityJson = {
   "type": "page",
   "body": [
@@ -252,128 +254,124 @@ let entityJson = {
       }
   ]
 }
-export const MainStore = types
-  .model('MainStore', {
-    pages: types.optional(types.array(PageStore), [
-      {
-        id: `${pagIndex}`,
-        path: 'hello-world',
-        label: '首页管理',
-        icon: 'fa fa-file',
-        schema: {
-          type: 'page',
-          title: 'Hello world',
-          body: '首页管理'
-        }
-      },
-      {
-        id: `2`,
-        path: 'entityManage',
-        label: '实例管理',
-        icon: 'fa fa-file',
-        schema: entityJson
-      }
-    ]),
-    theme: 'cxd',
-    asideFixed: true,
-    asideFolded: false,
-    offScreen: false,
-    addPageIsOpen: false,
-    preview: false,
-    isMobile: false,
-    schema: types.frozen()
-  })
-  .views(self => ({
-    get fetcher() {
-      return getEnv(self).fetcher;
-    },
-    get notify() {
-      return getEnv(self).notify;
-    },
-    get alert() {
-      return getEnv(self).alert;
-    },
-    get copy() {
-      return getEnv(self).copy;
-    }
-  }))
-  .actions(self => {
-    function toggleAsideFolded() {
-      self.asideFolded = !self.asideFolded;
-    }
 
-    function toggleAsideFixed() {
-      self.asideFixed = !self.asideFixed;
-    }
+class MyComponent extends React.Component<any, any> {
+  render() {
+    let amisScoped;
+    let theme = 'cxd';
+    let locale = 'zh-CN';
 
-    function toggleOffScreen() {
-      self.offScreen = !self.offScreen;
-    }
+    // 请勿使用 React.StrictMode，目前还不支持
+    return (
+      <div>
+        <p>实例管理</p>
+        <ToastComponent
+          theme={theme}
+          key="toast"
+          position={'top-right'}
+          locale={locale}
+        />
+        <AlertComponent theme={theme} key="alert" locale={locale} />
+        {renderAmis(
+          entityJson,
+          {
+            // props...
+            // locale: 'en-US' // 请参考「多语言」的文档
+            // scopeRef: (ref: any) => (amisScoped = ref)  // 功能和前面 SDK 的 amisScoped 一样
+          },
+          {
+            // 下面三个接口必须实现
+            fetcher: ({
+              url, // 接口地址
+              method, // 请求方法 get、post、put、delete
+              data, // 请求数据
+              responseType,
+              config, // 其他配置
+              headers // 请求头
+            }: any) => {
+              debugger
+              config = config || {};
+              config.withCredentials = true;
+              responseType && (config.responseType = responseType);
 
-    function setAddPageIsOpen(isOpened: boolean) {
-      self.addPageIsOpen = isOpened;
-    }
+              if (config.cancelExecutor) {
+                config.cancelToken = new (axios as any).CancelToken(
+                  config.cancelExecutor
+                );
+              }
 
-    function addPage(data: {
-      label: string;
-      path: string;
-      icon?: string;
-      schema?: any;
-    }) {
-      self.pages.push(
-        PageStore.create({
-          ...data,
-          id: `${++pagIndex}`
-        })
-      );
-    }
+              config.headers = headers || {};
 
-    function removePageAt(index: number) {
-      self.pages.splice(index, 1);
-    }
+              if (method !== 'post' && method !== 'put' && method !== 'patch') {
+                if (data) {
+                  config.params = data;
+                }
 
-    function updatePageSchemaAt(index: number) {
-      self.pages[index].updateSchema(self.schema);
-    }
+                return (axios as any)[method](url, config);
+              } else if (data && data instanceof FormData) {
+                config.headers = config.headers || {};
+                config.headers['Content-Type'] = 'multipart/form-data';
+              } else if (
+                data &&
+                typeof data !== 'string' &&
+                !(data instanceof Blob) &&
+                !(data instanceof ArrayBuffer)
+              ) {
+                data = JSON.stringify(data);
+                config.headers = config.headers || {};
+                config.headers['Content-Type'] = 'application/json';
+              }
 
-    function updateSchema(value: any) {
-      self.schema = value;
-    }
+              return (axios as any)[method](url, data, config);
+            },
+            isCancel: (value: any) => (axios as any).isCancel(value),
+            copy: content => {
+              copy(content);
+              toast.success('内容已复制到粘贴板');
+            },
+            theme
 
-    function setPreview(value: boolean) {
-      self.preview = value;
-    }
+            // 后面这些接口可以不用实现
 
-    function setIsMobile(value: boolean) {
-      self.isMobile = value;
-    }
+            // 默认是地址跳转
+            // jumpTo: (
+            //   location: string /*目标地址*/,
+            //   action: any /* action对象*/
+            // ) => {
+            //   // 用来实现页面跳转, actionType:link、url 都会进来。
+            // },
 
-    return {
-      toggleAsideFolded,
-      toggleAsideFixed,
-      toggleOffScreen,
-      setAddPageIsOpen,
-      addPage,
-      removePageAt,
-      updatePageSchemaAt,
-      updateSchema,
-      setPreview,
-      setIsMobile,
-      afterCreate() {
-        // persist store
-        if (typeof window !== 'undefined' && window.localStorage) {
-          const storeData = window.localStorage.getItem('store');
-          if (storeData) applySnapshot(self, JSON.parse(storeData));
+            // updateLocation: (
+            //   location: string /*目标地址*/,
+            //   replace: boolean /*是replace，还是push？*/
+            // ) => {
+            //   // 地址替换，跟 jumpTo 类似
+            // },
 
-          reaction(
-            () => getSnapshot(self),
-            json => {
-              window.localStorage.setItem('store', JSON.stringify(json));
-            }
-          );
-        }
-      }
-    };
-  });
+            // isCurrentUrl: (
+            //   url: string /*url地址*/,
+            // ) => {
+            //   // 用来判断是否目标地址当前地址
+            // },
 
-export type IMainStore = typeof MainStore.Type;
+            // notify: (
+            //   type: 'error' | 'success' /**/,
+            //   msg: string /*提示内容*/
+            // ) => {
+            //   toast[type]
+            //     ? toast[type](msg, type === 'error' ? '系统错误' : '系统消息')
+            //     : console.warn('[Notify]', type, msg);
+            // },
+            // alert,
+            // confirm,
+            // tracker: (eventTracke) => {}
+          }
+        )}
+      </div>
+    );
+  }
+}
+
+export default () => (
+  <MyComponent />
+);

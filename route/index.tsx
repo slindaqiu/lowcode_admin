@@ -7,6 +7,7 @@ import {IMainStore} from '../store';
 const Preview = React.lazy(() => import('./Preview'));
 const Editor = React.lazy(() => import('./Editor'));
 const UserList = React.lazy(() => import('./UserList'))
+// const EntityManage  = React.lazy(() => import('../src/pages/entity/EntityManage'))
 
 export default observer(function ({store}: {store: IMainStore}) {
   return (
@@ -21,6 +22,7 @@ export default observer(function ({store}: {store: IMainStore}) {
             <Redirect to={`/hello-world`} from={`/`} exact />
             <Route path="/edit/:id" component={Editor} />
             <Route path="/userList" component={UserList} />
+            {/* <Route path="/entity" component={EntityManage} /> */}
             <Route component={Preview} />
           </Switch>
         </React.Suspense>
