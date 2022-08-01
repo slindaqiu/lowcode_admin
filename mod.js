@@ -63,7 +63,8 @@
         })(script, id);
       }
       script.type = 'text/javascript';
-      script.src = url;
+      // 修改相对路径
+      script.src = '.' + url;
 
       docFrag.appendChild(script);
     }
@@ -289,7 +290,8 @@
 
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = url;
+    // 修改相对路径
+    script.src = '.' + url;
     head.appendChild(script);
     return script;
   };
