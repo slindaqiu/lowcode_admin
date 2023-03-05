@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer, inject} from 'mobx-react';
 import {IMainStore} from '../store';
-import {Button, AsideNav, Layout, confirm} from 'amis';
+import {Button, AsideNav, Layout, confirm, Renderer} from 'amis';
 import {RouteComponentProps, matchPath, Switch, Route} from 'react-router';
 import {Link} from 'react-router-dom';
 import NotFound from './NotFound';
@@ -25,7 +25,111 @@ export default inject('store')(
     history
   }: {store: IMainStore} & RouteComponentProps) {
     function renderHeader() {
+      let headerSchema = {
+        // "type": "page",
+        // "body": [
+          // {
+            "type": "grid",
+            "className": "b-a bg-dark lter",
+            "columns": [
+              {
+                "md": 4,
+                "columnClassName": "bg-green-300",
+                "body": [
+                  {
+                    "type": "plain",
+                    "text": "md: 4",
+                    "className": "b-r",
+                    "height": 96
+                  }
+                ]
+              },
+              {
+                "md": 6,
+                "columnClassName": "bg-white",
+                "body": [
+                  {
+                    "type": "nav",
+                    "stacked": false,
+                    "links": [
+                      {
+                        "label": "首页",
+                        "to": "/home"
+                        // "icon": "fa fa-user"
+                      },
+                      {
+                        "label": "关于我们",
+                        "to": "/docs/api"
+                      },
+                      {
+                        "label": "技术与服务",
+                        "to": "/docs/renderers"
+                      },
+                      {
+                        "label": "工程案例",
+                        "to": "/docs/renderers"
+                      },
+                      {
+                        "label": "新闻咨询",
+                        "to": "/docs/renderers"
+                      },
+                      {
+                        "label": "联系我们",
+                        "to": "/docs/renderers"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "md": 2,
+                "columnClassName": "bg-green-300",
+                "body": [
+                  {
+                    "type": "plain",
+                    "text": "md: 2"
+                  }
+                ]
+              }
+            ]
+          // }
+        // ]
+      }
+      /* let headerSchema = {
+        "type": "nav",
+        "stacked": false,
+        "links": [
+          {
+            "label": "首页",
+            "to": "/home",
+            // "icon": "fa fa-user"
+          },
+          {
+            "label": "关于我们",
+            "to": "/docs/api"
+          },
+          {
+            "label": "技术与服务",
+            "to": "/docs/renderers"
+          },
+          {
+            "label": "工程案例",
+            "to": "/docs/renderers"
+          },
+          {
+            "label": "新闻咨询",
+            "to": "/docs/renderers"
+          },
+          {
+            "label": "联系我们",
+            "to": "/docs/renderers"
+          }
+        ]
+      } */
       return (
+        <AMISRenderer schema={headerSchema} />
+      )
+      /* return (
         <div>
           <div className={`a-Layout-headerBar`}>
             <div className="hidden-xs p-t-sm pull-right px-2">
@@ -42,7 +146,7 @@ export default inject('store')(
             </div>
           </div>
         </div>
-      );
+      ); */
     }
 
     function renderAside() {
@@ -189,7 +293,7 @@ export default inject('store')(
 
     return (
       <Layout
-        aside={renderAside()}
+        // aside={renderAside()}
         header={renderHeader()}
         folded={store.asideFolded}
         offScreen={store.offScreen}

@@ -60,6 +60,9 @@ typings/
 # next.js build output
 .next
 
+# dist output
+/dist
+
 gh-pages
 /public
 .DS_Store

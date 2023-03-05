@@ -1,6 +1,7 @@
 import {types, getEnv, applySnapshot, getSnapshot} from 'mobx-state-tree';
 import {PageStore} from './Page';
 import {when, reaction} from 'mobx';
+import homeJson from '../configs/home/home';
 let pagIndex = 1;
 export const MainStore = types
   .model('MainStore', {
@@ -15,7 +16,14 @@ export const MainStore = types
           title: 'Hello world',
           body: '初始页面'
         }
-      }
+      },
+      {
+        id: `2`,
+        path: 'home',
+        label: '首页',
+        // icon: 'iconfont menu10',
+        schema: homeJson
+      },
     ]),
     theme: 'cxd',
     asideFixed: true,
