@@ -123,37 +123,61 @@ let homeJson = {
         {
           "type": "flex",
           "direction": "column",
-          "alignItems": "start",
           "items": [
             {
-              "type": "tpl",
-              "tpl": "技术与服务",
-              "style": {
-                "font-size": 40,
-                "font-weight": 500,
-                "color": "#FFFFFF",
-                "margin-bottom": "8px"
-              }
-            },
-            {
-              "type": "tpl",
-              "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
-              "style": {
-                "font-size": 22,
-                "font-weight": 400,
-                "color": "#FFFFFF",
-                "margin-bottom": "8px"
-              }
+              "type": "flex",
+              "items": [
+                {
+                  "type": "flex",
+                  "direction": "column",
+                  "alignItems": "start",
+                  "style": {
+                    "padding-right": "140px"
+                  },
+                  "items": [
+                    {
+                      "type": "tpl",
+                      "tpl": "技术与服务",
+                      "style": {
+                        "font-size": 40,
+                        "font-weight": 500,
+                        "color": "#FFFFFF",
+                        "margin-bottom": "8px"
+                      }
+                    },
+                    {
+                      "type": "tpl",
+                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
+                      "style": {
+                        "font-size": 22,
+                        "font-weight": 400,
+                        "color": "#FFFFFF",
+                        "margin-bottom": "8px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "label": "查看更多 >>",
+                  "className": "sl-more-btn",
+                }
+              ]
             },
             {
               "type": "flex",
-              "justify": "space-around",
+              "justify": "space-between",
+              "style": {
+                "width": "100%"
+              },
+              "className": "sl-image-container",
               "items": [
                 {
                   "type": "image",
                   "src": "../../assets/home/service1.png",
                   "width": 300,
                   "height": 192,
+                  "innerClassName": "no-border",
                   "title": "二氧化碳的捕集利用"
                 },
                 {
@@ -161,6 +185,7 @@ let homeJson = {
                   "src": "../../assets/home/service1.png",
                   "width": 300,
                   "height": 192,
+                  "innerClassName": "no-border",
                   "title": "二氧化碳的捕集利用"
                 },
                 {
@@ -168,6 +193,7 @@ let homeJson = {
                   "src": "../../assets/home/service1.png",
                   "width": 300,
                   "height": 192,
+                  "innerClassName": "no-border",
                   "title": "二氧化碳的捕集利用"
                 },
                 {
@@ -175,45 +201,117 @@ let homeJson = {
                   "src": "../../assets/home/service1.png",
                   "width": 300,
                   "height": 192,
+                  "innerClassName": "no-border",
                   "title": "二氧化碳的捕集利用"
                 },
               ]
-            },
-            /* {
-              "type": "service",
-              "data": {
-                "images": [
-                  {
-                    "image": "../../assets/home/service1.png",
-                    // "title": "二氧化碳的捕集利用",
-                    "width": "300px",
-                    "height": "300px",
-                  },
-                  {
-                    "image": "../../assets/home/service1.png",
-                    "title": "二氧化碳的捕集利用"
-                  },
-                  {
-                    "image": "../../assets/home/service1.png",
-                    "title": "二氧化碳的捕集利用"
-                  },
-                  {
-                    "image": "../../assets/home/service1.png",
-                    "title": "二氧化碳的捕集利用"
-                  },
-                ]
-              },
-              "body": {
-                "type": "images",
-                "source": "${images}",
-                "enlargeAble": true
-              }
-            } */
+            }
           ]
-        },
-        
+        }
       ]
-    }
+    },
+    // 工程案例
+    {
+      "type": "wrapper",
+      "height": 464,
+      "width": "100%",
+      // "src": '../../assets/home/service.png'
+      "style": {
+        "background": "url('../../assets/home/case/case.png') no-repeat top center",
+        "background-size": "cover",
+        "padding": "40px 80px",
+      },
+      "body": [
+        {
+          "type": "flex",
+          "direction": "column",
+          "items": [
+            {
+              "type": "flex",
+              "items": [
+                {
+                  "type": "flex",
+                  "direction": "column",
+                  "alignItems": "start",
+                  "style": {
+                    "padding-right": "140px"
+                  },
+                  "items": [
+                    {
+                      "type": "tpl",
+                      "tpl": "工程案例",
+                      "style": {
+                        "font-size": 40,
+                        "font-weight": 500,
+                        "color": "#424242",
+                        "margin-bottom": "8px"
+                      }
+                    },
+                    {
+                      "type": "tpl",
+                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
+                      "style": {
+                        "font-size": 22,
+                        "font-weight": 400,
+                        "color": "#424242",
+                        "margin-bottom": "8px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "label": "查看更多 >>",
+                  "className": "sl-more-btn",
+                }
+              ]
+            },
+            {
+              "type": "flex",
+              "justify": "space-between",
+              "style": {
+                "width": "100%"
+              },
+              "className": "sl-image-container",
+              "items": [
+                {
+                  "type": "image",
+                  "src": "../../assets/home/service1.png",
+                  "width": 300,
+                  "height": 192,
+                  "innerClassName": "no-border",
+                  "title": "二氧化碳的捕集利用"
+                },
+                {
+                  "type": "image",
+                  "src": "../../assets/home/service1.png",
+                  "width": 300,
+                  "height": 192,
+                  "innerClassName": "no-border",
+                  "title": "二氧化碳的捕集利用"
+                },
+                {
+                  "type": "image",
+                  "src": "../../assets/home/service1.png",
+                  "width": 300,
+                  "height": 192,
+                  "innerClassName": "no-border",
+                  "title": "二氧化碳的捕集利用"
+                },
+                {
+                  "type": "image",
+                  "src": "../../assets/home/service1.png",
+                  "width": 300,
+                  "height": 192,
+                  "innerClassName": "no-border",
+                  "title": "二氧化碳的捕集利用"
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    },
   ]
 }
 export default homeJson

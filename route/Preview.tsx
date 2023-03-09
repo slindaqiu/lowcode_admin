@@ -30,67 +30,111 @@ export default inject('store')(
         // "body": [
           // {
             "type": "grid",
-            "className": "b-a bg-dark lter",
+            // "height": 72,
+            "style": {
+              "background": "#FFFFFF",
+              "paddingLeft": 44,
+              "paddingRight": 84
+            },
             "columns": [
               {
                 "md": 4,
-                "columnClassName": "bg-green-300",
+                // "columnClassName": "bg-green-300",
                 "body": [
                   {
-                    "type": "plain",
-                    "text": "md: 4",
-                    "className": "b-r",
-                    "height": 96
-                  }
-                ]
-              },
-              {
-                "md": 6,
-                "columnClassName": "bg-white",
-                "body": [
-                  {
-                    "type": "nav",
-                    "stacked": false,
-                    "links": [
+                    "type": "flex",
+                    "style": {
+                      "height": 72,
+                      "float": "left"
+                    },
+                    "items": [
                       {
-                        "label": "首页",
-                        "to": "/home"
-                        // "icon": "fa fa-user"
+                        "type": "image",
+                        "src": "../assets/logo/logo.png",
+                        "width": 46,
+                        "height": 46,
+                        "innerClassName": "no-border",
+                        "style": {
+                          "margin-right": 13
+                        }
                       },
                       {
-                        "label": "关于我们",
-                        "to": "/docs/api"
-                      },
-                      {
-                        "label": "技术与服务",
-                        "to": "/docs/renderers"
-                      },
-                      {
-                        "label": "工程案例",
-                        "to": "/docs/renderers"
-                      },
-                      {
-                        "label": "新闻咨询",
-                        "to": "/docs/renderers"
-                      },
-                      {
-                        "label": "联系我们",
-                        "to": "/docs/renderers"
+                        "type": "tpl",
+                        "tpl": "碳和科技",
+                        "style": {
+                          "font-size": 26,
+                          "color": "#224165"
+                        }
                       }
                     ]
                   }
                 ]
               },
               {
-                "md": 2,
-                "columnClassName": "bg-green-300",
+                "md": 8,
+                "columnClassName": "bg-white",
                 "body": [
                   {
-                    "type": "plain",
-                    "text": "md: 2"
+                    "type": "flex",
+                    "style": {
+                      "height": 72,
+                      "float": "right"
+                    },
+                    "items": [
+                      {
+                        "type": "nav",
+                        "stacked": false,
+                        "className": "sl-nav",
+                        "links": [
+                          {
+                            "label": "首页",
+                            "to": "/home"
+                            // "icon": "fa fa-user"
+                          },
+                          {
+                            "label": "关于我们",
+                            "to": "/docs/api"
+                          },
+                          {
+                            "label": "技术与服务",
+                            "to": "/docs/renderers"
+                          },
+                          {
+                            "label": "工程案例",
+                            "to": "/docs/renderers"
+                          },
+                          {
+                            "label": "新闻咨询",
+                            "to": "/docs/renderers"
+                          },
+                          {
+                            "label": "联系我们",
+                            "to": "/docs/renderers"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tpl",
+                        "tpl": "<span class='chinese-span'>中文</span>",
+                        "style": {
+                          "font-size": 16,
+                          "color": "#666",
+                          "font-weight": 500
+                        }
+                      },
+                      {
+                        "type": "tpl",
+                        "tpl": "/ <span class='english-span'>EN</span>",
+                        "style": {
+                          "font-size": 16,
+                          "color": "#999",
+                          "font-weight": 500
+                        }
+                      }
+                    ]
                   }
                 ]
-              }
+              },
             ]
           // }
         // ]
