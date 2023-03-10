@@ -1,3 +1,96 @@
+/* 导航 */
+/* * {
+    padding: 0 !important;
+    margin: 0 !important;
+} */
+
+.cxd-Layout--headerFixed {
+    padding-top: 0 !important;
+}
+.cxd-Layout-header {
+    height: auto !important;
+}
+.sl-nav .cxd-Nav-list--tabs .cxd-Nav-item > a {
+    border: none !important;
+    font-size: "16px" !important;
+    font-weight: 600 !important;
+    color: "#f00" !important;
+}
+
+.sl-nav{
+    border-bottom: none !important;
+}
+
+.cxd-Nav .cxd-Nav-list--tabs .cxd-Nav-item.active > a, 
+.cxd-Nav .cxd-Nav-list--tabs .cxd-Nav-item.is-active > a {
+    border: none !important;
+    border-bottom: 6px solid #025DAD !important;
+}
+
+.cxd-Nav .cxd-Nav-list--tabs .cxd-Nav-item:hover > a, 
+.cxd-Nav .cxd-Nav-list--tabs .cxd-Nav-item > a:focus {
+    border: none !important;
+}
+
+.sl-nav {
+    ul {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    li {
+        padding: 0 !important;
+        margin: 0 !important;
+        vertical-align: bottom;
+    }
+    a {
+        padding: 0 23px !important;
+        margin: 0 !important;
+        height: 72px;
+        display: block;
+        line-height: 72px;
+        font-size: 16px;
+        color: "#333";
+        font-weight: 600;
+        padding: "0 23px";
+        width: 40;
+    }
+}
+
+// 关于我们
 .about-us-wrapper {
     padding: "80px 40px"
+}
+
+// 技术与服务
+.sl-image-container {
+
+}
+.sl-image-container .cxd-Image-title{
+    background: #fff;
+    width: 300px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}
+
+button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
+    float: right;
+    background: #fff;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.3);
+    border-radius: 24px;
+    padding: 0 30px 0 42px;
+    color: #005BAC;
+    font-size: 20px;
+    height: 48px;
+}
+
+/* 底部导航 */
+.sl-bottom-nav span.cxd-TplField {
+    width: 144px;
+}
+
+.sl-bottom-nav span.cxd-TplField a {
+    color: #fff;
 }
