@@ -34,7 +34,7 @@ let homeJson = {
       "width": "100%",
       "style": {
         "background": "url('../../assets/home/aboutUs.png') no-repeat top center",
-        "background-size": "cover",
+        // "background-size": "cover",
         // "padding": "40px 80px",
         "padding-top": "36px",
         "margin": "40px 60px",
