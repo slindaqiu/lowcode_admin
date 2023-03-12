@@ -30,26 +30,57 @@ let homeJson = {
     },
     // 关于我们
     {
-      "type": "service",
+      "type": "wrapper",
+      "width": "100%",
+      "style": {
+        "background": "url('../../assets/home/aboutUs.png') no-repeat top center",
+        "background-size": "cover",
+        // "padding": "40px 80px",
+        "padding-top": "36px",
+        "margin": "40px 60px",
+        "height": 464,
+      },
       "body": [
         {
           "type": "flex",
+          "direction": "column",
+          "alignItems": "end",
+          "items": [
+            {
+              "style": {
+                "font-size": 40,
+                "font-weight": 500,
+                "color": "#2F3C43"
+              },
+              "type": "tpl",
+              "tpl": "关于我们"
+            },
+            {
+              "style": {
+                "font-size": 28,
+                "font-weight": 600,
+                "color": "#025DAD",
+                "margin-bottom": 30
+              },
+              "type": "tpl",
+              "tpl": "诚信 创新 高效 发展"
+            },
+          ]
+          /* "type": "flex",
           "style": {
             "padding": "40px 80px",
+            "width": "100%",
           },
           "items": [
             {
-              "type": "image",
-              "className": "about-us-img",
-              "src": "../../assets/home/aboutUs.png",
-              "width": 800,
-              "height": 400,
-              "style": {
-                "border": "none"
-              }
-            },
-            {
               "type": "wrapper",
+              "height": 464,
+              "width": "100%",
+              "style": {
+                "background": "url('../../assets/home/aboutUs.png') no-repeat top center",
+                "background-size": "cover",
+                // "padding": "40px 80px",
+              },
               "body": [
                 {
                   "type": "flex",
@@ -104,8 +135,8 @@ let homeJson = {
                   ]
                 }]
             }
-          ]
-        }
+          ]*/
+        } 
       ]
     },
     // 技术与服务
@@ -113,7 +144,6 @@ let homeJson = {
       "type": "wrapper",
       "height": 464,
       "width": "100%",
-      // "src": '../../assets/home/service.png'
       "style": {
         "background": "url('../../assets/home/service.png') no-repeat top center",
         "background-size": "cover",
@@ -174,35 +204,35 @@ let homeJson = {
               "items": [
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/service/service1.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "CCUS技术"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/service/service2.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "制氢技术"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/service/service3.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "甲烷回收技术"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/service/service4.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "PSA空分制氮技术"
                 },
               ]
             }
@@ -275,35 +305,36 @@ let homeJson = {
               "items": [
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/case/case1.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "山东某热电厂烟道气碳氮联产项目"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/case/case2.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  // "title": "北京某企业超高纯二氧化碳电子气99.9995"
+                  "title": "北京某企业超高纯二氧化碳电子气"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/case/case3.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "山东某企业变压吸附回收CO"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/case/case4.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "山西某企业煤层气回收甲烷装置"
                 },
               ]
             }
@@ -376,36 +407,36 @@ let homeJson = {
               "items": [
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/news/news1.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "企业动态"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/news/news4.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "专业文章"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/news/news3.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
+                  "title": "行业发展"
                 },
-                {
+               /*  {
                   "type": "image",
-                  "src": "../../assets/home/service1.png",
+                  "src": "../../assets/home/news/news4.png",
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "二氧化碳的捕集利用"
-                },
+                  "title": "专业文章"
+                }, */
               ]
             }
           ]
@@ -455,7 +486,7 @@ let homeJson = {
             }
           }, {
             "type": "tpl",
-            "tpl": "李经理 18910357656"
+            "tpl": "李经理 13261287370"
           }]
         },
         {

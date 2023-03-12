@@ -93,23 +93,23 @@ export default inject('store')(
                           },
                           {
                             "label": "关于我们",
-                            "to": "/docs/api"
+                            "to": "/about"
                           },
                           {
                             "label": "技术与服务",
-                            "to": "/docs/renderers"
+                            "to": "/service"
                           },
                           {
                             "label": "工程案例",
-                            "to": "/docs/renderers"
+                            "to": "/case"
                           },
                           {
                             "label": "新闻咨询",
-                            "to": "/docs/renderers"
+                            "to": "/news"
                           },
                           {
                             "label": "联系我们",
-                            "to": "/docs/renderers"
+                            "to": "/contact"
                           }
                         ]
                       },

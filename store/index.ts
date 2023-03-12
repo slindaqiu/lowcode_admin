@@ -2,6 +2,7 @@ import {types, getEnv, applySnapshot, getSnapshot} from 'mobx-state-tree';
 import {PageStore} from './Page';
 import {when, reaction} from 'mobx';
 import homeJson from '../configs/home/home';
+import aboutJson from '../configs/about/about';
 let pagIndex = 1;
 export const MainStore = types
   .model('MainStore', {
@@ -23,6 +24,12 @@ export const MainStore = types
         label: '首页',
         // icon: 'iconfont menu10',
         schema: homeJson
+      },
+      {
+        id: `3`,
+        path: 'about',
+        label: '关于我们',
+        schema: aboutJson
       },
     ]),
     theme: 'cxd',
