@@ -79,6 +79,25 @@
     font-size: 16px;
 }
 
+.sl-news-image-container .cxd-Image-title{
+    background: #F9F9F9;
+    width: 400px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}
+
+.sl-news-image-container .cxd-Image.cxd-Image--thumb {
+    padding: 0 !important; 
+    border: 1px solid #E5E5E5;
+}
+
+.cxd-Image--thumb {
+    padding: 0 !important;
+}
+
 button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     float: right;
     background: #fff;

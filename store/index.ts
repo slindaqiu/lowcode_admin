@@ -3,11 +3,13 @@ import {PageStore} from './Page';
 import {when, reaction} from 'mobx';
 import homeJson from '../configs/home/home';
 import aboutJson from '../configs/about/about';
+import serviceJson from '../configs/service/service';
 let pagIndex = 1;
+debugger
 export const MainStore = types
   .model('MainStore', {
     pages: types.optional(types.array(PageStore), [
-      {
+      /* {
         id: `${pagIndex}`,
         path: 'hello-world',
         label: 'Hello world',
@@ -17,7 +19,7 @@ export const MainStore = types
           title: 'Hello world',
           body: '初始页面'
         }
-      },
+      }, */
       {
         id: `2`,
         path: 'home',
@@ -30,6 +32,12 @@ export const MainStore = types
         path: 'about',
         label: '关于我们',
         schema: aboutJson
+      },
+      {
+        id: `4`,
+        path: 'service',
+        label: '技术与服务',
+        schema: serviceJson
       },
     ]),
     theme: 'cxd',
@@ -120,12 +128,15 @@ export const MainStore = types
       afterCreate() {
         // persist store
         if (typeof window !== 'undefined' && window.localStorage) {
+          // 每次重新生成实例，无需从 localStorage 中获取
           const storeData = window.localStorage.getItem('store');
+          console.log('----------storeData-----------', storeData)
           if (storeData) applySnapshot(self, JSON.parse(storeData));
 
           reaction(
             () => getSnapshot(self),
             json => {
+              // TODO 每次重新生成实例，无需从 localStorage 中获取, 暂不保存 store 信息
               window.localStorage.setItem('store', JSON.stringify(json));
             }
           );

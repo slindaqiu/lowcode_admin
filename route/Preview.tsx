@@ -55,7 +55,7 @@ export default inject('store')(
                         "height": 46,
                         "innerClassName": "no-border",
                         "style": {
-                          "margin-right": 13
+                          "marginRight": 13
                         }
                       },
                       {

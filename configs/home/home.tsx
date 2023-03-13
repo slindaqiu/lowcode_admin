@@ -162,7 +162,7 @@ let homeJson = {
                   "direction": "column",
                   "alignItems": "start",
                   "style": {
-                    "padding-right": "140px"
+                    "paddingRight": "140px"
                   },
                   "items": [
                     {
@@ -263,7 +263,7 @@ let homeJson = {
                   "direction": "column",
                   "alignItems": "start",
                   "style": {
-                    "padding-right": "140px"
+                    "paddingRight": "140px"
                   },
                   "items": [
                     {
@@ -365,7 +365,7 @@ let homeJson = {
                   "direction": "column",
                   "alignItems": "start",
                   "style": {
-                    "padding-right": "140px"
+                    "paddingRight": "140px"
                   },
                   "items": [
                     {
@@ -403,40 +403,29 @@ let homeJson = {
               "style": {
                 "width": "100%"
               },
-              "className": "sl-image-container",
+              "className": "sl-news-image-container",
               "items": [
                 {
                   "type": "image",
                   "src": "../../assets/home/news/news1.png",
-                  "width": 300,
+                  "width": 400,
                   "height": 192,
-                  "innerClassName": "no-border",
                   "title": "企业动态"
                 },
                 {
                   "type": "image",
-                  "src": "../../assets/home/news/news4.png",
-                  "width": 300,
+                  "src": "../../assets/home/news/news2.png",
+                  "width": 400,
                   "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "专业文章"
+                  "title": "行业发展"
                 },
                 {
                   "type": "image",
                   "src": "../../assets/home/news/news3.png",
-                  "width": 300,
+                  "width": 400,
                   "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "行业发展"
-                },
-               /*  {
-                  "type": "image",
-                  "src": "../../assets/home/news/news4.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
                   "title": "专业文章"
-                }, */
+                }
               ]
             }
           ]
