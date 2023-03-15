@@ -1,5 +1,8 @@
 let aboutJson = {
     "type": "service",
+    "data": {
+      "aboutType": "certificate"
+    },
     "body": [
       {
         "type": "image",
@@ -90,6 +93,7 @@ let aboutJson = {
           },
           {
             "type": "wrapper",
+            "visibleOn": "this.aboutType === 'company'",
             "className": "text-info-wrapper",
             "style": {
               "padding": "20px 160px 18px 36px "
@@ -127,6 +131,57 @@ let aboutJson = {
                 公司配备一、二类压力容器设备设计、制造基地及实验中试基地；拥有完善的质保体系，并取得ISO9001质量管理体系认证、ISO14001管理体系认证、ISO45001职业健康体系认证，以及CCS船级社认证和MA煤安标志认证。拥有先进的机械加工设备、完善的检测手段、科学的管理体系和专业化的研发队伍；拥有紧密型战略合作的甲级工程设计院，为用户的新建生产装置或老装置的技术改造量身定制；提供项目技术方案、立项可研、技术咨询、工程设计、设备加工、培训、调试等一体化服务。
                 未来，公司继续积极响应政府号召，把握发展机遇，以“让工业气体更安全、更节能、更洁净”为使命，致力于打造成为国内工业气体综合解决方案的服务商！
                 </p>`
+              }
+            ]
+          },
+          {
+            "type": "wrapper",
+            "className": "sl-news-image-container",
+            "style": {
+              "width": "100%"
+            },
+            "visibleOn": "this.aboutType === 'certificate'",
+            "body": [
+              {
+                "type": "tpl",
+                "tpl": "荣誉资质",
+                "style": {
+                  "fontSize": "32px",
+                  "fontWeight": 600,
+                  "color": "#333",
+                  "marginBottom": "8px"
+                }
+              },
+              {
+                "type": "flex",
+                "justify": "space-between",
+                "style": {
+                  "width": "100%",
+                },
+                "className": "sl-news-image-container sl-about-image-container",
+                "items": [
+                  {
+                    "type": "image",
+                    "src": "../../assets/about/certificate/c1.png",
+                    "width": 280,
+                    "height": 192,
+                    "title": "高新证书"
+                  },
+                  {
+                    "type": "image",
+                    "src": "../../assets/about/certificate/c2.png",
+                    "width": 280,
+                    "height": 192,
+                    "title": "中国创翼 荣誉证书"
+                  },
+                  {
+                    "type": "image",
+                    "src": "../../assets/about/certificate/c3.png",
+                    "width": 280,
+                    "height": 192,
+                    "title": "煤安证书"
+                  }
+                ]
               }
             ]
           }
