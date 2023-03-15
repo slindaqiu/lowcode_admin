@@ -1,7 +1,7 @@
 let serviceJson = {
   "type": "page",
   "title": "标题",
-  "body": "Hello World!<br>cccccccccccccccccc<br>ddddddddddddd"
+  "body": "技术与服务"
 }
 
 export default serviceJson

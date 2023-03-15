@@ -62,7 +62,7 @@ export default inject('store')(
                         "type": "tpl",
                         "tpl": "碳和科技",
                         "style": {
-                          "font-size": 26,
+                          "fontSize": 26,
                           "color": "#224165"
                         }
                       }
@@ -117,18 +117,18 @@ export default inject('store')(
                         "type": "tpl",
                         "tpl": "<span class='chinese-span'>中文</span>",
                         "style": {
-                          "font-size": 16,
+                          "fontSize": 16,
                           "color": "#666",
-                          "font-weight": 500
+                          "fontWeight": 500
                         }
                       },
                       {
                         "type": "tpl",
                         "tpl": "/ <span class='english-span'>EN</span>",
                         "style": {
-                          "font-size": 16,
+                          "fontSize": 16,
                           "color": "#999",
-                          "font-weight": 500
+                          "fontWeight": 500
                         }
                       }
                     ]
@@ -191,6 +191,172 @@ export default inject('store')(
           </div>
         </div>
       ); */
+    }
+
+    function renderFooter() {
+      // let footerSchema = {}
+      let footerSchema: any = {
+        "type": "service",
+        "body": [
+          // 联系我们
+          {
+            "type": "grid",
+            "style": {
+              "padding": "40px 80px",
+              "background": "#2C2F33",
+              "color": "#fff",
+              "borderBottom": "1px solid #494949"
+            },
+            "columns": [{
+              "type": "flex",
+              "direction": "column",
+              "alignItems": "start",
+              "style": {
+                "borderRight": "1px solid #494949"
+              },
+              "items": [{
+                "type": "tpl",
+                "tpl": "联系我们",
+                "style": {
+                  "fontSize": "24px"
+                }
+              },
+              {
+                "type": "tpl",
+                "style": {
+                  "margin": "6px 0"
+                },
+                "tpl": "碳和科技（北京）有限公司"
+              },
+              {
+                "type": "flex",
+                "items": [{
+                  "type": "image",
+                  "width": "28px",
+                  "height": "28px",
+                  "src": "../assets/contact/phone.png",
+                  "innerClassName": "no-border",
+                  "style": {
+                    "marginRight": "10px"
+                  }
+                }, {
+                  "type": "tpl",
+                  "tpl": "李经理 13261287370"
+                }]
+              },
+              {
+                "type": "flex",
+                "items": [{
+                  "type": "image",
+                  "width": "28px",
+                  "height": "28px",
+                  "src": "../assets/contact/email.png",
+                  "innerClassName": "no-border",
+                  "style": {
+                    "marginRight": "10px"
+                  }
+                }, {
+                  "type": "tpl",
+                  "tpl": "tanjekeji@163.com"
+                }]
+              },
+              {
+                "type": "flex",
+                "items": [{
+                  "type": "image",
+                  "width": "28px",
+                  "height": "28px",
+                  "src": "../assets/contact/address.png",
+                  "innerClassName": "no-border",
+                  "style": {
+                    "marginRight": "10px"
+                  }
+                }, {
+                  "type": "tpl",
+                  "tpl": "北京市北京经济技术开发区（通州）景盛南四街甲13号19幢2层"
+                }]
+              }
+            ]}, {
+              "type": "flex",
+              "direction": "column",
+              "alignItems": "start",
+              "className": "sl-bottom-nav",
+              "style": {
+                "marginLeft": "34px"
+              },
+              "items": [{
+                "type": "tpl",
+                "tpl": "快捷导航",
+                "style": {
+                  "fontSize": "24px",
+                  "marginBottom": "36px"
+                }
+              },
+              {
+                "type": "flex",
+                "items": [{
+                  "type": "tpl",
+                  "tpl": "<a>首页</a>"
+                },
+                {
+                  "type": "tpl",
+                  "tpl": "<a>工程案例</a>"
+                },
+                {
+                  "type": "tpl",
+                  "tpl": "<a>联系我们</a>"
+                }]
+              },
+              {
+                "type": "flex",
+                "style":{
+                  "margin": "16px 0"
+                },
+                "items": [{
+                  "type": "tpl",
+                  "tpl": "<a>关于我们</a>"
+                },
+                {
+                  "type": "tpl",
+                  "tpl": "<a>新闻咨询</a>"
+                }]
+              },
+              {
+                "type": "flex",
+                "items": [{
+                  "type": "tpl",
+                  "tpl": "<a>技术与服务</a>"
+                },
+                {
+                  "type": "tpl",
+                  "tpl": "<a>人才招聘</a>"
+                }]
+              }
+            ]
+            }]
+          },
+          // 备案
+          {
+            "type": "wrapper",
+            "style": {
+              "fontSize": "14px",
+              "height": "54px",
+              "background": "#2C2F33",
+              "textAlign": "center"
+            },
+            "body": {
+              "type": "tpl",
+              "style": {
+                "color": "#A0A0A0",
+              },
+              "tpl": "© 2005－2023 xxxxxxx.com, all rights reserved 北京#####科技有限公司"
+            }
+          }
+        ]
+      }
+      return (
+        <AMISRenderer schema={footerSchema} />
+      )
     }
 
     function renderAside() {
@@ -341,6 +507,7 @@ export default inject('store')(
         header={renderHeader()}
         folded={store.asideFolded}
         offScreen={store.offScreen}
+        footer={renderFooter()}
       >
         <Switch>
           {store.pages.map(item => (

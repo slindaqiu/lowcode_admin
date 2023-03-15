@@ -4,8 +4,11 @@ import {when, reaction} from 'mobx';
 import homeJson from '../configs/home/home';
 import aboutJson from '../configs/about/about';
 import serviceJson from '../configs/service/service';
+import caseJson from '../configs/case/case';
+import newsJson from '../configs/news/news';
+import contactJson from '../configs/contact/contact';
 let pagIndex = 1;
-debugger
+
 export const MainStore = types
   .model('MainStore', {
     pages: types.optional(types.array(PageStore), [
@@ -38,6 +41,24 @@ export const MainStore = types
         path: 'service',
         label: '技术与服务',
         schema: serviceJson
+      },
+      {
+        id: `5`,
+        path: 'case',
+        label: '工程案例',
+        schema: caseJson
+      },
+      {
+        id: `6`,
+        path: 'news',
+        label: '新闻咨询',
+        schema: newsJson
+      },
+      {
+        id: `7`,
+        path: 'contact',
+        label: '联系我们',
+        schema: contactJson
       },
     ]),
     theme: 'cxd',

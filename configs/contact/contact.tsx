@@ -1,5 +1,5 @@
 let contactJson = {
-    "type": "service",
+    "type": "wrapper",
     "body": {
         "type": "tpl",
         "tpl": "联系我们"

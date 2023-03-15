@@ -1,5 +1,5 @@
 let caseJson = {
-    "type": "service",
+    "type": "page",
     "body": {
         "type": "tpl",
         "tpl": "工程案例"

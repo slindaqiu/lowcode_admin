@@ -132,11 +132,15 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     color: #fff;
 }
 
+.cxd-Layout-footer {
+    position: relative !important;
+}
+
 /* 关于我们 */
 .text-info-wrapper {
     font-size: 14px;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 24px;
     color: #414141;
     p {
         text-indent: 28px;

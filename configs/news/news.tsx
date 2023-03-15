@@ -1,5 +1,5 @@
 let newsJson = {
-    "type": "service",
+    "type": "wrapper",
     "body": {
         "type": "tpl",
         "tpl": "新闻咨询"

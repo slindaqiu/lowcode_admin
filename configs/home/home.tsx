@@ -36,7 +36,7 @@ let homeJson = {
         "background": "url('../../assets/home/aboutUs.png') no-repeat top center",
         // "background-size": "cover",
         // "padding": "40px 80px",
-        "padding-top": "36px",
+        "paddingTop": "36px",
         "margin": "40px 60px",
         "height": 464,
       },
@@ -48,8 +48,8 @@ let homeJson = {
           "items": [
             {
               "style": {
-                "font-size": 40,
-                "font-weight": 500,
+                "fontSize": 40,
+                "fontWeight": 500,
                 "color": "#2F3C43"
               },
               "type": "tpl",
@@ -57,10 +57,10 @@ let homeJson = {
             },
             {
               "style": {
-                "font-size": 28,
-                "font-weight": 600,
+                "fontSize": 28,
+                "fontWeight": 600,
                 "color": "#025DAD",
-                "margin-bottom": 30
+                "marginBottom": 30
               },
               "type": "tpl",
               "tpl": "诚信 创新 高效 发展"
@@ -146,7 +146,7 @@ let homeJson = {
       "width": "100%",
       "style": {
         "background": "url('../../assets/home/service.png') no-repeat top center",
-        "background-size": "cover",
+        "backgroundSize": "cover",
         "padding": "40px 80px",
       },
       "body": [
@@ -247,7 +247,7 @@ let homeJson = {
       "width": "100%",
       "style": {
         "background": "url('../../assets/home/case/case.png') no-repeat top center",
-        "background-size": "cover",
+        "backgroundSize": "cover",
         "padding": "40px 80px",
       },
       "body": [
@@ -270,20 +270,20 @@ let homeJson = {
                       "type": "tpl",
                       "tpl": "工程案例",
                       "style": {
-                        "font-size": 40,
-                        "font-weight": 500,
+                        "fontSize": 40,
+                        "fontWeight": 500,
                         "color": "#424242",
-                        "margin-bottom": "8px"
+                        "marginBottom": "8px"
                       }
                     },
                     {
                       "type": "tpl",
                       "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
                       "style": {
-                        "font-size": 22,
-                        "font-weight": 400,
+                        "fontSize": 22,
+                        "fontWeight": 400,
                         "color": "#424242",
-                        "margin-bottom": "8px"
+                        "marginBottom": "8px"
                       }
                     }
                   ]
@@ -372,20 +372,20 @@ let homeJson = {
                       "type": "tpl",
                       "tpl": "新闻咨询",
                       "style": {
-                        "font-size": 40,
-                        "font-weight": 500,
+                        "fontSize": 40,
+                        "fontWeight": 500,
                         "color": "#424242",
-                        "margin-bottom": "8px"
+                        "marginBottom": "8px"
                       }
                     },
                     {
                       "type": "tpl",
                       "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
                       "style": {
-                        "font-size": 22,
-                        "font-weight": 400,
+                        "fontSize": 22,
+                        "fontWeight": 400,
                         "color": "#424242",
-                        "margin-bottom": "8px"
+                        "marginBottom": "8px"
                       }
                     }
                   ]
@@ -431,160 +431,6 @@ let homeJson = {
           ]
         }
       ]
-    },
-    // 联系我们
-    {
-      "type": "grid",
-      "style": {
-        "padding": "40px 80px",
-        "background": "#2C2F33",
-        "color": "#fff",
-        "border-bottom": "1px solid #494949"
-      },
-      "columns": [{
-        "type": "flex",
-        "direction": "column",
-        "alignItems": "start",
-        "style": {
-          "border-right": "1px solid #494949"
-        },
-        "items": [{
-          "type": "tpl",
-          "tpl": "联系我们",
-          "style": {
-            "font-size": "24px"
-          }
-        },
-        {
-          "type": "tpl",
-          "style": {
-            "margin": "6px 0"
-          },
-          "tpl": "碳和科技（北京）有限公司"
-        },
-        {
-          "type": "flex",
-          "items": [{
-            "type": "image",
-            "width": "28px",
-            "height": "28px",
-            "src": "../../assets/contact/phone.png",
-            "innerClassName": "no-border",
-            "style": {
-              "margin-right": "10px"
-            }
-          }, {
-            "type": "tpl",
-            "tpl": "李经理 13261287370"
-          }]
-        },
-        {
-          "type": "flex",
-          "items": [{
-            "type": "image",
-            "width": "28px",
-            "height": "28px",
-            "src": "../../assets/contact/email.png",
-            "innerClassName": "no-border",
-            "style": {
-              "margin-right": "10px"
-            }
-          }, {
-            "type": "tpl",
-            "tpl": "tanjekeji@163.com"
-          }]
-        },
-        {
-          "type": "flex",
-          "items": [{
-            "type": "image",
-            "width": "28px",
-            "height": "28px",
-            "src": "../../assets/contact/address.png",
-            "innerClassName": "no-border",
-            "style": {
-              "margin-right": "10px"
-            }
-          }, {
-            "type": "tpl",
-            "tpl": "北京市北京经济技术开发区（通州）景盛南四街甲13号19幢2层"
-          }]
-        }
-      ]}, {
-        "type": "flex",
-        "direction": "column",
-        "alignItems": "start",
-        "className": "sl-bottom-nav",
-        "style": {
-          "margin-left": "34px"
-        },
-        "items": [{
-          "type": "tpl",
-          "tpl": "快捷导航",
-          "style": {
-            "font-size": "24px",
-            "margin-bottom": "36px"
-          }
-        },
-        {
-          "type": "flex",
-          "items": [{
-            "type": "tpl",
-            "tpl": "<a>首页</a>"
-          },
-          {
-            "type": "tpl",
-            "tpl": "<a>工程案例</a>"
-          },
-          {
-            "type": "tpl",
-            "tpl": "<a>联系我们</a>"
-          }]
-        },
-        {
-          "type": "flex",
-          "style":{
-            "margin": "16px 0"
-          },
-          "items": [{
-            "type": "tpl",
-            "tpl": "<a>关于我们</a>"
-          },
-          {
-            "type": "tpl",
-            "tpl": "<a>新闻咨询</a>"
-          }]
-        },
-        {
-          "type": "flex",
-          "items": [{
-            "type": "tpl",
-            "tpl": "<a>技术与服务</a>"
-          },
-          {
-            "type": "tpl",
-            "tpl": "<a>人才招聘</a>"
-          }]
-        }
-      ]
-      }]
-    },
-    // 备案
-    {
-      "type": "wrapper",
-      "style": {
-        "font-size": "14px",
-        "height": "54px",
-        "background": "#2C2F33",
-        "text-align": "center"
-      },
-      "body": {
-        "type": "tpl",
-        "style": {
-          "color": "#A0A0A0",
-        },
-        "tpl": "© 2005－2023 xxxxxxx.com, all rights reserved 北京#####科技有限公司"
-      }
     }
   ]
 }
