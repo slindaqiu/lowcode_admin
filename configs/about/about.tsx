@@ -138,7 +138,8 @@ let aboutJson = {
             "type": "wrapper",
             "className": "sl-news-image-container",
             "style": {
-              "width": "100%"
+              "width": "100%",
+              "padding": "36px 160px 70px 36px"
             },
             "visibleOn": "this.aboutType === 'certificate'",
             "body": [
