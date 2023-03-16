@@ -129,8 +129,15 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     width: 144px;
 }
 
-.sl-bottom-nav span.cxd-TplField a {
+/* .sl-bottom-nav span.cxd-TplField a {
     color: #fff;
+} */
+
+.sl-bottom-nav button {
+    padding: 0 !important;
+    color: #fff;
+    width: 144px;
+    justify-content: left;
 }
 
 .cxd-Layout-footer {

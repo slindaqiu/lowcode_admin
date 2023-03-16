@@ -295,16 +295,25 @@ export default inject('store')(
               {
                 "type": "flex",
                 "items": [{
-                  "type": "tpl",
-                  "tpl": "<a>首页</a>"
+                  "type": "button",
+                  "level": "link",
+                  "label": "首页",
+                  "actionType": "link",
+                  "link": "home"
+                },,
+                {
+                  "type": "button",
+                  "level": "link",
+                  "label": "工程案例",
+                  "actionType": "link",
+                  "link": "case"
                 },
                 {
-                  "type": "tpl",
-                  "tpl": "<a>工程案例</a>"
-                },
-                {
-                  "type": "tpl",
-                  "tpl": "<a>联系我们</a>"
+                  "type": "button",
+                  "level": "link",
+                  "label": "联系我们",
+                  "actionType": "link",
+                  "link": "contact"
                 }]
               },
               {
@@ -313,23 +322,35 @@ export default inject('store')(
                   "margin": "16px 0"
                 },
                 "items": [{
-                  "type": "tpl",
-                  "tpl": "<a>关于我们</a>"
-                },
+                  "type": "button",
+                  "level": "link",
+                  "label": "关于我们",
+                  "actionType": "link",
+                  "link": "about"
+                },,
                 {
-                  "type": "tpl",
-                  "tpl": "<a>新闻咨询</a>"
+                  "type": "button",
+                  "level": "link",
+                  "label": "新闻咨询",
+                  "actionType": "link",
+                  "link": "news"
                 }]
               },
               {
                 "type": "flex",
                 "items": [{
-                  "type": "tpl",
-                  "tpl": "<a>技术与服务</a>"
+                  "type": "button",
+                  "level": "link",
+                  "label": "技术与服务",
+                  "actionType": "link",
+                  "link": "service"
                 },
                 {
-                  "type": "tpl",
-                  "tpl": "<a>人才招聘</a>"
+                  "type": "button",
+                  "level": "link",
+                  "label": "人才招聘",
+                  "actionType": "link",
+                  "link": "contact"
                 }]
               }
             ]
