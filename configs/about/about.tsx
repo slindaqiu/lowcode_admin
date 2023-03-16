@@ -1,7 +1,8 @@
 let aboutJson = {
     "type": "service",
+    "id": "aboutNav",
     "data": {
-      "aboutType": "certificate"
+      "aboutType": "company"
     },
     "body": [
       {
@@ -50,8 +51,24 @@ let aboutJson = {
                       "type": "tpl",
                       "tpl": "公司简介",
                       "style": {
-                        "marginRight": "60px"
-                      }
+                        "marginRight": "60px",
+                        "cursor": "pointer"
+                      },
+                      "onEvent": {
+                        "click": {
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "componentId": "aboutNav",
+                              "args": {
+                                "value": {
+                                  "aboutType": "company"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
                     },
                     {
                       "type": "wrapper",
@@ -60,7 +77,8 @@ let aboutJson = {
                         "height": "2px",
                         "background": "#fff",
                         "padding": 0
-                      }
+                      },
+                      "visibleOn": "this.aboutType === 'company'"
                     }
                   ]
                 },
@@ -74,18 +92,35 @@ let aboutJson = {
                       "type": "tpl",
                       "tpl": "荣誉资质",
                       "style": {
-                        "marginRight": "60px"
-                      }
+                        "marginRight": "60px",
+                        "cursor": "pointer"
+                      },
+                      "onEvent": {
+                        "click": {
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "componentId": "aboutNav",
+                              "args": {
+                                "value": {
+                                  "aboutType": "certificate"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
                     },
-                    /* {
+                    {
                       "type": "wrapper",
                       "style": {
                         "width": '20px',
                         "height": "2px",
                         "background": "#fff",
                         "padding": 0
-                      }
-                    } */
+                      },
+                      "visibleOn": "this.aboutType === 'certificate'"
+                    }
                   ]
                 }]
               }
@@ -96,7 +131,7 @@ let aboutJson = {
             "visibleOn": "this.aboutType === 'company'",
             "className": "text-info-wrapper",
             "style": {
-              "padding": "20px 160px 18px 36px "
+              "padding": "4px 160px 18px 36px "
             },
             "body": [
               {
@@ -136,10 +171,10 @@ let aboutJson = {
           },
           {
             "type": "wrapper",
-            "className": "sl-news-image-container",
+            "className": "sl-news-image-container about-img-wrapper",
             "style": {
               "width": "100%",
-              "padding": "36px 160px 70px 36px"
+              "padding": "4px 160px 70px 36px"
             },
             "visibleOn": "this.aboutType === 'certificate'",
             "body": [
@@ -149,11 +184,56 @@ let aboutJson = {
                 "style": {
                   "fontSize": "32px",
                   "fontWeight": 600,
-                  "color": "#333",
-                  "marginBottom": "8px"
-                }
+                  "color": "#333"
+                },
               },
               {
+                "type": "grid-nav",
+                "columnNum": 3,
+                "gutter": 20,
+                "style": {
+                  "marginTop": "10px"
+                },
+                "options": [
+                  {
+                    "icon": "../../assets/about/certificate/c1.png",
+                    "text": "高新证书"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c2.png",
+                    "text": "中国创翼 荣誉证书"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c3.png",
+                    "text": "煤安证书"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c4.png",
+                    "text": "专利1"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c5.png",
+                    "text": "专利2"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c6.png",
+                    "text": "专利3"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c7.png",
+                    "text": "专利4"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c8.png",
+                    "text": "专利5"
+                  },
+                  {
+                    "icon": "../../assets/about/certificate/c9.png",
+                    "text": "专利6"
+                  }
+                ]
+              }
+              /* {
                 "type": "flex",
                 "justify": "space-between",
                 "style": {
@@ -183,7 +263,7 @@ let aboutJson = {
                     "title": "煤安证书"
                   }
                 ]
-              }
+              } */
             ]
           }
         ]

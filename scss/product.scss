@@ -100,10 +100,10 @@
     font-size: 16px;
 }
 
-.sl-about-image-container .cxd-Image-title{
+/* .sl-about-image-container .cxd-Image-title{
     width: 280px !important;
 }
-
+ */
 .sl-news-image-container .cxd-Image.cxd-Image--thumb {
     padding: 0 !important; 
     border: 1px solid #E5E5E5;
@@ -141,11 +141,32 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
 .text-info-wrapper {
     font-size: 14px;
     font-weight: 400;
-    line-height: 24px;
     color: #414141;
     p {
         text-indent: 28px;
+        line-height: 24px;
     }
 }
 
 /* 关于我们，荣誉资质 */
+.about-img-wrapper {
+    .cxd-GridNavItem-content {
+        padding: 0 !important;
+    }
+
+    .cxd-GridNavItem-image img {
+        width: 280px !important;
+        height: 192px;
+    }
+
+    .cxd-GridNavItem-text {
+        background: #F9F9F9;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+    }
+} 
+
