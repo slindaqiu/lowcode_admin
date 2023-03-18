@@ -50,27 +50,27 @@ let adminJson = {
             "children": [
               {
                 "label": "二氧化碳捕集利用",
-                "to": "?id=2-1"
+                "to": "?id=二氧化碳捕集利用"
               },
               {
                 "label": "变压吸附回收CO",
-                "to": "?id=2-2"
+                "to": "?id=变压吸附回收CO"
               },
               {
                 "label": "变压吸附提纯氢气",
-                "to": "?id=3-3"
+                "to": "?id=变压吸附提纯氢气"
               },
               {
                 "label": "甲烷提纯",
-                "to": "?id=4-4"
+                "to": "?id=甲烷提纯"
               },
               {
                 "label": "空分制氮制氧",
-                "to": "?id=5-5"
+                "to": "?id=空分制氮制氧"
               },
               {
                 "label": "气体净化干燥",
-                "to": "?id=5-6"
+                "to": "?id=气体净化干燥"
               }
             ]
           },
@@ -79,7 +79,7 @@ let adminJson = {
             "children": [
               {
                 "label": "二氧化碳的应用",
-                "to": "?id=2-1"
+                "to": "?id=二氧化碳的应用"
               },
             ]
           },
@@ -148,7 +148,37 @@ let adminJson = {
                                   {
                                     "type": "input-rich-text",
                                     "name": "content",
-                                    "label": "内容"
+                                    "label": "内容",
+                                    "options": {
+                                        "menubar": true,
+                                        "height": 200,
+                                        "plugins": [
+                                        //   "advlist",
+                                        //   "autolink",
+                                        //   "link",
+                                          "image",
+                                          "lists",
+                                        //   "charmap",
+                                          "preview",
+                                        //   "anchor",
+                                        //   "pagebreak",
+                                          "searchreplace",
+                                          "wordcount",
+                                        //   "visualblocks",
+                                        //   "visualchars",
+                                          "code",
+                                        //   "fullscreen",
+                                        //   "insertdatetime",
+                                        //   "media",
+                                        //   "nonbreaking",
+                                        //   "table",
+                                        //   "emoticons",
+                                        //   "template",
+                                        //   "help"
+                                        ],
+                                        // "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help"
+                                        "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat "
+                                      }
                                   }
                                 ]
                             }
