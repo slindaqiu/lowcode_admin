@@ -139,37 +139,6 @@ export default inject('store')(
           // }
         // ]
       }
-      /* let headerSchema = {
-        "type": "nav",
-        "stacked": false,
-        "links": [
-          {
-            "label": "首页",
-            "to": "/home",
-            // "icon": "fa fa-user"
-          },
-          {
-            "label": "关于我们",
-            "to": "/docs/api"
-          },
-          {
-            "label": "技术与服务",
-            "to": "/docs/renderers"
-          },
-          {
-            "label": "工程案例",
-            "to": "/docs/renderers"
-          },
-          {
-            "label": "新闻咨询",
-            "to": "/docs/renderers"
-          },
-          {
-            "label": "联系我们",
-            "to": "/docs/renderers"
-          }
-        ]
-      } */
       return (
         <AMISRenderer schema={headerSchema} />
       )
@@ -257,7 +226,7 @@ export default inject('store')(
                   }
                 }, {
                   "type": "tpl",
-                  "tpl": "tanjekeji@163.com"
+                  "tpl": "tanhekeji@163.com"
                 }]
               },
               {

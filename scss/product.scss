@@ -14,6 +14,9 @@
 .cxd-Layout-header {
     height: auto !important;
 }
+.cxd-Layout--headerFixed .cxd-Layout-header {
+    position: relative !important;
+}
 .sl-nav .cxd-Nav-list--tabs .cxd-Nav-item > a {
     border: none !important;
     font-size: "16px" !important;
@@ -177,3 +180,7 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     }
 } 
 
+/* 后台管理样式 */
+.admin-aside-wrapper {
+    min-width: 220px !important;
+}

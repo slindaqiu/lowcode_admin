@@ -7,6 +7,7 @@ import serviceJson from '../configs/service/service';
 import caseJson from '../configs/case/case';
 import newsJson from '../configs/news/news';
 import contactJson from '../configs/contact/contact';
+import adminJson from '../configs/admin/admin';
 let pagIndex = 1;
 
 export const MainStore = types
@@ -59,6 +60,12 @@ export const MainStore = types
         path: 'contact',
         label: '联系我们',
         schema: contactJson
+      },
+      {
+        id: `8`,
+        path: 'admin',
+        label: '后台管理',
+        schema: adminJson
       },
     ]),
     theme: 'cxd',
