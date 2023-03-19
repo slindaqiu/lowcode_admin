@@ -14,15 +14,23 @@ let serviceJson = {
         "nav": [
           {
             "label": "CO2精制提纯技术",
-            "to": "?id=CO2精制提纯技术"
+            "to": "?title=CO2精制提纯技术"
           },
           {
             "label": "超高纯电子级二氧化碳",
-            "to": "?id=超高纯电子级二氧化碳"
+            "to": "?title=超高纯电子级二氧化碳"
           },
           {
             "label": "电厂烟气同步回收CO2和氮气技术",
-            "to": "?id=电厂烟气同步回收CO2和氮气技术"
+            "to": "?title=电厂烟气同步回收CO2和氮气技术"
+          },
+          {
+            "label": "干冰尾气、啤酒发酵尾气回收",
+            "to": "?title=干冰尾气、啤酒发酵尾气回收"
+          },
+          {
+            "label": "石灰窑气、烟道气等碳捕集利用技术",
+            "to": "?title=石灰窑气、烟道气等碳捕集利用技术"
           }
         ]
       },
@@ -50,22 +58,6 @@ let serviceJson = {
                   "type": "nav",
                   "stacked": true,
                   "source": "${nav}"
-                  /* "type": "tabs",
-                  "tabsMode": "vertical",
-                  "tabs": [
-                    {
-                      "title": "CO2精制提纯技术",
-                      "body": "选项卡内容1"
-                    },
-                    {
-                      "title": "超高纯电子级二氧化碳",
-                      "body": "选项卡内容2"
-                    },
-                    {
-                      "title": "电厂烟气同步回收CO2和氮气技术",
-                      "body": "选项卡内容3"
-                    }
-                  ] */
                 }
               },
               {

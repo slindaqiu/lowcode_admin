@@ -181,7 +181,7 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
 }
 
 /* 技术与服务 */
-.info-wrapper {
+.info-wrapper, .admin-aside-wrapper {
     .cxd-Collapse-header {
         font-size: 16px;
         background-color: #F7F8FA !important;
@@ -207,6 +207,5 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
 
 /* 后台管理样式 */
 .admin-aside-wrapper {
-    min-width: 220px !important;
+    min-width: 400px !important;
 }
-

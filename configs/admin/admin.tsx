@@ -1,3 +1,33 @@
+const options = {
+  "menubar": true,
+  "height": 500,
+  "plugins": [
+  //   "advlist",
+  //   "autolink",
+  //   "link",
+    "image",
+    "lists",
+  //   "charmap",
+    "preview",
+  //   "anchor",
+  //   "pagebreak",
+    "searchreplace",
+    "wordcount",
+  //   "visualblocks",
+  //   "visualchars",
+    "code",
+  //   "fullscreen",
+  //   "insertdatetime",
+  //   "media",
+  //   "nonbreaking",
+  //   "table",
+  //   "emoticons",
+  //   "template",
+  //   "help"
+  ],
+  // "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help"
+  "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | preview "
+}
 let adminJson = {
     "type": "page",
     // "title": "${id}",
@@ -5,7 +35,7 @@ let adminJson = {
     // "asideMinWidth": 220,
     // "asideMaxWidth": 400,
     "asideClassName": "admin-aside-wrapper",
-    // "initApi": "/amis/api/mock2/form/initData?id=${id}",
+    // "initApi": "/amis/api/mock2/form/initData?catalog=${id}",
     "aside": {
       "type": "wrapper",
       "body": {
@@ -17,31 +47,31 @@ let adminJson = {
             "children": [
               {
                 "label": "二氧化碳的捕集利用",
-                "to": "?id=二氧化碳的捕集利用"
+                "to": "?catalog=二氧化碳的捕集利用"
               },
               {
                 "label": "变压吸附提纯CO技术",
-                "to": "?id=变压吸附提纯CO技术"
+                "to": "?catalog=变压吸附提纯CO技术"
               },
               {
                 "label": "变压吸附制氢技术",
-                "to": "?id=变压吸附制氢技术"
+                "to": "?catalog=变压吸附制氢技术"
               },
               {
                 "label": "甲烷提浓技术",
-                "to": "?id=甲烷提浓技术"
+                "to": "?catalog=甲烷提浓技术"
               },
               {
                 "label": "空分PSA制氮、制氧技术",
-                "to": "?id=空分PSA制氮、制氧技术"
+                "to": "?catalog=空分PSA制氮、制氧技术"
               },
               {
                 "label": "气体干燥净化技术",
-                "to": "?id=气体干燥净化技术"
+                "to": "?catalog=气体干燥净化技术"
               },
               {
                 "label": "吸附剂、催化剂",
-                "to": "?id=吸附剂、催化剂"
+                "to": "?catalog=吸附剂、催化剂"
               }
             ]
           },
@@ -50,27 +80,27 @@ let adminJson = {
             "children": [
               {
                 "label": "二氧化碳捕集利用",
-                "to": "?id=二氧化碳捕集利用"
+                "to": "?catalog=二氧化碳捕集利用"
               },
               {
                 "label": "变压吸附回收CO",
-                "to": "?id=变压吸附回收CO"
+                "to": "?catalog=变压吸附回收CO"
               },
               {
                 "label": "变压吸附提纯氢气",
-                "to": "?id=变压吸附提纯氢气"
+                "to": "?catalog=变压吸附提纯氢气"
               },
               {
                 "label": "甲烷提纯",
-                "to": "?id=甲烷提纯"
+                "to": "?catalog=甲烷提纯"
               },
               {
                 "label": "空分制氮制氧",
-                "to": "?id=空分制氮制氧"
+                "to": "?catalog=空分制氮制氧"
               },
               {
                 "label": "气体净化干燥",
-                "to": "?id=气体净化干燥"
+                "to": "?catalog=气体净化干燥"
               }
             ]
           },
@@ -79,10 +109,19 @@ let adminJson = {
             "children": [
               {
                 "label": "二氧化碳的应用",
-                "to": "?id=二氧化碳的应用"
+                "to": "?catalog=二氧化碳的应用"
               },
             ]
           },
+          {
+            "label": "在线留言",
+            "children": [
+              {
+                "label": "查看留言",
+                "to": "?catalog=查看留言"
+              }
+            ]
+          }
         ]
       }
     },
@@ -147,38 +186,12 @@ let adminJson = {
                                   },
                                   {
                                     "type": "input-rich-text",
+                                    "style": {
+                                      "height": "100%"
+                                    },
                                     "name": "content",
                                     "label": "内容",
-                                    "options": {
-                                        "menubar": true,
-                                        "height": 200,
-                                        "plugins": [
-                                        //   "advlist",
-                                        //   "autolink",
-                                        //   "link",
-                                          "image",
-                                          "lists",
-                                        //   "charmap",
-                                          "preview",
-                                        //   "anchor",
-                                        //   "pagebreak",
-                                          "searchreplace",
-                                          "wordcount",
-                                        //   "visualblocks",
-                                        //   "visualchars",
-                                          "code",
-                                        //   "fullscreen",
-                                        //   "insertdatetime",
-                                        //   "media",
-                                        //   "nonbreaking",
-                                        //   "table",
-                                        //   "emoticons",
-                                        //   "template",
-                                        //   "help"
-                                        ],
-                                        // "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help"
-                                        "toolbar": "undo redo | formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat "
-                                      }
+                                    "options": options
                                   }
                                 ]
                             }
@@ -214,6 +227,27 @@ let adminJson = {
                             "label": "查看详情",
                             "actionType": "dialog",
                             "dialog": {
+                              "title": "修改页面",
+                                "size": "full",
+                                "body":  {
+                                    "type": "form",
+                                    "api": "post:/amis/api/mock2/sample",
+                                    "body": [
+                                        {
+                                          "type": "input-text",
+                                          "name": "title",
+                                          "label": "标题",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-rich-text",
+                                          "options": options,
+                                          "name": "content",
+                                          "label": "内容",
+                                          "disabled": true
+                                        }
+                                    ]
+                                }
                             },
                         },
                         {
@@ -234,6 +268,7 @@ let adminJson = {
                                         },
                                         {
                                         "type": "input-rich-text",
+                                        "options": options,
                                         "name": "content",
                                         "label": "内容"
                                         }
@@ -246,7 +281,7 @@ let adminJson = {
                             "label": "删除",
                             "actionType": "ajax",
                             "level": "danger",
-                            "confimText": "确定要删除吗?",
+                            "confirmText": "确认要删除？",
                             "api": ""
                         }
                     ]
