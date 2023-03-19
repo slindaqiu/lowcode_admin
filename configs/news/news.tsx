@@ -1,9 +1,14 @@
 let newsJson = {
-    "type": "wrapper",
-    "body": {
-        "type": "tpl",
-        "tpl": "新闻咨询"
-    }
+    "type": "service",
+      "body": [
+        {
+          "type": "image",
+          "src": "../../assets/news/newsTop.png",
+          "height": 350,
+          "width": "100%",
+          "innerClassName": "no-border"
+        },
+    ]
 }
 
 export default newsJson

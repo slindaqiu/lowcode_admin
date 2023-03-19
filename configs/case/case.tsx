@@ -1,9 +1,14 @@
 let caseJson = {
-    "type": "page",
-    "body": {
-        "type": "tpl",
-        "tpl": "工程案例"
-    }
-}
+    "type": "service",
+      "body": [
+        {
+          "type": "image",
+          "src": "../../assets/case/caseTop.png",
+          "height": 350,
+          "width": "100%",
+          "innerClassName": "no-border"
+        },
+      ]
+  }
 
 export default caseJson

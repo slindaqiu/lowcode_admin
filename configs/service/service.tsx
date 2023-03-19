@@ -1,9 +1,14 @@
 let serviceJson = {
-  "type": "wrapper",
-    "body": {
-        "type": "tpl",
-        "tpl": "技术与服务"
-    }
+  "type": "service",
+    "body": [
+      {
+        "type": "image",
+        "src": "../../assets/service/serviceTop.png",
+        "height": 350,
+        "width": "100%",
+        "innerClassName": "no-border"
+      },
+    ]
 }
 
 export default serviceJson
