@@ -178,9 +178,35 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
         color: #333;
         font-size: 16px;
     }
-} 
+}
+
+/* 技术与服务 */
+.info-wrapper {
+    .cxd-Collapse-header {
+        font-size: 16px;
+        background-color: #F7F8FA !important;
+        border-right: none;
+        border-bottom: #E9E9EB !important;
+    }
+    .cxd-Collapse-content {
+        padding: 0 !important;
+    }
+    .cxd-Nav .cxd-Nav-list--stacked .cxd-Nav-item a {
+        font-size: 16px;
+        height: 54px !important;
+    }
+    .cxd-Nav .cxd-Nav-list--stacked .cxd-Nav-item.is-active a {
+        color: #025DAD !important;
+        font-size: 16px;
+        font-weight: 600;
+        position: relative;
+        background: #FFFFFF !important;
+        border-left: 4px solid #025DAD !important;
+    }
+}
 
 /* 后台管理样式 */
 .admin-aside-wrapper {
     min-width: 220px !important;
 }
+
