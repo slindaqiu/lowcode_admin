@@ -234,37 +234,6 @@ let aboutJson = {
                   }
                 ]
               }
-              /* {
-                "type": "flex",
-                "justify": "space-between",
-                "style": {
-                  "width": "100%",
-                },
-                "className": "sl-news-image-container sl-about-image-container",
-                "items": [
-                  {
-                    "type": "image",
-                    "src": "../../assets/about/certificate/c1.png",
-                    "width": 280,
-                    "height": 192,
-                    "title": "高新证书"
-                  },
-                  {
-                    "type": "image",
-                    "src": "../../assets/about/certificate/c2.png",
-                    "width": 280,
-                    "height": 192,
-                    "title": "中国创翼 荣誉证书"
-                  },
-                  {
-                    "type": "image",
-                    "src": "../../assets/about/certificate/c3.png",
-                    "width": 280,
-                    "height": 192,
-                    "title": "煤安证书"
-                  }
-                ]
-              } */
             ]
           }
         ]
