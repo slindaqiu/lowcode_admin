@@ -205,6 +205,13 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     }
 }
 
+/* 联系我们留言面板 */
+.contact-comment-wrapper {
+    .cxd-Form-label {
+        padding: 0 !important;
+    }
+}
+
 /* 后台管理样式 */
 .admin-aside-wrapper {
     min-width: 400px !important;

@@ -2,7 +2,8 @@ let contactJson = {
     "type": "service",
     "id": "contactNav",
     "data": {
-      "contactType": "contactInfo"
+      // "contactType": "contactInfo"
+      "contactType": "commentInfo"
     },
     "body": [
         {
@@ -238,8 +239,74 @@ let contactJson = {
               },
               "items": [
                 {
-                  "type": "tpl",
-                  "tpl": "在线留言"
+                  "type": "wrapper",
+                  "style": {
+                    "padding": "36px",
+                    "background": "#F5F5F5"
+                  },
+                  "body": [
+                    {
+                      "type": "tpl",
+                      "tpl": "您有任何意见或建议，可以留言给我们",
+                      "style": {
+                        "fontSize": "32px",
+                        "fontWeight": "600",
+                        "color": "#333",
+                        "textAlign": "center"
+                      }
+                    },
+                    {
+                      "type": "form",
+                      "mode": "horizontal",
+                      "wrapWithPanel": false,
+                      "className": "contact-comment-wrapper",
+                      "labelWidth": 0,
+                      "body": [
+                        {
+                          "type": "textarea",
+                          "name": "content",
+                          "placeholder": "请输入内容",
+                          "minRows": 7,
+                        },
+                        {
+                          "type": "group",
+                          "body": [
+                            {
+                              "type": "input-text",
+                              "name": "content",
+                              "placeholder": "请输入姓名"
+                            },
+                            {
+                              "type": "input-text",
+                              "name": "phone",
+                              "placeholder": "请输入手机号"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "group",
+                          "body": [
+                            {
+                              "type": "input-text",
+                              "name": "email",
+                              "placeholder": "请输入邮箱"
+                            },
+                            {
+                              "type": "input-text",
+                              "name": "companyName",
+                              "placeholder": "请输入公司名"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "button",
+                          "label": "提交",
+                          "placeholder": "请输入公司名"
+                        }
+                      ]
+                    }
+
+                  ]
                 }
               ]
             }
