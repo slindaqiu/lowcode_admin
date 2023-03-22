@@ -207,9 +207,16 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
 
 /* 联系我们留言面板 */
 .contact-comment-wrapper {
+    padding: 24px 44px 48px 44px !important;
+    margin-top: "24px" !important;
+    text-align: center !important;
     .cxd-Form-label {
         padding: 0 !important;
     }
+    input {
+        height: 60px !important;
+        margin-bottom: 0px;
+    } 
 }
 
 /* 后台管理样式 */

@@ -241,8 +241,8 @@ let contactJson = {
                 {
                   "type": "wrapper",
                   "style": {
-                    "padding": "36px",
-                    "background": "#F5F5F5"
+                    "background": "#F5F5F5",
+                    "textAlign": "center"
                   },
                   "body": [
                     {
@@ -252,7 +252,7 @@ let contactJson = {
                         "fontSize": "32px",
                         "fontWeight": "600",
                         "color": "#333",
-                        "textAlign": "center"
+                        "textAlign": "center",
                       }
                     },
                     {
@@ -267,19 +267,32 @@ let contactJson = {
                           "name": "content",
                           "placeholder": "请输入内容",
                           "minRows": 7,
+                          "style": {
+                            "width": 808
+                          }
                         },
                         {
                           "type": "group",
                           "body": [
                             {
                               "type": "input-text",
+                              "className": "input-comment",
                               "name": "content",
-                              "placeholder": "请输入姓名"
+                              "placeholder": "请输入姓名",
+                              "style": {
+                                "marginRight": "8px",
+                                "width": 400,
+                                "height": 60
+                              }
                             },
                             {
                               "type": "input-text",
                               "name": "phone",
-                              "placeholder": "请输入手机号"
+                              "placeholder": "请输入手机号",
+                              "style": {
+                                "width": 400,
+                                "height": 60
+                              }
                             }
                           ]
                         },
@@ -289,19 +302,36 @@ let contactJson = {
                             {
                               "type": "input-text",
                               "name": "email",
-                              "placeholder": "请输入邮箱"
+                              "placeholder": "请输入邮箱",
+                              "style": {
+                                "marginRight": "8px",
+                                "width": 400,
+                                "height": 60,
+                                "marginBottom": "12px"
+                              }
                             },
                             {
                               "type": "input-text",
                               "name": "companyName",
-                              "placeholder": "请输入公司名"
+                              "placeholder": "请输入公司名",
+                              "style": {
+                                "width": 400,
+                                "height": 60,
+                                "marginBottom": "12px"
+                              }
                             }
                           ]
                         },
                         {
                           "type": "button",
                           "label": "提交",
-                          "placeholder": "请输入公司名"
+                          "placeholder": "请输入公司名",
+                          "style": {
+                            "width": 808,
+                            "height": 54,
+                            "background": "#005BAC",
+                            "color": "#FFFFFF"
+                          }
                         }
                       ]
                     }
