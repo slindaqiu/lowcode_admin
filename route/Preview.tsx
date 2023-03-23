@@ -339,7 +339,7 @@ export default inject('store')(
               "style": {
                 "color": "#A0A0A0",
               },
-              "tpl": "© 2005－2023 xxxxxxx.com, all rights reserved 北京#####科技有限公司"
+              "tpl": "Copyright © 2023 www.thkjbj.com 京ICP备2023003067号 碳和科技（北京）有限公司"
             }
           }
         ]

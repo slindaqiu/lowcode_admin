@@ -202,11 +202,11 @@ let aboutJson = {
                   },
                   {
                     "icon": "../../assets/about/certificate/c2.png",
-                    "text": "中国创翼 荣誉证书"
+                    "text": "煤安证书"
                   },
                   {
                     "icon": "../../assets/about/certificate/c3.png",
-                    "text": "煤安证书"
+                    "text": "发明专利"
                   },
                   {
                     "icon": "../../assets/about/certificate/c4.png",
