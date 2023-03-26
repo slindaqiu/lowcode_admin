@@ -1,6 +1,6 @@
 const options = {
   "menubar": true,
-  "height": 500,
+  "height": 430,
   "plugins": [
   //   "advlist",
   //   "autolink",
@@ -154,7 +154,8 @@ let adminJson = {
             },
             "body": {
               "type": "crud",
-              "source": "${myItems}",
+              "api": "/news/list?catalog=${catalog}",
+              // "source": "${myItems}",
               "syncLocation": true,
               "filter": {
                 "title": "",
@@ -172,13 +173,22 @@ let adminJson = {
                         "label": "新增",
                         "actionType": "dialog",
                         "level": "primary",
+                        "visibleOn": "this.catalog",
                         "dialog": {
                             "title": "新增页面",
                             "size": "full",
+                            "debug": true,
                             "body":  {
                                 "type": "form",
-                                "api": "post:/amis/api/mock2/sample",
+                                "api": "post:/news/create",
                                 "body": [
+                                  {
+                                    "type": "input-text",
+                                    "name": "catalog",
+                                    "label": "类型",
+                                    "value": "${catalog}",
+                                    "disabled": true
+                                  },
                                   {
                                     "type": "input-text",
                                     "name": "title",
@@ -189,7 +199,7 @@ let adminJson = {
                                     "style": {
                                       "height": "100%"
                                     },
-                                    "name": "content",
+                                    "name": "description",
                                     "label": "内容",
                                     "options": options
                                   }
@@ -210,13 +220,21 @@ let adminJson = {
 
               },
               "columns": [
-                {
+               /*  {
                     "name": "id",
                     "label": "ID"
-                },
+                }, */
                 {
                     "name": "title",
                     "label": "标题"
+                },
+                {
+                  "name": "createTime",
+                    "label": "创建时间"
+                },
+                {
+                  "name": "updateTime",
+                  "label": "修改时间"
                 },
                 {
                     "type": "operation",
@@ -227,12 +245,19 @@ let adminJson = {
                             "label": "查看详情",
                             "actionType": "dialog",
                             "dialog": {
-                              "title": "修改页面",
+                              "title": "查看详情",
                                 "size": "full",
                                 "body":  {
                                     "type": "form",
-                                    "api": "post:/amis/api/mock2/sample",
+                                    // "api": "post:/amis/api/mock2/sample",
                                     "body": [
+                                        {
+                                          "type": "input-text",
+                                          "name": "catalog",
+                                          "label": "类型",
+                                          "value": "${catalog}",
+                                          "disabled": true
+                                        },
                                         {
                                           "type": "input-text",
                                           "name": "title",
@@ -242,9 +267,9 @@ let adminJson = {
                                         {
                                           "type": "input-rich-text",
                                           "options": options,
-                                          "name": "content",
+                                          "name": "description",
                                           "label": "内容",
-                                          "disabled": true
+                                          // "disabled": true
                                         }
                                     ]
                                 }
@@ -259,18 +284,29 @@ let adminJson = {
                                 "size": "full",
                                 "body":  {
                                     "type": "form",
-                                    "api": "post:/amis/api/mock2/sample",
+                                    "api": "post:/news/update",
                                     "body": [
                                         {
-                                        "type": "input-text",
-                                        "name": "title",
-                                        "label": "标题"
+                                          "type": "hidden",
+                                          "name": "id",
                                         },
                                         {
-                                        "type": "input-rich-text",
-                                        "options": options,
-                                        "name": "content",
-                                        "label": "内容"
+                                          "type": "input-text",
+                                          "name": "catalog",
+                                          "label": "类型",
+                                          "value": "${catalog}",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "title",
+                                          "label": "标题"
+                                        },
+                                        {
+                                          "type": "input-rich-text",
+                                          "options": options,
+                                          "name": "description",
+                                          "label": "内容"
                                         }
                                     ]
                                 }
@@ -281,8 +317,8 @@ let adminJson = {
                             "label": "删除",
                             "actionType": "ajax",
                             "level": "danger",
-                            "confirmText": "确认要删除？",
-                            "api": ""
+                            "confirmText": "确认要删除 ${title} 吗？",
+                            "api": "get:/news/delete?id=${id}"
                         }
                     ]
                 }
