@@ -154,6 +154,7 @@ let adminJson = {
             },
             "body": {
               "type": "crud",
+              "id": "newsCrud",
               "api": "/news/list?catalog=${catalog}",
               // "source": "${myItems}",
               "syncLocation": true,
@@ -181,6 +182,7 @@ let adminJson = {
                             "body":  {
                                 "type": "form",
                                 "api": "post:/news/create",
+                                "reload": "newsCrud",
                                 "body": [
                                   {
                                     "type": "input-text",
