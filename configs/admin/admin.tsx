@@ -155,7 +155,7 @@ let adminJson = {
             "body": {
               "type": "crud",
               "id": "newsCrud",
-              "api": "/news/list?catalog=${catalog}",
+              "api": "/news/list?catalog=${catalog}&title=${title}",
               // "source": "${myItems}",
               "syncLocation": true,
               "filter": {
@@ -198,6 +198,10 @@ let adminJson = {
                                   },
                                   {
                                     "type": "input-rich-text",
+                                    'receiver': {
+                                      'method': 'post',
+                                      'url': '/news/uploader'
+                                    },
                                     "style": {
                                       "height": "100%"
                                     },
@@ -269,6 +273,10 @@ let adminJson = {
                                         {
                                           "type": "input-rich-text",
                                           "options": options,
+                                          'receiver': {
+                                            'method': 'post',
+                                            'url': '/news/uploader'
+                                          },
                                           "name": "description",
                                           "label": "内容",
                                           // "disabled": true
@@ -306,6 +314,10 @@ let adminJson = {
                                         },
                                         {
                                           "type": "input-rich-text",
+                                          'receiver': {
+                                            'method': 'post',
+                                            'url': '/news/uploader'
+                                          },
                                           "options": options,
                                           "name": "description",
                                           "label": "内容"
