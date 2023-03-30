@@ -87,7 +87,7 @@ let serviceJson = {
               {
                 "type": "collapse",
                 "key": "1",
-                "header": "二氧化碳的捕集利用",
+                "header": "二氧化碳的捕集利用22211",
                 "body": getSubNav("二氧化碳的捕集利用")
               },
               {
@@ -128,7 +128,7 @@ let serviceJson = {
               }
             ]
           },
-          {
+          /* {
             "type": "page",
             "initApi": "/news/info?id=${id}",
             "body": {
@@ -136,6 +136,24 @@ let serviceJson = {
               "tpl": "${title}"
             }
 
+          } */
+          {
+            "name": "detailForm",
+            "type": "form",
+            "wrapWithPanel": false,
+            "title": "",
+            "initApi": "/news/info?id=${id}",
+            "actions": [],
+            "body": [
+              {
+                "type": "tpl",
+                "name": "title"
+              },
+              {
+                "type": "tpl",
+                "name": "description"
+              }
+            ]
           }
         ]
       }
