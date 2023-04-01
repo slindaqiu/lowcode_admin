@@ -32,7 +32,7 @@ const getSubNav = (title: any) => {
   }
 }
 let serviceJson = {
-  "type": "page",
+  "type": "service",
   // "initApi": "/news/info?id=${id}",
   "body": [
     {
@@ -43,31 +43,96 @@ let serviceJson = {
       "innerClassName": "no-border"
     },
     {
+      "type": "flex",
+      "justify": "start",
+      "alignItems": "start",
+      "className": "info-wrapper",
+      "items": [
+        {
+          "type": "collapse-group",
+          "style": {
+            "width": "400px",
+            "minWidth": "400px"
+          },
+          "activeKey": [
+            "1"
+          ],
+          "accordion": true,
+          "body": [
+            {
+              "type": "collapse",
+              "key": "1",
+              "header": "二氧化碳的捕集利用22211",
+              "body": getSubNav("二氧化碳的捕集利用")
+            },
+            {
+              "type": "collapse",
+              "key": "2",
+              "header": "变压吸附提纯CO技术",
+              "body": getSubNav("变压吸附提纯CO技术")
+            },
+            {
+              "type": "collapse",
+              "key": "3",
+              "header": "变压吸附制氢技术",
+              "body": getSubNav("变压吸附制氢技术")
+            },
+            {
+              "type": "collapse",
+              "key": "4",
+              "header": "甲烷提浓技术",
+              "body": getSubNav("甲烷提浓技术")
+            },
+            {
+              "type": "collapse",
+              "key": "5",
+              "header": "空分PSA制氮、制氧技术",
+              "body": getSubNav("空分PSA制氮、制氧技术")
+            },
+            {
+              "type": "collapse",
+              "key": "6",
+              "header": "气体干燥净化技术",
+              "body": getSubNav("气体干燥净化技术")
+            },
+            {
+              "type": "collapse",
+              "key": "7",
+              "header": "吸附剂、催化剂",
+              "body": getSubNav("吸附剂、催化剂")
+            }
+          ]
+        },
+        {
+          "name": "detailForm",
+          "type": "form",
+          "wrapWithPanel": false,
+          "title": "",
+          "initApi": "/news/info?id=${id}",
+          "actions": [],
+          "className": "info-detail-wrapper",
+          "body": [
+            {
+              "type": "tpl",
+              "name": "title",
+              "className": "info-title",
+              "style": {
+                "fontSize": "32px",
+                "fontWeight": "600",
+                "color": "#333",
+              },
+             
+            },
+            {
+              "type": "tpl",
+              "name": "description"
+            }
+          ]
+        }
+      ]
+    }
+    /* {
       "type": "wrapper",
-      /* "data": {
-        "nav": [
-          {
-            "label": "CO2精制提纯技术",
-            "to": "?title=CO2精制提纯技术"
-          },
-          {
-            "label": "超高纯电子级二氧化碳",
-            "to": "?title=超高纯电子级二氧化碳"
-          },
-          {
-            "label": "电厂烟气同步回收CO2和氮气技术",
-            "to": "?title=电厂烟气同步回收CO2和氮气技术"
-          },
-          {
-            "label": "干冰尾气、啤酒发酵尾气回收",
-            "to": "?title=干冰尾气、啤酒发酵尾气回收"
-          },
-          {
-            "label": "石灰窑气、烟道气等碳捕集利用技术",
-            "to": "?title=石灰窑气、烟道气等碳捕集利用技术"
-          }
-        ]
-      }, */
       "body": {
         "type": "flex",
         "justify": "start",
@@ -128,15 +193,6 @@ let serviceJson = {
               }
             ]
           },
-          /* {
-            "type": "page",
-            "initApi": "/news/info?id=${id}",
-            "body": {
-              "type": "tpl",
-              "tpl": "${title}"
-            }
-
-          } */
           {
             "name": "detailForm",
             "type": "form",
@@ -144,10 +200,19 @@ let serviceJson = {
             "title": "",
             "initApi": "/news/info?id=${id}",
             "actions": [],
+            "className": "info-detail-wrapper",
             "body": [
               {
                 "type": "tpl",
-                "name": "title"
+                "name": "title",
+                "className": "info-title",
+                "style": {
+                  "fontSize": "32px",
+                  "fontWeight": "600",
+                  "color": "#333",
+                  "textAlign": "center",
+                  "display": "block"
+                }
               },
               {
                 "type": "tpl",
@@ -157,7 +222,7 @@ let serviceJson = {
           }
         ]
       }
-    }
+    } */
   ]
 }
 
