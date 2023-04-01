@@ -145,7 +145,7 @@ let contactJson = {
                                 "componentId": "contactNav",
                                 "args": {
                                   "value": {
-                                    "contactType": 'commentInfo'
+                                    "contactType": 'messageInfo'
                                   }
                                 }
                               }
@@ -161,7 +161,7 @@ let contactJson = {
                           "background": "#fff",
                           "padding": 0
                         },
-                        "visibleOn": "this.contactType === 'commentInfo'"
+                        "visibleOn": "this.contactType === 'messageInfo'"
                       }
                     ]
                   }]
@@ -484,7 +484,7 @@ let contactJson = {
             },
             {
               "type": "flex",
-              "visibleOn": "this.contactType === 'commentInfo'",
+              "visibleOn": "this.contactType === 'messageInfo'",
               "direction": "column",
               "alignItems": "start",
               "style": {
