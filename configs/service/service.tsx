@@ -1,14 +1,14 @@
 /* 
   根据类型获取子菜单列表
 */
-const getSubNav = (title: any) => {
+const getSubNav = (title: any, isDefaultActive: any) => {
   return {
     "type": "nav",
     "stacked": true,
     // "source": "${nav}"
     "source": {
       "method": "get",
-      "url": "/news/list",
+      "url": "/news/list/title",
       "data": {
         "catalog": title
       },
@@ -21,6 +21,9 @@ const getSubNav = (title: any) => {
               "to": "?id=" + item.id
             })
           })
+          if (isDefaultActive &&  payload.data.items.length > 0) {
+            payload.data.items[0].active = true
+          }
         }
         return {
           status: payload.status,
@@ -33,7 +36,6 @@ const getSubNav = (title: any) => {
 }
 let serviceJson = {
   "type": "service",
-  // "initApi": "/news/info?id=${id}",
   "body": [
     {
       "type": "image",
@@ -63,43 +65,43 @@ let serviceJson = {
               "type": "collapse",
               "key": "1",
               "header": "二氧化碳的捕集利用22211",
-              "body": getSubNav("二氧化碳的捕集利用")
+              "body": getSubNav("二氧化碳的捕集利用", true)
             },
             {
               "type": "collapse",
               "key": "2",
               "header": "变压吸附提纯CO技术",
-              "body": getSubNav("变压吸附提纯CO技术")
+              "body": getSubNav("变压吸附提纯CO技术", false)
             },
             {
               "type": "collapse",
               "key": "3",
               "header": "变压吸附制氢技术",
-              "body": getSubNav("变压吸附制氢技术")
+              "body": getSubNav("变压吸附制氢技术", false)
             },
             {
               "type": "collapse",
               "key": "4",
               "header": "甲烷提浓技术",
-              "body": getSubNav("甲烷提浓技术")
+              "body": getSubNav("甲烷提浓技术", false)
             },
             {
               "type": "collapse",
               "key": "5",
               "header": "空分PSA制氮、制氧技术",
-              "body": getSubNav("空分PSA制氮、制氧技术")
+              "body": getSubNav("空分PSA制氮、制氧技术", false)
             },
             {
               "type": "collapse",
               "key": "6",
               "header": "气体干燥净化技术",
-              "body": getSubNav("气体干燥净化技术")
+              "body": getSubNav("气体干燥净化技术", false)
             },
             {
               "type": "collapse",
               "key": "7",
               "header": "吸附剂、催化剂",
-              "body": getSubNav("吸附剂、催化剂")
+              "body": getSubNav("吸附剂、催化剂", false)
             }
           ]
         },
@@ -131,98 +133,6 @@ let serviceJson = {
         }
       ]
     }
-    /* {
-      "type": "wrapper",
-      "body": {
-        "type": "flex",
-        "justify": "start",
-        "alignItems": "start",
-        "className": "info-wrapper",
-        "items": [
-          {
-            "type": "collapse-group",
-            "style": {
-              "width": "422px"
-            },
-            "activeKey": [
-              "1"
-            ],
-            "accordion": true,
-            "body": [
-              {
-                "type": "collapse",
-                "key": "1",
-                "header": "二氧化碳的捕集利用22211",
-                "body": getSubNav("二氧化碳的捕集利用")
-              },
-              {
-                "type": "collapse",
-                "key": "2",
-                "header": "变压吸附提纯CO技术",
-                "body": getSubNav("变压吸附提纯CO技术")
-              },
-              {
-                "type": "collapse",
-                "key": "3",
-                "header": "变压吸附制氢技术",
-                "body": getSubNav("变压吸附制氢技术")
-              },
-              {
-                "type": "collapse",
-                "key": "4",
-                "header": "甲烷提浓技术",
-                "body": getSubNav("甲烷提浓技术")
-              },
-              {
-                "type": "collapse",
-                "key": "5",
-                "header": "空分PSA制氮、制氧技术",
-                "body": getSubNav("空分PSA制氮、制氧技术")
-              },
-              {
-                "type": "collapse",
-                "key": "6",
-                "header": "气体干燥净化技术",
-                "body": getSubNav("气体干燥净化技术")
-              },
-              {
-                "type": "collapse",
-                "key": "7",
-                "header": "吸附剂、催化剂",
-                "body": getSubNav("吸附剂、催化剂")
-              }
-            ]
-          },
-          {
-            "name": "detailForm",
-            "type": "form",
-            "wrapWithPanel": false,
-            "title": "",
-            "initApi": "/news/info?id=${id}",
-            "actions": [],
-            "className": "info-detail-wrapper",
-            "body": [
-              {
-                "type": "tpl",
-                "name": "title",
-                "className": "info-title",
-                "style": {
-                  "fontSize": "32px",
-                  "fontWeight": "600",
-                  "color": "#333",
-                  "textAlign": "center",
-                  "display": "block"
-                }
-              },
-              {
-                "type": "tpl",
-                "name": "description"
-              }
-            ]
-          }
-        ]
-      }
-    } */
   ]
 }
 
