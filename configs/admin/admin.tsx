@@ -108,8 +108,16 @@ let adminJson = {
             "label": "新闻咨询",
             "children": [
               {
-                "label": "二氧化碳的应用",
-                "to": "?catalog=二氧化碳的应用"
+                "label": "企业动态",
+                "to": "?catalog=企业动态"
+              },
+              {
+                "label": "专业文章",
+                "to": "?catalog=专业文章"
+              },
+              {
+                "label": "行业资讯",
+                "to": "?catalog=行业资讯"
               },
             ]
           },

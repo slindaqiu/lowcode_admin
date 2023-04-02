@@ -1,7 +1,7 @@
 /* 
   根据类型获取子菜单列表
 */
-const getSubNav = (title: any, isDefaultActive: any) => {
+const getSubNav = (catalog: any, isDefaultActive: any) => {
   return {
     "type": "nav",
     "stacked": true,
@@ -10,7 +10,7 @@ const getSubNav = (title: any, isDefaultActive: any) => {
       "method": "get",
       "url": "/news/list/title",
       "data": {
-        "catalog": title
+        "catalog": catalog
       },
       "adaptor": function(payload: any) {
         let tempResult:any[] = []
@@ -18,11 +18,13 @@ const getSubNav = (title: any, isDefaultActive: any) => {
           payload.data.items.forEach((item:any) => {
             tempResult.push({
               "label": item.title,
-              "to": "?id=" + item.id
+              "to": "?id=" + item.id,
+              "id": item.id
             })
           })
-          if (isDefaultActive &&  payload.data.items.length > 0) {
-            payload.data.items[0].active = true
+          if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
+            tempResult[0].active = true
+            window.location.href = '/#/service' +'?id=' + tempResult[0].id
           }
         }
         return {
@@ -110,7 +112,11 @@ let serviceJson = {
           "type": "form",
           "wrapWithPanel": false,
           "title": "",
-          "initApi": "/news/info?id=${id}",
+          "initApi": {
+            "method": "get",
+            "url": "/news/info?id=${id}",
+            "sendOn": "this.id",
+          },
           "actions": [],
           "className": "info-detail-wrapper",
           "body": [
