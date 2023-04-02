@@ -118,7 +118,7 @@ let adminJson = {
             "children": [
               {
                 "label": "查看留言",
-                "to": "?catalog=查看留言"
+                "to": "?infoType=message"
               }
             ]
           }
@@ -152,8 +152,9 @@ let adminJson = {
                 },
               ]
             },
-            "body": {
+            "body": [{
               "type": "crud",
+              "visibleOn": "!this.infoType",
               "id": "newsCrud",
               "api": "/news/list?catalog=${catalog}&title=${title}",
               // "source": "${myItems}",
@@ -337,7 +338,226 @@ let adminJson = {
                     ]
                 }
               ]
-            }
+            },
+            {
+              "type": "crud",
+              "id": "messageCrud",
+              "api": "/message/list?username=${username}&phone=${phone}",
+              "visibleOn": "this.infoType === 'message'",
+              // "source": "${myItems}",
+              "syncLocation": true,
+              "filter": {
+                "title": "",
+                "body": [{
+                    "type": "input-text",
+                    "name": "username",
+                    "label": "姓名",
+                    "clearable": true,
+                    "placeholder": "请输入姓名",
+                    "size": "lg"
+                },
+                {
+                  "type": "input-text",
+                  "name": "phone",
+                  "label": "联系电话",
+                  "clearable": true,
+                  "placeholder": "请输入电话",
+                  "size": "lg"
+                }],
+                "actions": [
+                    /* {
+                        "type": "button",
+                        "label": "新增",
+                        "actionType": "dialog",
+                        "level": "primary",
+                        "visibleOn": "this.catalog",
+                        "dialog": {
+                            "title": "新增页面",
+                            "size": "full",
+                            "debug": true,
+                            "body":  {
+                                "type": "form",
+                                "api": "post:/news/create",
+                                "reload": "messageCrud",
+                                "body": [
+                                  {
+                                    "type": "input-text",
+                                    "name": "catalog",
+                                    "label": "类型",
+                                    "value": "${catalog}",
+                                    "disabled": true
+                                  },
+                                  {
+                                    "type": "input-text",
+                                    "name": "title",
+                                    "label": "标题"
+                                  },
+                                  {
+                                    "type": "input-rich-text",
+                                    'receiver': {
+                                      'method': 'post',
+                                      'url': '/news/uploader'
+                                    },
+                                    "style": {
+                                      "height": "100%"
+                                    },
+                                    "name": "description",
+                                    "label": "内容",
+                                    "options": options
+                                  }
+                                ]
+                            }
+                        }
+                    }, */
+                    {
+                        "type": "reset",
+                        "label": "重置"
+                    },
+                    {
+                        "type": "submit",
+                        "label": "提交",
+                        "level": "primary",
+                    }
+                ]
+
+              },
+              "columns": [
+               /*  {
+                    "name": "id",
+                    "label": "ID"
+                }, */
+                {
+                    "name": "username",
+                    "label": "姓名"
+                },
+                {
+                  "name": "phone",
+                  "label": "联系电话"
+                },
+                {
+                  "name": "email",
+                  "label": "邮箱"
+                },
+                {
+                  "name": "company",
+                  "label": "公司名"
+                },
+                {
+                  "name": "content",
+                  "label": "内容"
+                },
+                {
+                  "name": "createTime",
+                    "label": "创建时间"
+                },
+                /* {
+                  "name": "updateTime",
+                  "label": "修改时间"
+                }, */
+                {
+                    "type": "operation",
+                    "label": "操作",
+                    "buttons": [
+                        {
+                            "type": "button",
+                            "label": "查看详情",
+                            "actionType": "dialog",
+                            "dialog": {
+                              "title": "查看详情",
+                                "body":  {
+                                    "type": "form",
+                                    // "api": "post:/amis/api/mock2/sample",
+                                    "body": [
+                                        {
+                                          "type": "input-text",
+                                          "name": "username",
+                                          "label": "姓名",
+                                          "value": "${username}",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "phone",
+                                          "label": "联系电话",
+                                          "value": "${phone}",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "email",
+                                          "label": "邮箱",
+                                          "value": "${email}",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "company",
+                                          "label": "公司名",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "content",
+                                          "label": "内容",
+                                          "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                        },
+                        /* {
+                            "type": "button",
+                            "label": "修改",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "修改页面",
+                                "size": "full",
+                                "body":  {
+                                    "type": "form",
+                                    "api": "post:/news/update",
+                                    "body": [
+                                        {
+                                          "type": "hidden",
+                                          "name": "id",
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "catalog",
+                                          "label": "类型",
+                                          "value": "${catalog}",
+                                          "disabled": true
+                                        },
+                                        {
+                                          "type": "input-text",
+                                          "name": "title",
+                                          "label": "标题"
+                                        },
+                                        {
+                                          "type": "input-rich-text",
+                                          'receiver': {
+                                            'method': 'post',
+                                            'url': '/news/uploader'
+                                          },
+                                          "options": options,
+                                          "name": "description",
+                                          "label": "内容"
+                                        }
+                                    ]
+                                }
+                            },
+                        }, */
+                        {
+                            "type": "button",
+                            "label": "删除",
+                            "actionType": "ajax",
+                            "level": "danger",
+                            "confirmText": "确认要删除 ${username} 吗？",
+                            "api": "get:/message/delete?id=${id}"
+                        }
+                    ]
+                }
+              ]
+            }]
           }
     ]
   }

@@ -512,6 +512,7 @@ let contactJson = {
                     },
                     {
                       "type": "form",
+                      "api": "post:/message/create",
                       "mode": "horizontal",
                       "wrapWithPanel": false,
                       "className": "contact-comment-wrapper",
@@ -524,7 +525,8 @@ let contactJson = {
                           "minRows": 7,
                           "style": {
                             "width": 808
-                          }
+                          },
+                          "required": true
                         },
                         {
                           "type": "group",
@@ -532,12 +534,13 @@ let contactJson = {
                             {
                               "type": "input-text",
                               "className": "input-comment",
-                              "name": "content",
+                              "name": "username",
                               "placeholder": "请输入姓名",
                               "style": {
                                 "marginRight": "8px",
                                 "width": 400,
-                                "height": 60
+                                "height": 60,
+                                "required": true
                               }
                             },
                             {
@@ -547,7 +550,8 @@ let contactJson = {
                               "style": {
                                 "width": 400,
                                 "height": 60
-                              }
+                              },
+                              "required": true
                             }
                           ]
                         },
@@ -578,7 +582,7 @@ let contactJson = {
                           ]
                         },
                         {
-                          "type": "button",
+                          "type": "submit",
                           "label": "提交",
                           "placeholder": "请输入公司名",
                           "style": {
