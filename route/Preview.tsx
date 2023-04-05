@@ -166,7 +166,223 @@ export default inject('store')(
       // let footerSchema = {}
       let footerSchema: any = {
         "type": "service",
+        "id": "messageContainer",
+        "data": {
+          "isShowMsg": true
+        },
         "body": [
+          // 在线留言
+          {
+            "type": "flex",
+            "className": "message-wrapper",
+            "direction": "column",
+            "alignItems": "start",
+            "visibleOn": "this.isShowMsg",
+            "items": [
+              {
+                "type": "flex",
+                "className": "message-title",
+                "items": [
+                  {
+                    "type": "tpl",
+                    "tpl": "留言板"
+                  },
+                  {
+                    "type": "tpl",
+                    "style": {
+                      "display": "inline-block",
+                      "width": "16px",
+                      "height": "4px",
+                      "background": "rgba(255,255,255,0.9)",
+                      "float": "right",
+                      "marginTop": "24px",
+                      "marginRight": "16px"
+                    },
+                    "onEvent": {
+                      "click": {
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "componentId": "messageContainer",
+                            "args": {
+                              "value": {
+                                "isShowMsg": false
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                  }
+
+                ]
+                
+              },
+              {
+                "type": "tpl",
+                "tpl": "碳和科技（北京）有限公司",
+                "style": {
+                  "fontSize": "16px",
+                  "fontWeight": 600,
+                  "color": "#333",
+                  "marginLeft": "16px",
+                  "marginTop": "10px",
+                  "textAlign": "left"
+                },
+              },
+              {
+                "type": "tpl",
+                "tpl": "联系人：李经理",
+                "style": {
+                  "display": "block",
+                  "marginBottom": "6px",
+                  "marginTop": "4px",
+                  "color": "#414141",
+                  "marginLeft": "16px",
+                  "textAlign": "left"
+                }
+              },
+              {
+                "type": "tpl",
+                "tpl": "联系电话: 13261287370",
+                "style": {
+                  "display": "block",
+                  "marginBottom": "6px",
+                  "color": "#414141",
+                  "marginLeft": "16px",
+                  "textAlign": "left"
+                }
+              },
+              {
+                "type": "form",
+                "api": "post:/message/create",
+                "mode": "horizontal",
+                "wrapWithPanel": false,
+                "className": "message-form-wrapper",
+                "labelWidth": 0,
+                "body": [
+                  {
+                    "type": "textarea",
+                    "name": "content",
+                    "placeholder": "内容",
+                    "clearable": true,
+                    "minRows": 4,
+                    "style": {
+                      "width": 240,
+                      "marginBottom": "10px",
+                    },
+                    // "required": true
+                  },
+                  {
+                    "type": "input-text",
+                    "className": "input-comment",
+                    "name": "username",
+                    "placeholder": "姓名",
+                    "clearable": true,
+                    "style": {
+                      "width": 240,
+                      "height": 40,
+                      "marginBottom": "4px",
+                    },
+                    // "required": true
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "phone",
+                    "placeholder": "手机号",
+                    "clearable": true,
+                    "style": {
+                      "width": 240,
+                      "height": 40,
+                      "marginBottom": "4px",
+                    },
+                    // "required": true
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "companyName",
+                    "placeholder": "公司名",
+                    "clearable": true,
+                    "style": {
+                      "width": 240,
+                      "height": 40,
+                      "marginBottom": "4px",
+                    }
+                  },
+                  {
+                    "type": "input-text",
+                    "name": "email",
+                    "placeholder": "邮箱",
+                    "clearable": true,
+                    "style": {
+                      "width": 240,
+                      "height": 40,
+                      "marginBottom": "4px",
+                    }
+                  },
+                  {
+                    "type": "submit",
+                    "label": "提交",
+                    "style": {
+                      "background": "#005BAC",
+                      "color": "#FFFFFF",
+                      "width": 216,
+                      "marginBottom": "24px",
+                      "marginLeft": "12px"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          // 缩小留言板
+          {
+            "type": "flex",
+            "className": "message-title-small",
+            "visibleOn": "!this.isShowMsg",
+            "justify": "start",
+            "style": {
+              "alignItems": "center",
+              "placeContent": "left"
+            },
+            "items": [
+              {
+                "type": "tpl",
+                "tpl": "留言板",
+                "style": {
+                  "fontWeight": 600
+                }
+              },
+              {
+                "type": "tpl",
+                "style": {
+                  "display": "block",
+                  "width": "16px",
+                  "height": "10px",
+                  "border": "2px solid #FFFFFF",
+                  "float": "right",
+                  "position": "absolute",
+                  "right": "16px",
+                  "cursor": "pointer"
+                },
+                "onEvent": {
+                  "click": {
+                    "actions": [
+                      {
+                        "actionType": "setValue",
+                        "componentId": "messageContainer",
+                        "args": {
+                          "value": {
+                            "isShowMsg": true
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+              }
+            ]
+          },
           // 联系我们
           {
             "type": "grid",

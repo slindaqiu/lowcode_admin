@@ -191,6 +191,9 @@ let homeJson = {
                   "type": "button",
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
+                  "actionType": "url",
+                  "url": "/#/service",
+                  "blank": false
                 }
               ]
             },
@@ -292,6 +295,9 @@ let homeJson = {
                   "type": "button",
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
+                  "actionType": "url",
+                  "url": "/#/case",
+                  "blank": false
                 }
               ]
             },
@@ -394,6 +400,9 @@ let homeJson = {
                   "type": "button",
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
+                  "actionType": "url",
+                  "url": "/#/news",
+                  "blank": false
                 }
               ]
             },

@@ -194,6 +194,7 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     .cxd-Nav .cxd-Nav-list--stacked .cxd-Nav-item a {
         font-size: 16px;
         height: 54px !important;
+        padding-left: 38px !important;
     }
     .cxd-Nav .cxd-Nav-list--stacked .cxd-Nav-item.is-active a {
         color: #025DAD !important;
@@ -202,6 +203,7 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
         position: relative;
         background: #FFFFFF !important;
         border-left: 4px solid #025DAD !important;
+        padding-left: 38px !important;
     }
 }
 
@@ -254,6 +256,46 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
             text-align: center !important;
         }
     }
+}
+
+/* 在线留言弹窗 */
+.message-wrapper {
+    position: fixed !important;
+    right: 38px !important;
+    bottom: 38px !important;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    background-color: #fff;
+    cursor: pointer;
+    z-index: 5;
+    .message-title {
+        width: 240px !important;
+        height: 50px !important;
+        line-height: 50px !important;
+        background: #005BAC !important;
+        display: block !important;
+        font-weight: 600;
+        color: #FFFFFF;
+        font-size: 16px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        padding-left: 16px;
+    }
+}
+.message-title-small {
+    position: fixed !important;
+    right: 38px !important;
+    bottom: 38px !important;
+    width: 240px;
+    height: 50px;
+    background: #005BAC;
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding-left: 16px;
+    place-content: left !important;
 }
 
 /* 后台管理样式 */
