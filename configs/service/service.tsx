@@ -66,7 +66,7 @@ let serviceJson = {
             {
               "type": "collapse",
               "key": "1",
-              "header": "二氧化碳的捕集利用22211",
+              "header": "二氧化碳的捕集利用",
               "body": getSubNav("二氧化碳的捕集利用", true)
             },
             {
