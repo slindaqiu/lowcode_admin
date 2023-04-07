@@ -196,24 +196,60 @@ let contactJson = {
                   }
                 },
                 {
-                  "type": "tpl",
-                  "tpl": "联系电话: 13261287370",
-                  "style": {
-                    "display": "block",
-                    "marginBottom": "4px"
-                  }
+                  "type": "flex",
+                  "items": [
+                    {
+                      "type": "tpl",
+                      "tpl": "联系电话: 13261287370",
+                      "style": {
+                        "display": "block",
+                        "marginBottom": "4px"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "label": "复制",
+                      "level": "link",
+                      "actionType": "copy",
+                      "content": "13261287370"
+                    }
+                  ]
                 },
                 {
-                  "type": "tpl",
-                  "tpl": "邮箱：tanhekeji@163.com",
-                  "style": {
-                    "display": "block",
-                    "marginBottom": "4px"
-                  }
+                  "type": "flex",
+                  "items": [
+                    {
+                      "type": "tpl",
+                      "tpl": "邮箱：tanhekeji@163.com",
+                      "style": {
+                        "display": "block",
+                        "marginBottom": "4px"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "label": "复制",
+                      "level": "link",
+                      "actionType": "copy",
+                      "content": "tanhekeji@163.com"
+                    }
+                  ]
                 },
                 {
-                  "type": "tpl",
-                  "tpl": "地址：北京市北京经济技术开发区 （通州）景盛南四街甲13号19幢2层"
+                  "type": "flex",
+                  "items": [
+                    {
+                      "type": "tpl",
+                      "tpl": "地址：北京市北京经济技术开发区 （通州）景盛南四街甲13号19幢2层"
+                    },
+                    {
+                      "type": "button",
+                      "label": "复制",
+                      "level": "link",
+                      "actionType": "copy",
+                      "content": "北京市北京经济技术开发区 （通州）景盛南四街甲13号19幢2层"
+                    }
+                  ]
                 },
                 {
                   "type": "image",
