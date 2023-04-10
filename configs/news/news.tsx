@@ -60,25 +60,65 @@ let newsJson = {
                 "minWidth": "400px"
               },
               "activeKey": [
-                "1"
+                "news1"
               ],
               "accordion": true,
+              "onEvent": {
+                "selectServiceCatalog": {
+                  "actions": [
+                    {
+                      "actionType": "custom",
+                      "script": function (context: any, doAction: any, event: any) {
+                        const selectedCatalog = event.data.selectedCatalog
+                        if (selectedCatalog) {
+                          const temp = document.querySelector(`.${selectedCatalog} .cxd-Collapse-header`)
+                          if (temp) {
+                            const event:any = new MouseEvent('click', {
+                              'view': window,
+                              'bubbles': true,
+                              'cancelable': true
+                            });
+                            temp.dispatchEvent(event);
+    
+                            // 默认点击下拉框第一个元素
+                            const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
+                            if (subTemp) {
+                              const event2:any = new MouseEvent('click', {
+                                'view': window,
+                                'bubbles': true,
+                                'cancelable': true
+                              });
+                              setTimeout(() => {
+                                debugger
+                                subTemp.dispatchEvent(event2)
+                              }, 100);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
               "body": [
                 {
                   "type": "collapse",
-                  "key": "1",
+                  "key": "news1",
+                  "className": "news1",
                   "header": "企业动态",
                   "body": getSubNav("企业动态", true)
                 },
                 {
                   "type": "collapse",
-                  "key": "2",
+                  "key": "news2",
+                  "className": "news2",
                   "header": "专业文章",
                   "body": getSubNav("专业文章", false)
                 },
                 {
                   "type": "collapse",
-                  "key": "3",
+                  "key": "news3",
+                  "className": "news3",
                   "header": "行业资讯",
                   "body": getSubNav("行业资讯", false)
                 }

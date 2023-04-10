@@ -2,6 +2,11 @@
   根据类型获取子菜单列表
 */
 const getSubNav = (catalog: any, isDefaultActive: any) => {
+  debugger
+  /* let isDefaultActive = false
+  if (catalog === selectCatalog) {
+    isDefaultActive = true
+  } */
   return {
     "type": "nav",
     "stacked": true,
@@ -38,6 +43,11 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
 }
 let serviceJson = {
   "type": "service",
+  "id": "serviceContainer",
+  "debug": true,
+  "data": {
+    "catalog": "变压吸附提纯CO技术"
+  },
   "body": [
     {
       "type": "image",
@@ -53,57 +63,132 @@ let serviceJson = {
       "className": "info-wrapper",
       "items": [
         {
+          "id": "catalogCollapseGroup",
+          "$ref": "catalogCollapseGroup",
           "type": "collapse-group",
           "style": {
             "width": "400px",
             "minWidth": "400px"
           },
-          "activeKey": [
-            "1"
-          ],
+          "activeKey": "service1",
           "accordion": true,
+          "onEvent": {
+            "selectServiceCatalog": {
+              "actions": [
+                /* {
+                  "actionType": "toast",
+                  "args": {
+                    "msgType": "info",
+                    "msg": "${selectedCatalog}"
+                  }
+                }, */
+                {
+                  "actionType": "custom",
+                  "script": function (context: any, doAction: any, event: any) {
+                    const selectedCatalog = event.data.selectedCatalog
+                    if (selectedCatalog) {
+                      const temp = document.querySelector(`.${selectedCatalog} .cxd-Collapse-header`)
+                      if (temp) {
+                        const event:any = new MouseEvent('click', {
+                          'view': window,
+                          'bubbles': true,
+                          'cancelable': true
+                        });
+                        temp.dispatchEvent(event);
+
+                        // 默认点击下拉框第一个元素
+                        const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
+                        if (subTemp) {
+                          const event2:any = new MouseEvent('click', {
+                            'view': window,
+                            'bubbles': true,
+                            'cancelable': true
+                          });
+                          setTimeout(() => {
+                            debugger
+                            subTemp.dispatchEvent(event2)
+                          }, 100);
+                        }
+                      }
+                      /* if (temp && !temp.classList.contains('is-active')) {
+                        temp.classList.add('is-active')
+                      }
+
+                      const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-list`)
+                      if (subTemp && !subTemp.classList.contains('cxd-Nav-list--stacked')) {
+                        subTemp.classList.add('cxd-Nav-list--stacked')
+                      }
+
+                      const subTemp2 = document.querySelector(`.${selectedCatalog} .cxd-Collapse-contentWrapper`)
+                      if (subTemp2 && subTemp2.classList.contains('out')) {
+                        subTemp2.classList.remove('out')
+                      } */
+                    }
+                    /* debugger
+                    if (temp) {
+                      const event = new MouseEvent('click', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window
+                      })
+                      temp.dispatchEvent(event);
+                    } */
+                  }
+                },
+                
+              ]
+            }
+          },
           "body": [
             {
               "type": "collapse",
-              "key": "1",
-              "header": "二氧化碳的捕集利用",
+              "className": "service1",
+              "key": "service1",
+              "header": "二氧化碳的捕集利用77",
               "body": getSubNav("二氧化碳的捕集利用", true)
             },
             {
               "type": "collapse",
-              "key": "2",
+              "className": "service2",
+              "key": "service2",
               "header": "变压吸附提纯CO技术",
+              "isActive": true,
               "body": getSubNav("变压吸附提纯CO技术", false)
             },
             {
               "type": "collapse",
-              "key": "3",
+              "className": "service3",
+              "key": "service3",
               "header": "变压吸附制氢技术",
               "body": getSubNav("变压吸附制氢技术", false)
             },
             {
               "type": "collapse",
-              "key": "4",
+              "className": "service4",
+              "key": "service4",
               "header": "甲烷提浓技术",
               "body": getSubNav("甲烷提浓技术", false)
             },
             {
               "type": "collapse",
-              "key": "5",
+              "className": "service5",
+              "key": "service5",
               "header": "空分PSA制氮、制氧技术",
               "body": getSubNav("空分PSA制氮、制氧技术", false)
             },
             {
               "type": "collapse",
-              "key": "6",
+              "className": "service6",
+              "key": "service6",
               "header": "气体干燥净化技术",
               "body": getSubNav("气体干燥净化技术", false)
             },
             {
               "type": "collapse",
-              "key": "7",
+              "className": "service7",
+              "key": "service7",
               "header": "吸附剂、催化剂",
-              "body": getSubNav("吸附剂、催化剂", false)
+              "body": getSubNav("吸附剂、催化剂",  false)
             }
           ]
         },
@@ -128,8 +213,7 @@ let serviceJson = {
                 "fontSize": "32px",
                 "fontWeight": "600",
                 "color": "#333",
-              },
-             
+              }
             },
             {
               "type": "tpl",

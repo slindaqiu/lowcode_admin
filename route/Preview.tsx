@@ -18,6 +18,24 @@ function isActive(link: any, location: any) {
   return !!ret;
 }
 
+const getEvent = (catalog: any) => {
+  return {
+    "click": {
+      "actions": [
+        {
+          "actionType": "broadcast",
+          "args": {
+            "eventName": "selectServiceCatalog"
+          },
+          "data": {
+            "selectedCatalog": catalog,
+          }
+        }
+      ]
+    }
+  }
+}
+
 export default inject('store')(
   observer(function ({
     store,
@@ -76,12 +94,235 @@ export default inject('store')(
                 "body": [
                   {
                     "type": "flex",
+                    "className": "nav-container",
                     "style": {
                       "height": 72,
                       "float": "right"
                     },
                     "items": [
                       {
+                        "type": "button",
+                        "label": "首页",
+                        "className": "nav-title",
+                        "level": "link",
+                        "actionType": "link",
+                        "link": "/home",
+                        "style": {
+                          "fontSize": "16px",
+                          "fontWeight": "600",
+                          "color": "#333"
+                        }
+                      },
+                      {
+                        "type": "dropdown-button",
+                        "label": "关于我们",
+                        "className": "nav-title",
+                        "level": "link",
+                        "trigger": "hover",
+                        "buttons": [
+                          {
+                            "type": "button",
+                            "label": "公司简介",
+                            "actionType": "link",
+                            "link": "/about?aboutType=company"
+                          },
+                          {
+                            "type": "button",
+                            "label": "荣誉资质",
+                            "actionType": "link",
+                            "link": "/about?aboutType=certificate"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "dropdown-button",
+                        "label": "技术与服务",
+                        "className": "nav-title",
+                        "level": "link",
+                        "trigger": "hover",
+                        "buttons": [
+                          {
+                            "type": "button",
+                            "label": "二氧化碳的捕集利用",
+                            "actionType": "link",
+                            "link": "/service?catalog=service1",
+                            "onEvent": getEvent('service1')
+                            /* "onEvent": {
+                              "click": {
+                                "actions": [
+                                  {
+                                    "actionType": "broadcast",
+                                    "args": {
+                                      "eventName": "selectServiceCatalog"
+                                    },
+                                    "data": {
+                                      "selectedCatalog": "service1",
+                                    }
+                                  }
+                                ]
+                              }
+                            } */
+                          },
+                          {
+                            "type": "button",
+                            "label": "变压吸附提纯CO技术",
+                            "actionType": "link",
+                            "link": "/service?catalog=service2",
+                            "onEvent": getEvent('service2')
+                          },
+                          {
+                            "type": "button",
+                            "label": "变压吸附制氢技术",
+                            "actionType": "link",
+                            "link": "/service?catalog=service3",
+                            "onEvent": getEvent('service3')
+                          },
+                          {
+                            "type": "button",
+                            "label": "甲烷提浓技术",
+                            "actionType": "link",
+                            "link": "/service?catalog=service4",
+                            "onEvent": getEvent('service4')
+                          },
+                          {
+                            "type": "button",
+                            "label": "空分PSA制氮、制氧技术",
+                            "actionType": "link",
+                            "link": "/service?catalog=service5",
+                            "onEvent": getEvent('service5')
+                          },
+                          {
+                            "type": "button",
+                            "label": "气体干燥净化技术",
+                            "actionType": "link",
+                            "link": "/service?catalog=service6",
+                            "onEvent": getEvent('service6')
+                          },
+                          {
+                            "type": "button",
+                            "label": "吸附剂、催化剂",
+                            "actionType": "link",
+                            "link": "/service?catalog=service7",
+                            "onEvent": getEvent('service7')
+                          }
+                        ]
+                      },
+                      {
+                        "type": "dropdown-button",
+                        "label": "工程案例",
+                        "className": "nav-title",
+                        "level": "link",
+                        "trigger": "hover",
+                        "buttons": [
+                          {
+                            "type": "button",
+                            "label": "二氧化碳捕集利用",
+                            "actionType": "link",
+                            "link": "/case?catalog=case1",
+                            "onEvent": getEvent('case1')
+                          },
+                          {
+                            "type": "button",
+                            "label": "变压吸附回收CO",
+                            "actionType": "link",
+                            "link": "/case?catalog=case2",
+                            "onEvent": getEvent('case2')
+                          },
+                          {
+                            "type": "button",
+                            "label": "变压吸附提纯氢气",
+                            "actionType": "link",
+                            "link": "/case?catalog=case3",
+                            "onEvent": getEvent('case3')
+                          },
+                          {
+                            "type": "button",
+                            "label": "甲烷提纯",
+                            "actionType": "link",
+                            "link": "/case?catalog=case4",
+                            "onEvent": getEvent('case4')
+                          },
+                          {
+                            "type": "button",
+                            "label": "空分制氮制氧",
+                            "actionType": "link",
+                            "link": "/case?catalog=case5",
+                            "onEvent": getEvent('case5')
+                          },
+                          {
+                            "type": "button",
+                            "label": "气体净化干燥",
+                            "actionType": "link",
+                            "link": "/case?catalog=case6",
+                            "onEvent": getEvent('case6')
+                          },
+                          {
+                            "type": "button",
+                            "label": "吸附剂、催化剂",
+                            "actionType": "link",
+                            "link": "/case?catalog=case7",
+                            "onEvent": getEvent('case7')
+                          }
+                        ]
+                      },
+                      {
+                        "type": "dropdown-button",
+                        "label": "新闻咨询",
+                        "className": "nav-title",
+                        "level": "link",
+                        "trigger": "hover",
+                        "buttons": [
+                          {
+                            "type": "button",
+                            "label": "企业动态",
+                            "actionType": "link",
+                            "link": "/news?catalog=news1",
+                            "onEvent": getEvent('news1')
+                          },
+                          {
+                            "type": "button",
+                            "label": "专业文章",
+                            "actionType": "link",
+                            "link": "/news?catalog=news2",
+                            "onEvent": getEvent('news2')
+                          },
+                          {
+                            "type": "button",
+                            "label": "行业资讯",
+                            "actionType": "link",
+                            "link": "/news?catalog=news3",
+                            "onEvent": getEvent('news')
+                          }
+                        ]
+                      },
+                      {
+                        "type": "dropdown-button",
+                        "label": "联系我们",
+                        "className": "nav-title",
+                        "level": "link",
+                        "trigger": "hover",
+                        "buttons": [
+                          {
+                            "type": "button",
+                            "label": "联系方式",
+                            "actionType": "link",
+                            "link": "/contact?contactType=contactInfo"
+                          },
+                          {
+                            "type": "button",
+                            "label": "人才招聘",
+                            "actionType": "link",
+                            "link": "/contact?contactType=employInfo"
+                          },
+                          {
+                            "type": "button",
+                            "label": "在线留言",
+                            "actionType": "link",
+                            "link": "/contact?contactType=messageInfo"
+                          }
+                        ]
+                      },
+                      /* {
                         "type": "nav",
                         "stacked": false,
                         "className": "sl-nav",
@@ -97,7 +338,7 @@ export default inject('store')(
                           },
                           {
                             "label": "技术与服务",
-                            "to": "/service"
+                            "to": "/service",
                           },
                           {
                             "label": "工程案例",
@@ -112,7 +353,7 @@ export default inject('store')(
                             "to": "/contact"
                           }
                         ]
-                      },
+                      }, */
                       {
                         "type": "tpl",
                         "tpl": "<span class='chinese-span'>中文</span>",
