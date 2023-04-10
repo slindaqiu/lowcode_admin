@@ -637,9 +637,6 @@ export default inject('store')(
               "type": "flex",
               "direction": "column",
               "alignItems": "start",
-              "style": {
-                "borderRight": "1px solid #494949"
-              },
               "items": [{
                 "type": "tpl",
                 "tpl": "联系我们",
@@ -708,7 +705,8 @@ export default inject('store')(
               "alignItems": "start",
               "className": "sl-bottom-nav",
               "style": {
-                "marginLeft": "34px"
+                "paddingLeft": "38px",
+                "borderLeft": "1px solid #494949"
               },
               "items": [{
                 "type": "tpl",
