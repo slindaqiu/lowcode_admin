@@ -301,6 +301,9 @@ export default inject('store')(
                         "className": "nav-title",
                         "level": "link",
                         "trigger": "hover",
+                        "style": {
+                          "marginRight": "46px"
+                        },
                         "buttons": [
                           {
                             "type": "button",

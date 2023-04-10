@@ -77,10 +77,11 @@
     }
 }
 
-.nav-container .nav-title {
+.nav-container .nav-title > button {
     font-size: 16px;
     font-weight: 600;
     color: #333 !important;
+    padding: 12px 22px !important;
 }
 
 // 关于我们
