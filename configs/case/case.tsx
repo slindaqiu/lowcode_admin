@@ -178,6 +178,24 @@ let caseJson = {
                 {
                   "type": "tpl",
                   "name": "description"
+                },
+                {
+                  "type": "button",
+                  "level": "primary",
+                  "label": "联系我们",
+                  "style": {
+                    "position": "absolute",
+                    // "right": "70px",
+                    "right": "46px",
+                    "top": "36px",
+                    "cursor": "pointer",
+                    "width": "156px",
+                    "height": "42px",
+                    "fontWeight": 500,
+                    "backgroundColor": "#005BAC"
+                  },
+                  "actionType": "link",
+                  "to": "/contact?contactType=contactInfo"
                 }
               ]
             }
