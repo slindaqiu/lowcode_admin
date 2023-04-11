@@ -84,6 +84,39 @@
     padding: 12px 22px !important;
 }
 
+// 首页轮播图
+.carousel-wrapper {
+    position: relative;
+}
+
+.carousel-wrapper  img {
+    display: block;
+}
+
+.carousel-wrapper .left-arrow {
+    position: absolute;
+    top: 48%;
+    left: 20px;
+    margin-top: -28px;
+    visibility: hidden;
+}
+
+.carousel-wrapper .right-arrow {
+    position: absolute;
+    top: 48%;
+    right: 20px;
+    margin-top: -28px;
+    visibility: hidden;
+}
+
+.carousel-wrapper:hover .right-arrow {
+    visibility: visible;
+}
+
+.carousel-wrapper:hover .left-arrow {
+    visibility: visible;
+}
+
 // 关于我们
 .about-us-wrapper {
     padding: "80px 40px"

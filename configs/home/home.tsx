@@ -12,6 +12,8 @@ let homeJson = {
       "thumbMode": "cover",
       "animation": "slide",
       "height": 600,
+      "className": "carousel-wrapper",
+      "controls": ['dots'],
       // "interval": '5s',
       "options": [
         {
@@ -26,7 +28,15 @@ let homeJson = {
         {
           "image": "../../assets/home/carousel4.png"
         }
-      ]
+      ],
+      itemSchema: {
+        type: 'tpl',
+        tpl: `
+        <div style="background-image: url('<%= data.image %>'); background-size: cover; background-repeat: no-repeat; background-position: center center;" class="image <%= data.imageClassName %>">
+         <image src='../../assets/home/leftArrow.png' class='left-arrow'></image>
+         <image src='../../assets/home/rightArrow.png'  class='right-arrow'></image>
+        </div>`
+      }
     },
     // 关于我们
     {
