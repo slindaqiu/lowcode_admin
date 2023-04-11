@@ -13,7 +13,6 @@ let homeJson = {
       "animation": "slide",
       "height": 600,
       "className": "carousel-wrapper",
-      "controls": ['dots'],
       // "interval": '5s',
       "options": [
         {

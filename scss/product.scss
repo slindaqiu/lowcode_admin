@@ -89,6 +89,14 @@
     position: relative;
 }
 
+.carousel-wrapper .icon-left-arrow {
+    display: none !important;
+}
+
+.carousel-wrapper .icon-right-arrow {
+    display: none !important;
+}
+
 .carousel-wrapper  img {
     display: block;
 }
