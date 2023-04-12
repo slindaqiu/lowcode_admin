@@ -119,6 +119,7 @@ export default inject('store')(
                         "className": "nav-title",
                         "level": "link",
                         "trigger": "hover",
+                        // "trigger": "click",
                         "buttons": [
                           {
                             "type": "button",

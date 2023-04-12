@@ -84,6 +84,27 @@
     padding: 12px 22px !important;
 }
 
+.nav-container .cxd-DropDown-button {
+    width: 200px;
+    height: 40px;
+    padding: 9.5px 0 9.5px 16px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+}
+
+.nav-container .cxd-DropDown-button:hover {
+   /*  width: 200px;
+    height: 40px;
+    padding-left: 16px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400; */
+    background-color: #EDEDED;
+    font-weight: 600;
+    color: #025DAD;;
+}
+
 // 首页轮播图
 .carousel-wrapper {
     position: relative;
@@ -173,6 +194,7 @@ button.cxd-Button.cxd-Button--default.cxd-Button--size-default.sl-more-btn {
     color: #005BAC;
     font-size: 20px;
     height: 48px;
+    border: 1px solid #005BAC;
 }
 
 /* 底部导航 */

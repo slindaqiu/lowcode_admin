@@ -181,18 +181,13 @@ let caseJson = {
                 },
                 {
                   "type": "button",
-                  "level": "primary",
-                  "label": "联系我们",
+                  "label": "联系我们 >>",
+                  "className": "sl-more-btn",
                   "style": {
                     "position": "absolute",
-                    // "right": "70px",
-                    "right": "46px",
-                    "top": "36px",
+                    "right": "80px",
+                    "top": "26px",
                     "cursor": "pointer",
-                    "width": "156px",
-                    "height": "42px",
-                    "fontWeight": 500,
-                    "backgroundColor": "#005BAC"
                   },
                   "actionType": "link",
                   "to": "/contact?contactType=contactInfo"
