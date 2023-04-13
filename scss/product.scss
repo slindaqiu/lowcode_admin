@@ -77,11 +77,18 @@
     }
 }
 
+button.cxd-Button.cxd-Button--link.cxd-Button--size-default.home-active.nav-title span{
+    color: #025DAD !important;
+}
 .nav-container .nav-title > button {
     font-size: 16px;
     font-weight: 600;
     color: #333 !important;
     padding: 12px 22px !important;
+}
+
+.nav-container .nav-active > button {
+    color: #025DAD !important;
 }
 
 .nav-container .cxd-DropDown-button {

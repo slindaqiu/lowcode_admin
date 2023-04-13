@@ -36,167 +36,167 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
 }
 let caseJson = {
     "type": "service",
-      "body": [
-        {
-          "type": "image",
-          "src": "../../assets/case/caseTop.png",
-          "height": 350,
-          "width": "100%",
-          "innerClassName": "no-border"
-        },
-        {
-          "type": "flex",
-          "justify": "start",
-          "alignItems": "start",
-          "className": "info-wrapper",
-          "items": [
-            {
-              "type": "collapse-group",
-              "style": {
-                "width": "400px",
-                "minWidth": "400px"
-              },
-              "activeKey": [
-                "case1"
-              ],
-              "accordion": true,
-              "onEvent": {
-                "selectServiceCatalog": {
-                  "actions": [
-                    {
-                      "actionType": "custom",
-                      "script": function (context: any, doAction: any, event: any) {
-                        const selectedCatalog = event.data.selectedCatalog
-                        if (selectedCatalog) {
-                          const temp = document.querySelector(`.${selectedCatalog} .cxd-Collapse-header`)
-                          if (temp) {
-                            const event:any = new MouseEvent('click', {
+    "body": [
+      {
+        "type": "image",
+        "src": "../../assets/case/caseTop.png",
+        "height": 350,
+        "width": "100%",
+        "innerClassName": "no-border"
+      },
+      {
+        "type": "flex",
+        "justify": "start",
+        "alignItems": "start",
+        "className": "info-wrapper",
+        "items": [
+          {
+            "type": "collapse-group",
+            "style": {
+              "width": "400px",
+              "minWidth": "400px"
+            },
+            "activeKey": [
+              "case1"
+            ],
+            "accordion": true,
+            "onEvent": {
+              "selectServiceCatalog": {
+                "actions": [
+                  {
+                    "actionType": "custom",
+                    "script": function (context: any, doAction: any, event: any) {
+                      const selectedCatalog = event.data.selectedCatalog
+                      if (selectedCatalog) {
+                        const temp = document.querySelector(`.${selectedCatalog} .cxd-Collapse-header`)
+                        if (temp) {
+                          const event:any = new MouseEvent('click', {
+                            'view': window,
+                            'bubbles': true,
+                            'cancelable': true
+                          });
+                          temp.dispatchEvent(event);
+  
+                          // 默认点击下拉框第一个元素
+                          const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
+                          if (subTemp) {
+                            const event2:any = new MouseEvent('click', {
                               'view': window,
                               'bubbles': true,
                               'cancelable': true
                             });
-                            temp.dispatchEvent(event);
-    
-                            // 默认点击下拉框第一个元素
-                            const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
-                            if (subTemp) {
-                              const event2:any = new MouseEvent('click', {
-                                'view': window,
-                                'bubbles': true,
-                                'cancelable': true
-                              });
-                              setTimeout(() => {
-                                debugger
-                                subTemp.dispatchEvent(event2)
-                              }, 100);
-                            }
+                            setTimeout(() => {
+                              debugger
+                              subTemp.dispatchEvent(event2)
+                            }, 100);
                           }
                         }
                       }
                     }
-                  ]
-                }
-              },
-              "body": [
-                {
-                  "type": "collapse",
-                  "key": "case1",
-                  "className": "case1",
-                  "header": "二氧化碳捕集利用",
-                  "body": getSubNav("二氧化碳捕集利用", true)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case2",
-                  "className": "case2",
-                  "header": "变压吸附回收CO",
-                  "body": getSubNav("变压吸附回收CO", false)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case3",
-                  "className": "case3",
-                  "header": "变压吸附提纯氢气",
-                  "body": getSubNav("变压吸附提纯氢气", false)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case4",
-                  "className": "case4",
-                  "header": "甲烷提纯",
-                  "body": getSubNav("甲烷提纯", false)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case5",
-                  "className": "case5",
-                  "header": "空分制氮制氧",
-                  "body": getSubNav("空分制氮制氧", false)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case6",
-                  "className": "case6",
-                  "header": "气体净化干燥",
-                  "body": getSubNav("气体净化干燥", false)
-                },
-                {
-                  "type": "collapse",
-                  "key": "case7",
-                  "className": "case7",
-                  "header": "吸附剂、催化剂",
-                  "body": getSubNav("吸附剂、催化剂", false)
-                }
-              ]
+                  }
+                ]
+              }
             },
-            {
-              "name": "detailForm",
-              "type": "form",
-              "wrapWithPanel": false,
-              "title": "",
-              // "initApi": "/news/info?id=${id}",
-              "initApi": {
-                "method": "get",
-                "url": "/news/info?id=${id}",
-                "sendOn": "this.id",
+            "body": [
+              {
+                "type": "collapse",
+                "key": "case1",
+                "className": "case1",
+                "header": "二氧化碳捕集利用",
+                "body": getSubNav("二氧化碳捕集利用", true)
               },
+              {
+                "type": "collapse",
+                "key": "case2",
+                "className": "case2",
+                "header": "变压吸附回收CO",
+                "body": getSubNav("变压吸附回收CO", false)
+              },
+              {
+                "type": "collapse",
+                "key": "case3",
+                "className": "case3",
+                "header": "变压吸附提纯氢气",
+                "body": getSubNav("变压吸附提纯氢气", false)
+              },
+              {
+                "type": "collapse",
+                "key": "case4",
+                "className": "case4",
+                "header": "甲烷提纯",
+                "body": getSubNav("甲烷提纯", false)
+              },
+              {
+                "type": "collapse",
+                "key": "case5",
+                "className": "case5",
+                "header": "空分制氮制氧",
+                "body": getSubNav("空分制氮制氧", false)
+              },
+              {
+                "type": "collapse",
+                "key": "case6",
+                "className": "case6",
+                "header": "气体净化干燥",
+                "body": getSubNav("气体净化干燥", false)
+              },
+              {
+                "type": "collapse",
+                "key": "case7",
+                "className": "case7",
+                "header": "吸附剂、催化剂",
+                "body": getSubNav("吸附剂、催化剂", false)
+              }
+            ]
+          },
+          {
+            "name": "detailForm",
+            "type": "form",
+            "wrapWithPanel": false,
+            "title": "",
+            // "initApi": "/news/info?id=${id}",
+            "initApi": {
+              "method": "get",
+              "url": "/news/info?id=${id}",
               "sendOn": "this.id",
-              "actions": [],
-              "className": "info-detail-wrapper",
-              "body": [
-                {
-                  "type": "tpl",
-                  "name": "title",
-                  "className": "info-title",
-                  "style": {
-                    "fontSize": "32px",
-                    "fontWeight": "600",
-                    "color": "#333",
-                  },
-                 
+            },
+            "sendOn": "this.id",
+            "actions": [],
+            "className": "info-detail-wrapper",
+            "body": [
+              {
+                "type": "tpl",
+                "name": "title",
+                "className": "info-title",
+                "style": {
+                  "fontSize": "32px",
+                  "fontWeight": "600",
+                  "color": "#333",
                 },
-                {
-                  "type": "tpl",
-                  "name": "description"
+                
+              },
+              {
+                "type": "tpl",
+                "name": "description"
+              },
+              {
+                "type": "button",
+                "label": "联系我们 >>",
+                "className": "sl-more-btn",
+                "style": {
+                  "position": "absolute",
+                  "right": "80px",
+                  "top": "26px",
+                  "cursor": "pointer",
                 },
-                {
-                  "type": "button",
-                  "label": "联系我们 >>",
-                  "className": "sl-more-btn",
-                  "style": {
-                    "position": "absolute",
-                    "right": "80px",
-                    "top": "26px",
-                    "cursor": "pointer",
-                  },
-                  "actionType": "link",
-                  "to": "/contact?contactType=contactInfo"
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                "actionType": "link",
+                "to": "/contact?contactType=contactInfo"
+              }
+            ]
+          }
+        ]
+      }
+    ]
 }
 
 export default caseJson
