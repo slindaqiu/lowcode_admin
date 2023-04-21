@@ -293,7 +293,7 @@ export default inject('store')(
                               "type": "button",
                               "label": "行业资讯",
                               "actionType": "link",
-                              "link": "/news?catalog=news3&active=news",
+                              "link": "/news?catalog=news3&active=news3",
                               "onEvent": getEvent('news3')
                             }
                           ]
