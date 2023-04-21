@@ -14,9 +14,14 @@
 .cxd-Layout-header {
     height: auto !important;
 }
-.cxd-Layout--headerFixed .cxd-Layout-header {
+/* .cxd-Layout--headerFixed .cxd-Layout-header {
     position: relative !important;
+} */
+/* 设置 body 上边距为 72px */
+.cxd-Layout-body {
+    margin-top: 72px !important;
 }
+
 .sl-nav .cxd-Nav-list--tabs .cxd-Nav-item > a {
     border: none !important;
     font-size: "16px" !important;

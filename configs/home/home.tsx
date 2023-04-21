@@ -59,16 +59,21 @@ let homeJson = {
               "style": {
                 "fontSize": 40,
                 "fontWeight": 500,
-                "color": "#2F3C43"
+                "color": "#2F3C43",
+                "cursor": "pointer"
               },
-              "type": "tpl",
-              "tpl": "关于我们"
+              "type": "button",
+              "level": "link",
+              "label": "关于我们",
+              "actionType": "link",
+              "to": "/about?aboutType=company&active=about"
             },
             {
               "style": {
                 "fontSize": 28,
                 "fontWeight": 600,
                 "color": "#025DAD",
+                "marginTop": "16px",
                 "marginBottom": 30
               },
               "type": "tpl",
@@ -254,7 +259,8 @@ let homeJson = {
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "山东某热电厂烟道气碳氮联产项目"
+                  "title": "山东某热电厂烟道气碳氮联产项目",
+                  // "href": "http://www.thkjbj.com/#/case?id=60&active=case"
                 },
                 {
                   "type": "image",
@@ -263,7 +269,8 @@ let homeJson = {
                   "height": 192,
                   "innerClassName": "no-border",
                   // "title": "北京某企业超高纯二氧化碳电子气99.9995"
-                  "title": "北京某企业超高纯二氧化碳电子气"
+                  "title": "北京某企业超高纯二氧化碳电子气",
+                  // "href": "http://www.thkjbj.com/#/case?id=61&active=case"
                 },
                 {
                   "type": "image",
@@ -271,7 +278,8 @@ let homeJson = {
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "山东某企业变压吸附回收CO"
+                  "title": "山东某企业变压吸附回收CO",
+                  // "href": "http://www.thkjbj.com/#/case?id=66&active=case"
                 },
                 {
                   "type": "image",
@@ -279,7 +287,8 @@ let homeJson = {
                   "width": 300,
                   "height": 192,
                   "innerClassName": "no-border",
-                  "title": "山西某企业煤层气回收甲烷装置"
+                  "title": "山西某企业煤层气回收甲烷装置",
+                  // "href": "http://www.thkjbj.com/#/case?id=68&active=case"
                 },
               ]
             }

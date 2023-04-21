@@ -78,7 +78,7 @@ export default inject('store')(
                       },
                       {
                         "type": "tpl",
-                        "tpl": "碳和科技",
+                        "tpl": "碳和科技（北京）有限公司",
                         "style": {
                           "fontSize": 26,
                           "color": "#224165"
@@ -294,7 +294,7 @@ export default inject('store')(
                               "label": "行业资讯",
                               "actionType": "link",
                               "link": "/news?catalog=news3&active=news",
-                              "onEvent": getEvent('news')
+                              "onEvent": getEvent('news3')
                             }
                           ]
                         },
