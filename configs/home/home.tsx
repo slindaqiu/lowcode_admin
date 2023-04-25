@@ -13,9 +13,7 @@ let homeJson = {
       "animation": "slide",
       "height": 600,
       "className": "carousel-wrapper",
-      "interval": 4000,
       // "interval": '5s',
-      // "duration": 6000,
       "options": [
         {
           "image": "../../assets/home/carousel1.png"
@@ -257,8 +255,8 @@ let homeJson = {
               "items": [
                 {
                   "type": "link",
-                  // "href": "http://127.0.0.1:8082/case?id=60&active=case",
-                  "href": "http://www.thkjbj.com/#/case?catalog=case1&active=case&id=60",
+                  "href": "http://127.0.0.1:8090/#/case?id=60",
+                  // "href": "http://www.thkjbj.com/#/case?catalog=case1&active=case&id=60",
                   "body": {
                     "type": "image",
                     "src": "../../assets/home/case/case1.png",
@@ -273,14 +271,22 @@ let homeJson = {
                   "blank": false,
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/case/case2.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  // "title": "北京某企业超高纯二氧化碳电子气99.9995"
-                  "title": "北京某企业超高纯二氧化碳电子气",
-                  "href": "http://www.thkjbj.com/#/case?id=61&active=case"
+                  "type": "link",
+                  "href": "http://127.0.0.1:8090/#/case?id=61",
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/case/case2.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    // "title": "北京某企业超高纯二氧化碳电子气99.9995"
+                    "title": "北京某企业超高纯二氧化碳电子气",
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                    // "href": "http://www.thkjbj.com/#/case?id=61&active=case"
+                  },
+                  "blank": false,
                 },
                 {
                   "type": "image",

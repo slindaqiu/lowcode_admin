@@ -23,13 +23,13 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
           payload.data.items.forEach((item:any) => {
             tempResult.push({
               "label": item.title,
-              "to": "?id=" + item.id,
+              "to": "?id=" + item.id + '&active=service',
               "id": item.id
             })
           })
           if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
             tempResult[0].active = true
-            window.location.href = '/#/service' +'?id=' + tempResult[0].id
+            window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service'
           }
         }
         return {

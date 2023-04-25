@@ -660,6 +660,9 @@ export default inject('store')(
               },
               {
                 "type": "flex",
+                "style": {
+                  "marginBottom": "10px"
+                },
                 "items": [{
                   "type": "image",
                   "width": "28px",
@@ -676,6 +679,9 @@ export default inject('store')(
               },
               {
                 "type": "flex",
+                "style": {
+                  "marginBottom": "10px"
+                },
                 "items": [{
                   "type": "image",
                   "width": "28px",
@@ -730,21 +736,21 @@ export default inject('store')(
                   "level": "link",
                   "label": "首页",
                   "actionType": "link",
-                  "link": "home"
+                  "link": "home?active=home"
                 },,
                 {
                   "type": "button",
                   "level": "link",
                   "label": "工程案例",
                   "actionType": "link",
-                  "link": "case"
+                  "link": "case?active=case"
                 },
                 {
                   "type": "button",
                   "level": "link",
                   "label": "联系我们",
                   "actionType": "link",
-                  "link": "contact"
+                  "link": "contact?active=contact"
                 }]
               },
               {
@@ -757,14 +763,14 @@ export default inject('store')(
                   "level": "link",
                   "label": "关于我们",
                   "actionType": "link",
-                  "link": "about"
+                  "link": "about?active=about"
                 },,
                 {
                   "type": "button",
                   "level": "link",
                   "label": "新闻咨询",
                   "actionType": "link",
-                  "link": "news"
+                  "link": "news?active=news"
                 }]
               },
               {
@@ -774,14 +780,14 @@ export default inject('store')(
                   "level": "link",
                   "label": "技术与服务",
                   "actionType": "link",
-                  "link": "service"
+                  "link": "service?active=service"
                 },
                 {
                   "type": "button",
                   "level": "link",
                   "label": "人才招聘",
                   "actionType": "link",
-                  "link": "contact"
+                  "link": "contact?active=contact&contactType=employInfo"
                 }]
               }
             ]
