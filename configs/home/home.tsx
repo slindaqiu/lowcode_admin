@@ -13,7 +13,9 @@ let homeJson = {
       "animation": "slide",
       "height": 600,
       "className": "carousel-wrapper",
+      "interval": 4000,
       // "interval": '5s',
+      // "duration": 6000,
       "options": [
         {
           "image": "../../assets/home/carousel1.png"
@@ -225,7 +227,7 @@ let homeJson = {
                     },
                     {
                       "type": "tpl",
-                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
+                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设于一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
                       "style": {
                         "fontSize": 22,
                         "fontWeight": 400,
@@ -254,13 +256,21 @@ let homeJson = {
               "className": "sl-image-container",
               "items": [
                 {
-                  "type": "image",
-                  "src": "../../assets/home/case/case1.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "山东某热电厂烟道气碳氮联产项目",
-                  // "href": "http://www.thkjbj.com/#/case?id=60&active=case"
+                  "type": "link",
+                  // "href": "http://127.0.0.1:8082/case?id=60&active=case",
+                  "href": "http://www.thkjbj.com/#/case?catalog=case1&active=case&id=60",
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/case/case1.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "山东某热电厂烟道气碳氮联产项目",
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  "blank": false,
                 },
                 {
                   "type": "image",
@@ -270,7 +280,7 @@ let homeJson = {
                   "innerClassName": "no-border",
                   // "title": "北京某企业超高纯二氧化碳电子气99.9995"
                   "title": "北京某企业超高纯二氧化碳电子气",
-                  // "href": "http://www.thkjbj.com/#/case?id=61&active=case"
+                  "href": "http://www.thkjbj.com/#/case?id=61&active=case"
                 },
                 {
                   "type": "image",
@@ -334,7 +344,7 @@ let homeJson = {
                     },
                     {
                       "type": "tpl",
-                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设与一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
+                      "tpl": "公司有近三十年的变压吸附行业经验，集研究、设计、工程建设于一体，长期致力于气体分离、净化、提纯技术及材料的研发及应用，客户遍布全国各地。",
                       "style": {
                         "fontSize": 22,
                         "fontWeight": 400,
