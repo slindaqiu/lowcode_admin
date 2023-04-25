@@ -14,9 +14,7 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
         let hash = window.location.hash
         let id: any = null
         let currentCatalog: any = null
-        let activeIndex: any = null
         if(hash.length >= 1) {
-          // debugger
           let paramsString = hash.slice(hash.indexOf('?') + 1);
           // 解析键值对
           let params = new URLSearchParams(paramsString)
@@ -34,7 +32,6 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
             })
             // id 从地址栏获取，是字符串类型，item.id 从数据库获取，是整形，使用 == 比对
             if (id && id == item.id) {
-              activeIndex = index
               tempResult[index].active = true
             }
           })

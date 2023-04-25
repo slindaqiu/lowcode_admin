@@ -14,6 +14,16 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
         "catalog": catalog
       },
       "adaptor": function(payload: any) {
+        let hash = window.location.hash
+        let id: any = null
+        let currentCatalog: any = null
+        if(hash.length >= 1) {
+          let paramsString = hash.slice(hash.indexOf('?') + 1);
+          // 解析键值对
+          let params = new URLSearchParams(paramsString)
+          currentCatalog = params.get('catalog')
+        }
+        // 获取结果
         let tempResult:any[] = []
         if (payload.data && payload.data.items) {
           payload.data.items.forEach((item:any) => {
@@ -23,7 +33,26 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
               "id": item.id
             })
           })
-          if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
+          // 从首页图片跳转过来
+          if (currentCatalog && !id) {
+            // 默认选中第一个
+            if ((currentCatalog == 'news1' && catalog == '企业动态') || (currentCatalog == 'news2' && catalog == '专业文章') || (currentCatalog == 'news3' && catalog == '行业资讯')) {
+              tempResult[0].active = true
+              window.location.href = '/#/news' +'?id=' + tempResult[0].id + '&active=news' + '&catalog=' + currentCatalog
+            }
+            setTimeout(() => {
+              // 使用 js 配合模拟点击实现点击、选中子选项功能
+              const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
+              if (temp) {
+                const event:any = new MouseEvent('click', {
+                  'view': window,
+                  'bubbles': true,
+                  'cancelable': true
+                });
+                temp.dispatchEvent(event)
+              }
+            }, 100)
+          } else if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
             tempResult[0].active = true
             window.location.href = '/#/news' +'?id=' + tempResult[0].id + '&active=news'
           }
@@ -59,9 +88,9 @@ let newsJson = {
                 "width": "400px",
                 "minWidth": "400px"
               },
-              "activeKey": [
+              /* "activeKey": [
                 "news1"
-              ],
+              ], */
               "accordion": true,
               "onEvent": {
                 "selectServiceCatalog": {

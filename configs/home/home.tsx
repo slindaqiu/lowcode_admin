@@ -313,7 +313,6 @@ let homeJson = {
                     "height": 192,
                     "innerClassName": "no-border",
                     "title": "山东某企业变压吸附回收CO",
-                    // "href": "http://www.thkjbj.com/#/case?id=66&active=case"
                   },
                   "blank": false,
                   "style": {
@@ -330,7 +329,6 @@ let homeJson = {
                     "height": 192,
                     "innerClassName": "no-border",
                     "title": "山西某企业煤层气回收甲烷装置",
-                    // "href": "http://www.thkjbj.com/#/case?id=68&active=case"
                   },
                   "blank": false,
                   "style": {
@@ -410,25 +408,49 @@ let homeJson = {
               "className": "sl-news-image-container",
               "items": [
                 {
-                  "type": "image",
-                  "src": "../../assets/home/news/news1.png",
-                  "width": 400,
-                  "height": 192,
-                  "title": "企业动态"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/news?&active=news&catalog=news1`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/news/news1.png",
+                    "width": 400,
+                    "height": 192,
+                    "title": "企业动态"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/news/news2.png",
-                  "width": 400,
-                  "height": 192,
-                  "title": "行业发展"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/news?active=news&catalog=news3`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/news/news2.png",
+                    "width": 400,
+                    "height": 192,
+                    "title": "行业发展"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/news/news3.png",
-                  "width": 400,
-                  "height": 192,
-                  "title": "专业文章"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/news?active=news&catalog=news2`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/news/news3.png",
+                    "width": 400,
+                    "height": 192,
+                    "title": "专业文章"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 }
               ]
             }
