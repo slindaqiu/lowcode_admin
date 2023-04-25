@@ -11,7 +11,6 @@ const getSubNav = (title: any, isDefaultActive: any) => {
         },
         "sendOn": "${catalog}",
         "adaptor": function(payload: any) {
-          debugger
           let tempResult:any[] = []
           if (payload.data && payload.data.items) {
             payload.data.items.forEach((item:any) => {

@@ -2,7 +2,6 @@
   根据类型获取子菜单列表
 */
 const getSubNav = (catalog: any, isDefaultActive: any) => {
-  debugger
   /* let isDefaultActive = false
   if (catalog === selectCatalog) {
     isDefaultActive = true
@@ -105,7 +104,6 @@ let serviceJson = {
                             'cancelable': true
                           });
                           setTimeout(() => {
-                            debugger
                             subTemp.dispatchEvent(event2)
                           }, 100);
                         }

@@ -2,6 +2,7 @@
 // import carouse3 from '../../assets/home/carouse3.png'
 // import carouse2 from '../../assets/home/carouse4.png'
 // import carouse4 from '../../assets/home/carouse4.png'
+import BASE_URL from '../../settings'
 let homeJson = {
   "type": "service",
   "body": [
@@ -255,8 +256,7 @@ let homeJson = {
               "items": [
                 {
                   "type": "link",
-                  "href": "http://127.0.0.1:8090/#/case?id=60",
-                  // "href": "http://www.thkjbj.com/#/case?catalog=case1&active=case&id=60",
+                  "href": `${BASE_URL}/#/case?id=60&active=case&catalog=case1`,
                   "body": {
                     "type": "image",
                     "src": "../../assets/home/case/case1.png",
@@ -269,10 +269,13 @@ let homeJson = {
                     }
                   },
                   "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
                   "type": "link",
-                  "href": "http://127.0.0.1:8090/#/case?id=61",
+                  "href": `${BASE_URL}/#/case?id=61&active=case&catalog=case1`,
                   "body": {
                     "type": "image",
                     "src": "../../assets/home/case/case2.png",
@@ -281,31 +284,59 @@ let homeJson = {
                     "innerClassName": "no-border",
                     // "title": "北京某企业超高纯二氧化碳电子气99.9995"
                     "title": "北京某企业超高纯二氧化碳电子气",
-                    "style": {
-                      "cursor": "poiner"
-                    }
-                    // "href": "http://www.thkjbj.com/#/case?id=61&active=case"
                   },
                   "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  },
+                  /* "click": {
+                    "actions": [
+                      {
+                        "actionType": "broadcast",
+                        "args": {
+                          "eventName": "selectServiceCatalog"
+                        },
+                        "data": {
+                          "selectedCatalog": 'case1',
+                        }
+                      }
+                    ]
+                  } */
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/case/case3.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "山东某企业变压吸附回收CO",
-                  // "href": "http://www.thkjbj.com/#/case?id=66&active=case"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/case?id=66&active=case&catalog=case2`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/case/case3.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "山东某企业变压吸附回收CO",
+                    // "href": "http://www.thkjbj.com/#/case?id=66&active=case"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/case/case4.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "山西某企业煤层气回收甲烷装置",
-                  // "href": "http://www.thkjbj.com/#/case?id=68&active=case"
-                },
+                  "type": "link",
+                  "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/case/case4.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "山西某企业煤层气回收甲烷装置",
+                    // "href": "http://www.thkjbj.com/#/case?id=68&active=case"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
+                }
               ]
             }
           ]
