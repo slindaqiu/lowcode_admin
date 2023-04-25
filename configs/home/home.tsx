@@ -151,37 +151,69 @@ let homeJson = {
               "className": "sl-image-container",
               "items": [
                 {
-                  "type": "image",
-                  "src": "../../assets/home/service/service1.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "CCUS技术"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/service?id=1&active=service&catalog=service1`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/service/service1.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "CCUS技术"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/service/service2.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "制氢技术"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/service?id=8&active=service&catalog=service3`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/service/service2.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "制氢技术"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/service/service3.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "甲烷回收技术"
+                  "type": "link",
+                  "href": `${BASE_URL}/#/service?id=10&active=service&catalog=service4`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/service/service3.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "甲烷回收技术"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
                 },
                 {
-                  "type": "image",
-                  "src": "../../assets/home/service/service4.png",
-                  "width": 300,
-                  "height": 192,
-                  "innerClassName": "no-border",
-                  "title": "PSA空分制氮技术"
-                },
+                  "type": "link",
+                  "href": `${BASE_URL}/#/service?id=12&active=service&catalog=service5`,
+                  "body": {
+                    "type": "image",
+                    "src": "../../assets/home/service/service4.png",
+                    "width": 300,
+                    "height": 192,
+                    "innerClassName": "no-border",
+                    "title": "PSA空分制氮技术"
+                  },
+                  "blank": false,
+                  "style": {
+                    "cursor": "poiner"
+                  }
+                }
               ]
             }
           ]

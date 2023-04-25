@@ -17,16 +17,47 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
         "catalog": catalog
       },
       "adaptor": function(payload: any) {
+        let hash = window.location.hash
+        let id: any = null
+        let currentCatalog: any = null
+        if(hash.length >= 1) {
+          let paramsString = hash.slice(hash.indexOf('?') + 1);
+          // 解析键值对
+          let params = new URLSearchParams(paramsString)
+          id = params.get('id')
+          currentCatalog = params.get('catalog')
+        }
+
         let tempResult:any[] = []
         if (payload.data && payload.data.items) {
-          payload.data.items.forEach((item:any) => {
+          payload.data.items.forEach((item:any, index: any) => {
             tempResult.push({
               "label": item.title,
               "to": "?id=" + item.id + '&active=service',
               "id": item.id
             })
+            // id 从地址栏获取，是字符串类型，item.id 从数据库获取，是整形，使用 == 比对
+            if (id && id == item.id) {
+              tempResult[index].active = true
+            }
           })
-          if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
+
+          if (id) {
+            setTimeout(() => {
+              // 使用 js 配合模拟点击实现点击、选中子选项功能
+              const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
+              if (temp) {
+                const event:any = new MouseEvent('click', {
+                  'view': window,
+                  'bubbles': true,
+                  'cancelable': true
+                });
+                temp.dispatchEvent(event)
+              }
+            }, 100)
+          }
+          // 在 id 没有值的情况下，默认选中指定菜单的第一项
+          if (!id && isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
             tempResult[0].active = true
             window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service'
           }
@@ -69,7 +100,7 @@ let serviceJson = {
             "width": "400px",
             "minWidth": "400px"
           },
-          "activeKey": "service1",
+          // "activeKey": "service1",
           "accordion": true,
           "onEvent": {
             "selectServiceCatalog": {
