@@ -3,6 +3,90 @@
 // import carouse2 from '../../assets/home/carouse4.png'
 // import carouse4 from '../../assets/home/carouse4.png'
 import BASE_URL from '../../settings'
+
+// window.onload = function() {
+// 滑动
+let slider: any = null
+let images: any = null
+let counter: any = 0
+let targetPosition: any = 0
+// 开始滑动
+setTimeout(() => {
+  slider = document.querySelector('.slider-wrapper')
+  // 滚动容器的左右移动，增加点击事件，清理 counter 值
+  if(slider) {
+    if (slider.querySelectorAll('a').length === 7) {
+      slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+      let links = slider.querySelectorAll('a')
+      for (let i = 0; i < links.length; i++) {
+        links[i].addEventListener("click", function() {
+          counter = 0
+        })
+      }
+    }
+    images = slider.querySelectorAll('img')
+    targetPosition = 0
+
+    // 初始化位置
+    counter = 7
+    targetPosition = -counter * 326
+    slider.style.transition = 'inherit'
+    slider.style.transform = `translateX(${targetPosition}px)`
+
+    // let btnLeft:any = document.querySelector('.slider-left-arrow');
+    // let btnRight:any = document.querySelector('.slider-right-arrow');
+
+    // 每次滚动的宽度（图片宽度 + 图片间距）
+    // const slideWidth = slider.children[0].clientWidth + 26
+
+    // 复制第一张图片并添加到列表末尾
+    // slider.appendChild(images[0].cloneNode(true))
+
+    /* btnLeft.addEventListener('click', function() {
+      debugger
+      if (counter < 17) {
+        counter++ 
+        targetPosition = -counter * slideWidth
+        slider.style.transition = 'transform 0.8s ease-in-out'
+        slider.style.transform = `translateX(${targetPosition}px)`
+      } else if (counter === 3) {
+        slider.style.transition = 'inherit'
+        slider.style.transform = `translateX(0)`
+        counter = 0
+      }
+    }) */
+    /* btnRight.addEventListener('click', function() {
+      if (counter > 0) {
+        counter-- 
+        targetPosition = -counter * slideWidth
+        slider.style.transition = 'transform 0.8s ease-in-out'
+        slider.style.transform = `translateX(${targetPosition}px)`
+      } else if (counter === 0) {
+        counter--
+        slider.style.transition = 'transform 0.8s ease-in-out'
+        slider.style.transform = "translateX(slideWidth)"
+        setTimeout(() => {
+          slider.insertBefore(slider.children[6], slider.children[0])
+          slider.style.transform = "translateX(0%)"
+          counter++
+        }, 800);
+      }
+    }) */
+    /* slider.addEventListener('transitionend', function() {
+      if (currentIndex === 0) {
+        slider.style.transition = '';
+        slider.style.transform = `translateX(${-images.length * images[0].clientWidth}px)`;
+        currentIndex = images.length - 1;
+      } else if (currentIndex === images.length - 1) {
+        slider.style.transition = '';
+        slider.style.transform = `translateX(${-images[0].clientWidth}px)`;
+        currentIndex = 0;
+      }
+    }) */
+  }
+  }, 1000)
+// }
+
 let homeJson = {
   "type": "service",
   "body": [
@@ -98,6 +182,10 @@ let homeJson = {
         {
           "type": "flex",
           "direction": "column",
+          "style": {
+            "position": "relative",
+            "width": "100%"
+          },
           "items": [
             {
               "type": "flex",
@@ -142,79 +230,242 @@ let homeJson = {
                 }
               ]
             },
-            {
-              "type": "flex",
-              "justify": "space-between",
+            /* {
+              "type": "image",
+              "src": "../../assets/home/imgLeft.png",
+              "className": "slider-left-arrow",
+              "innerClassName": "no-border",
+              "width": 36,
+              "height": 36,
               "style": {
-                "width": "100%"
+                "position": "absolute",
+                "left": "-60px",
+                "top": "236px",
+                "cursor": "pointer"
+              }
+            }, */
+            {
+              // "type": "image",
+              // "src": "../../assets/home/imgLeft.png",
+              "type": "button",
+              "className": "slider-left-arrow",
+              "level": "link",
+              "innerClassName": "no-border",
+              "width": 36,
+              "height": 36,
+              "style": {
+                "background": "url('../../assets/home/imgLeft.png')",
+                "position": "absolute",
+                "left": "-60px",
+                "top": "236px",
+                "cursor": "pointer"
               },
-              "className": "sl-image-container",
-              "items": [
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/service?id=1&active=service&catalog=service1`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/service/service1.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "CCUS技术"
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/service?id=8&active=service&catalog=service3`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/service/service2.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "制氢技术"
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/service?id=10&active=service&catalog=service4`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/service/service3.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "甲烷回收技术"
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/service?id=12&active=service&catalog=service5`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/service/service4.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "PSA空分制氮技术"
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "custom",
+                      "script": function (context: any, doAction: any, event: any) {
+                        // 处理重新初始化
+                        slider = document.querySelector('.slider-wrapper')
+                        if (slider.querySelectorAll('a').length === 7) {
+                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                        }
+                        if (counter < 17) {
+                          counter++ 
+                          targetPosition = -counter * 326
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = `translateX(${targetPosition}px)`
+                        } else if (counter === 3) {
+                          slider.style.transition = 'inherit'
+                          slider.style.transform = `translateX(0)`
+                          counter = 0
+                        }
+                      }
+                    }
+                  ]
                 }
-              ]
+              }
+            },
+            {
+              "type": "button",
+              "level": "link",
+              "className": "slider-right-arrow",
+              "innerClassName": "no-border",
+              "width": 36,
+              "height": 36,
+              "style": {
+                "background": "url('../../assets/home/imgRight.png')",
+                "position": "absolute",
+                "right": "-60px",
+                "top": "236px",
+                "cursor": "pointer"
+              },
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "custom",
+                      "script": function (context: any, doAction: any, event: any) {
+                        // 处理重新初始化
+                        slider = document.querySelector('.slider-wrapper')
+                        if (slider.querySelectorAll('a').length === 7) {
+                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                        }
+                        if (counter > 0) {
+                          counter-- 
+                          targetPosition = -counter * 326
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = `translateX(${targetPosition}px)`
+                        } else if (counter === 0) {
+                          counter--
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = "translateX(slideWidth)"
+                          /* setTimeout(() => {
+                            slider.insertBefore(slider.children[6], slider.children[0])
+                            slider.style.transform = "translateX(0%)"
+                            counter++
+                          }, 800); */
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "wrapper",
+              "style": {
+                "overflow": "hidden",
+                "width": "100%",
+                "padding": 0
+              },
+              "body": {
+                "type": "flex",
+                // "justify": "space-start",
+                "justify": "flex-start",
+                "style": {
+                  // "width": "2256px",
+                  "width": "6820px",
+                  "height": "240px"
+                },
+                "className": "sl-image-container slider-wrapper",
+                "items": [
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=1&active=service&catalog=service1`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service1.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "CCUS技术"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=8&active=service&catalog=service3`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service2.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "制氢技术"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=10&active=service&catalog=service4`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service3.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "甲烷回收技术"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=12&active=service&catalog=service5`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service4.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "PSA空分制氮技术"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    // "href": `${BASE_URL}/#/service?id=12&active=service&catalog=service5`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service5.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "气体干燥技术"
+                     // "title": "变压吸附提纯CO"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=17&active=service&catalog=service6`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service6.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "气体干燥净化技术"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/service?id=26&active=service&catalog=service7`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/service/service7.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "吸附剂、催化剂"
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
