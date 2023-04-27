@@ -7,14 +7,44 @@ import BASE_URL from '../../settings'
 // window.onload = function() {
 // 滑动
 let slider: any = null
-let images: any = null
+let caseSlider: any = null
 let counter: any = 0
+let caseCounter: any = 0
 let targetPosition: any = 0
+
+function sliderInit(slider: any) {
+  // 滚动容器的左右移动，增加点击事件，清理 counter 值
+  if(slider) {
+    if (slider.querySelectorAll('a').length === 7) {
+      slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+      let links = slider.querySelectorAll('a')
+      for (let i = 0; i < links.length; i++) {
+        links[i].addEventListener("click", function() {
+          counter = 0
+          caseCounter = 0
+        })
+      }
+    }
+    // 初始化位置
+    counter = 7
+    caseCounter = 7
+    targetPosition = -counter * 326
+    slider.style.transition = 'inherit'
+    slider.style.transform = `translateX(${targetPosition}px)`
+  }
+}
+
 // 开始滑动
 setTimeout(() => {
   slider = document.querySelector('.slider-wrapper')
   // 滚动容器的左右移动，增加点击事件，清理 counter 值
-  if(slider) {
+  sliderInit(slider)
+
+  // 工程案例
+  caseSlider = document.querySelector('.case-slider-wrapper')
+  sliderInit(caseSlider)
+
+  /* if(slider) {
     if (slider.querySelectorAll('a').length === 7) {
       slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
       let links = slider.querySelectorAll('a')
@@ -24,67 +54,13 @@ setTimeout(() => {
         })
       }
     }
-    images = slider.querySelectorAll('img')
-    targetPosition = 0
-
     // 初始化位置
     counter = 7
     targetPosition = -counter * 326
     slider.style.transition = 'inherit'
     slider.style.transform = `translateX(${targetPosition}px)`
-
-    // let btnLeft:any = document.querySelector('.slider-left-arrow');
-    // let btnRight:any = document.querySelector('.slider-right-arrow');
-
-    // 每次滚动的宽度（图片宽度 + 图片间距）
-    // const slideWidth = slider.children[0].clientWidth + 26
-
-    // 复制第一张图片并添加到列表末尾
-    // slider.appendChild(images[0].cloneNode(true))
-
-    /* btnLeft.addEventListener('click', function() {
-      debugger
-      if (counter < 17) {
-        counter++ 
-        targetPosition = -counter * slideWidth
-        slider.style.transition = 'transform 0.8s ease-in-out'
-        slider.style.transform = `translateX(${targetPosition}px)`
-      } else if (counter === 3) {
-        slider.style.transition = 'inherit'
-        slider.style.transform = `translateX(0)`
-        counter = 0
-      }
-    }) */
-    /* btnRight.addEventListener('click', function() {
-      if (counter > 0) {
-        counter-- 
-        targetPosition = -counter * slideWidth
-        slider.style.transition = 'transform 0.8s ease-in-out'
-        slider.style.transform = `translateX(${targetPosition}px)`
-      } else if (counter === 0) {
-        counter--
-        slider.style.transition = 'transform 0.8s ease-in-out'
-        slider.style.transform = "translateX(slideWidth)"
-        setTimeout(() => {
-          slider.insertBefore(slider.children[6], slider.children[0])
-          slider.style.transform = "translateX(0%)"
-          counter++
-        }, 800);
-      }
-    }) */
-    /* slider.addEventListener('transitionend', function() {
-      if (currentIndex === 0) {
-        slider.style.transition = '';
-        slider.style.transform = `translateX(${-images.length * images[0].clientWidth}px)`;
-        currentIndex = images.length - 1;
-      } else if (currentIndex === images.length - 1) {
-        slider.style.transition = '';
-        slider.style.transform = `translateX(${-images[0].clientWidth}px)`;
-        currentIndex = 0;
-      }
-    }) */
-  }
-  }, 1000)
+  } */
+  }, 1000) 
 // }
 
 let homeJson = {
@@ -230,23 +206,7 @@ let homeJson = {
                 }
               ]
             },
-            /* {
-              "type": "image",
-              "src": "../../assets/home/imgLeft.png",
-              "className": "slider-left-arrow",
-              "innerClassName": "no-border",
-              "width": 36,
-              "height": 36,
-              "style": {
-                "position": "absolute",
-                "left": "-60px",
-                "top": "236px",
-                "cursor": "pointer"
-              }
-            }, */
             {
-              // "type": "image",
-              // "src": "../../assets/home/imgLeft.png",
               "type": "button",
               "className": "slider-left-arrow",
               "level": "link",
@@ -292,14 +252,14 @@ let homeJson = {
               "level": "link",
               "className": "slider-right-arrow",
               "innerClassName": "no-border",
-              "width": 36,
-              "height": 36,
               "style": {
-                "background": "url('../../assets/home/imgRight.png')",
+                "background": "url('../../assets/home/imgRight.png') 36px 36px",
                 "position": "absolute",
                 "right": "-60px",
                 "top": "236px",
-                "cursor": "pointer"
+                "cursor": "pointer",
+                "width": "36px",
+                "height": "36px",
               },
               "onEvent": {
                 "click": {
@@ -475,16 +435,19 @@ let homeJson = {
     {
       "type": "wrapper",
       "height": 464,
-      "width": "100%",
       "style": {
         "background": "url('../../assets/home/case/case.png') no-repeat top center",
         "backgroundSize": "cover",
-        "padding": "40px 80px",
+        "padding": "40px 80px"
       },
       "body": [
         {
           "type": "flex",
           "direction": "column",
+          "style": {
+            "position": "relative",
+            "width": "100%",
+          },
           "items": [
             {
               "type": "flex",
@@ -530,95 +493,228 @@ let homeJson = {
               ]
             },
             {
-              "type": "flex",
-              "justify": "space-between",
+              "type": "button",
+              "className": "slider-left-arrow",
+              "level": "link",
+              "innerClassName": "no-border",
+              "width": 36,
+              "height": 36,
               "style": {
-                "width": "100%"
+                "background": "url('../../assets/home/imgLeft.png')",
+                "position": "absolute",
+                "left": "-60px",
+                "top": "236px",
+                "cursor": "pointer"
               },
-              "className": "sl-image-container",
-              "items": [
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/case?id=60&active=case&catalog=case1`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/case/case1.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "山东某热电厂烟道气碳氮联产项目",
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "custom",
+                      "script": function (context: any, doAction: any, event: any) {
+                        // 处理重新初始化
+                        slider = document.querySelector('.case-slider-wrapper')
+                        if (slider.querySelectorAll('a').length === 7) {
+                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                        }
+                        if (counter < 17) {
+                          caseCounter++ 
+                          targetPosition = -caseCounter * 326
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = `translateX(${targetPosition}px)`
+                        } else if (caseCounter === 3) {
+                          slider.style.transition = 'inherit'
+                          slider.style.transform = `translateX(0)`
+                          caseCounter = 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "button",
+              "level": "link",
+              "className": "slider-right-arrow",
+              "innerClassName": "no-border",
+              "style": {
+                "background": "url('../../assets/home/imgRight.png')",
+                "position": "absolute",
+                "right": "-60px",
+                "top": "236px",
+                "cursor": "pointer",
+                "width": "36px",
+                "height": "36px"
+              },
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "custom",
+                      "script": function (context: any, doAction: any, event: any) {
+                        // 处理重新初始化
+                        slider = document.querySelector('.case-slider-wrapper')
+                        if (slider.querySelectorAll('a').length === 7) {
+                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                        }
+                        if (caseCounter > 0) {
+                          caseCounter-- 
+                          targetPosition = -caseCounter * 326
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = `translateX(${targetPosition}px)`
+                        } else if (counter === 0) {
+                          caseCounter--
+                          slider.style.transition = 'transform 0.8s ease-in-out'
+                          slider.style.transform = "translateX(slideWidth)"
+                          /* setTimeout(() => {
+                            slider.insertBefore(slider.children[6], slider.children[0])
+                            slider.style.transform = "translateX(0%)"
+                            counter++
+                          }, 800); */
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "wrapper",
+              "style": {
+                "overflow": "hidden",
+                "width": "100%",
+                "padding": 0
+              },
+              "body": {
+                "type": "flex",
+                // "justify": "space-between",
+                "justify": "flex-start",
+                "style": {
+                  // "width": "100%",
+                  "width": "6820px",
+                  "height": "240px"
+                },
+                "className": "sl-image-container case-slider-wrapper",
+                "items": [
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/case?id=60&active=case&catalog=case1`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case1.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "山东某热电厂烟道气碳氮联产项目",
+                      "style": {
+                        "cursor": "poiner"
+                      }
+                    },
+                    "blank": false,
                     "style": {
                       "cursor": "poiner"
                     }
                   },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/case?id=61&active=case&catalog=case1`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case2.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      // "title": "北京某企业超高纯二氧化碳电子气99.9995"
+                      "title": "北京某企业超高纯二氧化碳电子气",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/case?id=66&active=case&catalog=case2`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case3.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "山东某企业变压吸附回收CO",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case4.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "山西某企业煤层气回收甲烷装置",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case5.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "某企业空分PSA制氮装置",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case6.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "高纯氮气装置",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
+                  },
+                  {
+                    "type": "link",
+                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "body": {
+                      "type": "image",
+                      "src": "../../assets/home/case/case7.png",
+                      "width": 300,
+                      "height": 192,
+                      "innerClassName": "no-border",
+                      "title": "吸附剂、催化剂",
+                    },
+                    "blank": false,
+                    "style": {
+                      "cursor": "poiner"
+                    }
                   }
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/case?id=61&active=case&catalog=case1`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/case/case2.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    // "title": "北京某企业超高纯二氧化碳电子气99.9995"
-                    "title": "北京某企业超高纯二氧化碳电子气",
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  },
-                  /* "click": {
-                    "actions": [
-                      {
-                        "actionType": "broadcast",
-                        "args": {
-                          "eventName": "selectServiceCatalog"
-                        },
-                        "data": {
-                          "selectedCatalog": 'case1',
-                        }
-                      }
-                    ]
-                  } */
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/case?id=66&active=case&catalog=case2`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/case/case3.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "山东某企业变压吸附回收CO",
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
-                },
-                {
-                  "type": "link",
-                  "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
-                  "body": {
-                    "type": "image",
-                    "src": "../../assets/home/case/case4.png",
-                    "width": 300,
-                    "height": 192,
-                    "innerClassName": "no-border",
-                    "title": "山西某企业煤层气回收甲烷装置",
-                  },
-                  "blank": false,
-                  "style": {
-                    "cursor": "poiner"
-                  }
-                }
-              ]
+                ]
+              }
             }
           ]
         }
