@@ -159,10 +159,7 @@ button.cxd-Button.cxd-Button--link.cxd-Button--size-default.home-active.nav-titl
 }
 
 // 首页图片左右轮播切换
-.slider-wrapper {
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
+.slider-wrapper, .case-slider-wrapper {
     a {
         margin-right: 26px;
     }
