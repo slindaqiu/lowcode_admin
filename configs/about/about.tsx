@@ -2,7 +2,7 @@ let aboutJson = {
     "type": "service",
     "id": "aboutNav",
     "data": {
-      "aboutType": "company"
+      "aboutType": "${aboutType}"
     },
     "body": [
       {

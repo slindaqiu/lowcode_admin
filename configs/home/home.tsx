@@ -74,6 +74,9 @@ let homeJson = {
       "animation": "slide",
       "height": 600,
       "className": "carousel-wrapper",
+      "style": {
+        "overflow": "hidden"
+      },
       // "interval": '5s',
       "options": [
         {
@@ -517,7 +520,7 @@ let homeJson = {
                         if (slider.querySelectorAll('a').length === 7) {
                           slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
                         }
-                        if (counter < 17) {
+                        if (caseCounter < 17) {
                           caseCounter++ 
                           targetPosition = -caseCounter * 326
                           slider.style.transition = 'transform 0.8s ease-in-out'
@@ -563,7 +566,7 @@ let homeJson = {
                           targetPosition = -caseCounter * 326
                           slider.style.transition = 'transform 0.8s ease-in-out'
                           slider.style.transform = `translateX(${targetPosition}px)`
-                        } else if (counter === 0) {
+                        } else if (caseCounter === 0) {
                           caseCounter--
                           slider.style.transition = 'transform 0.8s ease-in-out'
                           slider.style.transform = "translateX(slideWidth)"

@@ -2,8 +2,8 @@ let contactJson = {
     "type": "service",
     "id": "contactNav",
     "data": {
-      "contactType": "contactInfo"
-      // "contactType": "employInfo"
+      "contactType": "${contactType}"
+      // "contactType": "contactInfo"
     },
     "body": [
         {
