@@ -384,8 +384,7 @@ let homeJson = {
                       "width": 300,
                       "height": 192,
                       "innerClassName": "no-border",
-                      "title": "气体干燥技术"
-                     // "title": "变压吸附提纯CO"
+                     "title": "变压吸附提纯CO"
                     },
                     "blank": false,
                     "style": {
