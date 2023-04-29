@@ -377,7 +377,7 @@ let homeJson = {
                   },
                   {
                     "type": "link",
-                    // "href": `${BASE_URL}/#/service?id=12&active=service&catalog=service5`,
+                    "href": `${BASE_URL}/#/service?id=7&active=service&catalog=service2`,
                     "body": {
                       "type": "image",
                       "src": "../../assets/home/service/service5.png",
