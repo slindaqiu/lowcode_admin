@@ -214,7 +214,7 @@ let homeJson = {
               "width": 36,
               "height": 36,
               "style": {
-                "background": "url('../../assets/home/imgLeft.png')",
+                "background": "url('../../assets/home/whiteLeftArrow.png')",
                 "position": "absolute",
                 "left": "-60px",
                 "top": "236px",
@@ -253,7 +253,7 @@ let homeJson = {
               "className": "slider-right-arrow",
               "innerClassName": "no-border",
               "style": {
-                "background": "url('../../assets/home/imgRight.png') 36px 36px",
+                "background": "url('../../assets/home/whiteRightArrow.png') 36px 36px",
                 "position": "absolute",
                 "right": "-60px",
                 "top": "236px",
