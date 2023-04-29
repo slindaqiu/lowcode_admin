@@ -74,9 +74,6 @@ let homeJson = {
       "animation": "slide",
       "height": 600,
       "className": "carousel-wrapper",
-      "style": {
-        "overflow": "hidden"
-      },
       // "interval": '5s',
       "options": [
         {
@@ -670,7 +667,7 @@ let homeJson = {
                   },
                   {
                     "type": "link",
-                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "href": `${BASE_URL}/#/case?id=41&active=case&catalog=case5`,
                     "body": {
                       "type": "image",
                       "src": "../../assets/home/case/case5.png",
@@ -686,7 +683,7 @@ let homeJson = {
                   },
                   {
                     "type": "link",
-                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "href": `${BASE_URL}/#/case?id=45&active=case&catalog=case6`,
                     "body": {
                       "type": "image",
                       "src": "../../assets/home/case/case6.png",
@@ -702,7 +699,7 @@ let homeJson = {
                   },
                   {
                     "type": "link",
-                    // "href": `${BASE_URL}/#/case?id=68&active=case&catalog=case4`,
+                    "href": `${BASE_URL}/#/case?id=27&active=case&catalog=case7`,
                     "body": {
                       "type": "image",
                       "src": "../../assets/home/case/case7.png",
