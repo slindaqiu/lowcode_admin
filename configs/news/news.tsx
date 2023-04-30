@@ -39,20 +39,20 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
             if ((currentCatalog == 'news1' && catalog == '企业动态') || (currentCatalog == 'news2' && catalog == '专业文章') || (currentCatalog == 'news3' && catalog == '行业资讯')) {
               tempResult[0].active = true
               window.location.href = '/#/news' +'?id=' + tempResult[0].id + '&active=news' + '&catalog=' + currentCatalog
+              setTimeout(() => {
+                // 使用 js 配合模拟点击实现点击、选中子选项功能
+                const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
+                if (temp && temp.parentElement && !temp.parentElement.classList.contains('is-active')) {
+                  const event:any = new MouseEvent('click', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': true
+                  });
+                  temp.dispatchEvent(event)
+                }
+              }, 100)
             }
-            setTimeout(() => {
-              // 使用 js 配合模拟点击实现点击、选中子选项功能
-              const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
-              if (temp) {
-                const event:any = new MouseEvent('click', {
-                  'view': window,
-                  'bubbles': true,
-                  'cancelable': true
-                });
-                temp.dispatchEvent(event)
-              }
-            }, 100)
-          } else if (isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
+          } else if (!id && isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
             tempResult[0].active = true
             window.location.href = '/#/news' +'?id=' + tempResult[0].id + '&active=news'
           }
