@@ -118,7 +118,6 @@ let newsJson = {
                                 'cancelable': true
                               });
                               setTimeout(() => {
-                                debugger
                                 subTemp.dispatchEvent(event2)
                               }, 100);
                             }

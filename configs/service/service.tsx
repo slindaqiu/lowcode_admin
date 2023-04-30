@@ -1,11 +1,7 @@
 /* 
   根据类型获取子菜单列表
 */
-const getSubNav = (catalog: any, isDefaultActive: any) => {
-  /* let isDefaultActive = false
-  if (catalog === selectCatalog) {
-    isDefaultActive = true
-  } */
+const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
   return {
     "type": "nav",
     "stacked": true,
@@ -28,39 +24,56 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
           currentCatalog = params.get('catalog')
         }
 
+        // 从导航进入，包含 catalog，不包含 id，不处理
         let tempResult:any[] = []
         if (payload.data && payload.data.items) {
           payload.data.items.forEach((item:any, index: any) => {
             tempResult.push({
               "label": item.title,
-              "to": "?id=" + item.id + '&active=service',
+              "to": "?id=" + item.id + '&active=service' + '&catalog=' + catalogType,
               "id": item.id
             })
             // id 从地址栏获取，是字符串类型，item.id 从数据库获取，是整形，使用 == 比对
             if (id && id == item.id) {
+              // 如果 id 一样，则高亮子菜单
               tempResult[index].active = true
             }
           })
-
-          if (id) {
-            setTimeout(() => {
-              // 使用 js 配合模拟点击实现点击、选中子选项功能
-              const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
-              if (temp) {
-                const event:any = new MouseEvent('click', {
-                  'view': window,
-                  'bubbles': true,
-                  'cancelable': true
-                });
-                temp.dispatchEvent(event)
+          // 从首页进来，包含 catalog 和 id ，默认选中指定文章
+          if (currentCatalog) {
+           // 如果 id 不存在，则选择导航默认第一条数据, 默认选中第一个
+           if (
+            (currentCatalog == 'service1' && catalog == '二氧化碳的捕集利用') 
+            || (currentCatalog == 'service2' && catalog == '变压吸附提纯CO技术') 
+            || (currentCatalog == 'service3' && catalog == '变压吸附制氢技术')
+            || (currentCatalog == 'service4' && catalog == '甲烷提浓技术')
+            || (currentCatalog == 'service5' && catalog == '空分PSA制氮、制氧技术')
+            || (currentCatalog == 'service6' && catalog == '气体干燥净化技术')
+            || (currentCatalog == 'service7' && catalog == '吸附剂、催化剂')
+            ) {
+              setTimeout(() => {
+                // 使用 js 配合模拟点击实现菜单点击，高亮菜单
+                const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
+                if (temp && temp.parentElement && !temp.parentElement.classList.contains('is-active')) {
+                  const event:any = new MouseEvent('click', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': true
+                  });
+                  temp.dispatchEvent(event)
+                }
+              }, 50)
+              // id 不存在
+              if (!id) {
+                tempResult[0].active = true
+                window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service' + '&catalog=' + catalogType
               }
-            }, 100)
+            }
           }
-          // 在 id 没有值的情况下，默认选中指定菜单的第一项
-          if (!id && isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
+          /* else if (!id && isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
             tempResult[0].active = true
             window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service'
-          }
+          } */
         }
         return {
           status: payload.status,
@@ -74,7 +87,7 @@ const getSubNav = (catalog: any, isDefaultActive: any) => {
 let serviceJson = {
   "type": "service",
   "id": "serviceContainer",
-  "debug": true,
+  // "debug": true,
   "data": {
     "catalog": "变压吸附提纯CO技术"
   },
@@ -119,12 +132,15 @@ let serviceJson = {
                     if (selectedCatalog) {
                       const temp = document.querySelector(`.${selectedCatalog} .cxd-Collapse-header`)
                       if (temp) {
-                        const event:any = new MouseEvent('click', {
-                          'view': window,
-                          'bubbles': true,
-                          'cancelable': true
-                        });
-                        temp.dispatchEvent(event);
+                        // 如果节点已经选中，则不处理
+                        if (temp.parentElement && !temp.parentElement.classList.contains('is-active')) {
+                          const event:any = new MouseEvent('click', {
+                            'view': window,
+                            'bubbles': true,
+                            'cancelable': true
+                          });
+                          temp.dispatchEvent(event)
+                        }
 
                         // 默认点击下拉框第一个元素
                         const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
@@ -136,32 +152,10 @@ let serviceJson = {
                           });
                           setTimeout(() => {
                             subTemp.dispatchEvent(event2)
-                          }, 100);
+                          }, 50);
                         }
                       }
-                      /* if (temp && !temp.classList.contains('is-active')) {
-                        temp.classList.add('is-active')
-                      }
-
-                      const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-list`)
-                      if (subTemp && !subTemp.classList.contains('cxd-Nav-list--stacked')) {
-                        subTemp.classList.add('cxd-Nav-list--stacked')
-                      }
-
-                      const subTemp2 = document.querySelector(`.${selectedCatalog} .cxd-Collapse-contentWrapper`)
-                      if (subTemp2 && subTemp2.classList.contains('out')) {
-                        subTemp2.classList.remove('out')
-                      } */
                     }
-                    /* debugger
-                    if (temp) {
-                      const event = new MouseEvent('click', {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window
-                      })
-                      temp.dispatchEvent(event);
-                    } */
                   }
                 },
                 
@@ -174,7 +168,7 @@ let serviceJson = {
               "className": "service1",
               "key": "service1",
               "header": "二氧化碳的捕集利用",
-              "body": getSubNav("二氧化碳的捕集利用", true)
+              "body": getSubNav("二氧化碳的捕集利用", "service1", true)
             },
             {
               "type": "collapse",
@@ -182,42 +176,42 @@ let serviceJson = {
               "key": "service2",
               "header": "变压吸附提纯CO技术",
               "isActive": true,
-              "body": getSubNav("变压吸附提纯CO技术", false)
+              "body": getSubNav("变压吸附提纯CO技术", "service2", false)
             },
             {
               "type": "collapse",
               "className": "service3",
               "key": "service3",
               "header": "变压吸附制氢技术",
-              "body": getSubNav("变压吸附制氢技术", false)
+              "body": getSubNav("变压吸附制氢技术", "service3", false)
             },
             {
               "type": "collapse",
               "className": "service4",
               "key": "service4",
               "header": "甲烷提浓技术",
-              "body": getSubNav("甲烷提浓技术", false)
+              "body": getSubNav("甲烷提浓技术", "service4", false)
             },
             {
               "type": "collapse",
               "className": "service5",
               "key": "service5",
               "header": "空分PSA制氮、制氧技术",
-              "body": getSubNav("空分PSA制氮、制氧技术", false)
+              "body": getSubNav("空分PSA制氮、制氧技术", "service5", false)
             },
             {
               "type": "collapse",
               "className": "service6",
               "key": "service6",
               "header": "气体干燥净化技术",
-              "body": getSubNav("气体干燥净化技术", false)
+              "body": getSubNav("气体干燥净化技术", "service6", false)
             },
             {
               "type": "collapse",
               "className": "service7",
               "key": "service7",
               "header": "吸附剂、催化剂",
-              "body": getSubNav("吸附剂、催化剂",  false)
+              "body": getSubNav("吸附剂、催化剂",  "service7", false)
             }
           ]
         },
