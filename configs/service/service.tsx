@@ -70,10 +70,6 @@ const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
               }
             }
           }
-          /* else if (!id && isDefaultActive &&  tempResult.length > 0 && tempResult[0].id) {
-            tempResult[0].active = true
-            window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service'
-          } */
         }
         return {
           status: payload.status,
@@ -152,7 +148,7 @@ let serviceJson = {
                           });
                           setTimeout(() => {
                             subTemp.dispatchEvent(event2)
-                          }, 50);
+                          }, 50)
                         }
                       }
                     }
