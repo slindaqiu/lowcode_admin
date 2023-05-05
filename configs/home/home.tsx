@@ -180,7 +180,7 @@ let homeJson = {
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
                   "actionType": "url",
-                  "url": "/#/service",
+                  "url": "/#/service?catalog=service1&active=service ",
                   "blank": false
                 }
               ]
@@ -497,7 +497,7 @@ let homeJson = {
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
                   "actionType": "url",
-                  "url": "/#/case",
+                  "url": "/#/case?catalog=case1&active=case",
                   "blank": false
                 }
               ]
@@ -812,7 +812,7 @@ let homeJson = {
                   "label": "查看更多 >>",
                   "className": "sl-more-btn",
                   "actionType": "url",
-                  "url": "/#/news",
+                  "url": "/#/news?active=news&catalog=news1",
                   "blank": false
                 }
               ]
