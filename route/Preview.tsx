@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import NotFound from './NotFound';
 import AMISRenderer from '../component/AMISRenderer';
 import AddPageModal from '../component/AddPageModal';
+import BASE_URL from '../settings'
 
 function isActive(link: any, location: any) {
   const ret = matchPath(location.pathname, {
@@ -107,12 +108,28 @@ export default inject('store')(
                           "label": "首页",
                           "className": {"home-active": "this.active=='home'", "nav-title": true},
                           "level": "link",
-                          "actionType": "link",
-                          "link": "/home?active=home",
                           "style": {
                             "fontSize": "16px",
                             "fontWeight": "600",
                             "color": "#333"
+                          },
+                          "onEvent": {
+                            "click": {
+                              "actions": [
+                                {
+                                  "actionType": "custom",
+                                  "script": function() {
+                                    window.localStorage.setItem('startHome', 'yes')
+                                  }
+                                },
+                                {
+                                  "actionType": "link",
+                                  "args": {
+                                    "link": "/home?active=home"
+                                  }
+                                }
+                              ]
+                            }
                           }
                         },
                         {

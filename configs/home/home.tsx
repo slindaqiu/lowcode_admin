@@ -1,7 +1,3 @@
-// import carouse2 from '../../assets/home/carouse2.png'
-// import carouse3 from '../../assets/home/carouse3.png'
-// import carouse2 from '../../assets/home/carouse4.png'
-// import carouse4 from '../../assets/home/carouse4.png'
 import BASE_URL from '../../settings'
 
 // window.onload = function() {
@@ -43,28 +39,35 @@ setTimeout(() => {
   // 工程案例
   caseSlider = document.querySelector('.case-slider-wrapper')
   sliderInit(caseSlider)
-
-  /* if(slider) {
-    if (slider.querySelectorAll('a').length === 7) {
-      slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
-      let links = slider.querySelectorAll('a')
-      for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener("click", function() {
-          counter = 0
-        })
-      }
-    }
-    // 初始化位置
-    counter = 7
-    targetPosition = -counter * 326
-    slider.style.transition = 'inherit'
-    slider.style.transform = `translateX(${targetPosition}px)`
-  } */
-  }, 1000) 
+  }, 500) 
 // }
 
 let homeJson = {
   "type": "service",
+  /* "onEvent": {
+    "selectHome": {
+      "actions": [
+        {
+          "actionType": "toast",
+          "args": {
+            "msgType": "info",
+            "msg": "${counter}"
+          }
+        },
+        {
+          "actionType": "custom",
+          "script": function (context: any, doAction: any, event: any) {
+            counter = 7
+            slider = document.querySelector('.slider-wrapper')
+            targetPosition = -counter * 326
+            slider.style.transition = 'inherit'
+            slider.style.transform = `translateX(${targetPosition}px)`
+            alert('进入首页')
+          }
+        }
+      ]
+    }
+  }, */
   "body": [
     // 轮播图
     {
@@ -226,21 +229,38 @@ let homeJson = {
                     {
                       "actionType": "custom",
                       "script": function (context: any, doAction: any, event: any) {
+                        let timer = 0
+                        let startHome = window.localStorage.getItem('startHome')
+                        if (startHome === 'yes') {
+                          timer = 100
+                          slider = document.querySelector('.slider-wrapper')
+                          if (slider.querySelectorAll('a').length === 7) {
+                            slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                          }
+                          if (slider) {
+                            // 初始化位置, 并定位到指定位置，不要过渡效果
+                            counter = 7
+                            targetPosition = -counter * 326
+                            slider.style.transitionProperty = 'none'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          }
+                        }
                         // 处理重新初始化
-                        slider = document.querySelector('.slider-wrapper')
-                        if (slider.querySelectorAll('a').length === 7) {
-                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
-                        }
-                        if (counter < 17) {
-                          counter++ 
-                          targetPosition = -counter * 326
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = `translateX(${targetPosition}px)`
-                        } else if (counter === 3) {
-                          slider.style.transition = 'inherit'
-                          slider.style.transform = `translateX(0)`
-                          counter = 0
-                        }
+                        setTimeout(() => {
+                          slider = document.querySelector('.slider-wrapper')
+                          if (counter < 17) {
+                            counter++ 
+                            targetPosition = -counter * 326
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          } else if (counter === 3) {
+                            slider.style.transition = 'inherit'
+                            slider.style.transform = `translateX(0)`
+                            counter = 0
+                          }
+                        }, timer)
+                        // 设置标志位
+                        window.localStorage.setItem('startHome', 'false')
                       }
                     }
                   ]
@@ -267,26 +287,41 @@ let homeJson = {
                     {
                       "actionType": "custom",
                       "script": function (context: any, doAction: any, event: any) {
+                        let timer = 0
+                        let startHome = window.localStorage.getItem('startHome')
+                        if (startHome === 'yes') {
+                          timer = 100
+                          slider = document.querySelector('.slider-wrapper')
+                          if (slider.querySelectorAll('a').length === 7) {
+                            slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                          }
+                          if (slider) {
+                            // 初始化位置
+                            counter = 7
+                            targetPosition = -counter * 326
+                            slider.style.transitionProperty = 'none'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          }
+                        }
                         // 处理重新初始化
-                        slider = document.querySelector('.slider-wrapper')
-                        if (slider.querySelectorAll('a').length === 7) {
-                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
-                        }
-                        if (counter > 0) {
-                          counter-- 
-                          targetPosition = -counter * 326
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = `translateX(${targetPosition}px)`
-                        } else if (counter === 0) {
-                          counter--
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = "translateX(slideWidth)"
-                          /* setTimeout(() => {
-                            slider.insertBefore(slider.children[6], slider.children[0])
-                            slider.style.transform = "translateX(0%)"
-                            counter++
-                          }, 800); */
-                        }
+                        setTimeout(() => {
+                          slider = document.querySelector('.slider-wrapper')
+                          /* if (slider.querySelectorAll('a').length === 7) {
+                            slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                          } */
+                          if (counter > 0) {
+                            counter-- 
+                            targetPosition = -counter * 326
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          } else if (counter === 0) {
+                            counter--
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = "translateX(slideWidth)"
+                          }
+                        }, timer)
+                        // 设置标志位
+                        window.localStorage.setItem('startHome', 'false')
                       }
                     }
                   ]
@@ -511,21 +546,38 @@ let homeJson = {
                     {
                       "actionType": "custom",
                       "script": function (context: any, doAction: any, event: any) {
+                        let timer = 0
+                        let startHome = window.localStorage.getItem('startHome')
+                        if (startHome === 'yes') {
+                          timer = 100
+                          slider = document.querySelector('.case-slider-wrapper')
+                          if (slider.querySelectorAll('a').length === 7) {
+                            slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                          }
+                          if (slider) {
+                            // 初始化位置
+                            caseCounter = 7
+                            targetPosition = -caseCounter * 326
+                            slider.style.transitionProperty = 'none'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          }
+                        }
                         // 处理重新初始化
-                        slider = document.querySelector('.case-slider-wrapper')
-                        if (slider.querySelectorAll('a').length === 7) {
-                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
-                        }
-                        if (caseCounter < 17) {
-                          caseCounter++ 
-                          targetPosition = -caseCounter * 326
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = `translateX(${targetPosition}px)`
-                        } else if (caseCounter === 3) {
-                          slider.style.transition = 'inherit'
-                          slider.style.transform = `translateX(0)`
-                          caseCounter = 0
-                        }
+                        setTimeout(() => {
+                          slider = document.querySelector('.case-slider-wrapper')
+                          if (caseCounter < 17) {
+                            caseCounter++ 
+                            targetPosition = -caseCounter * 326
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          } else if (caseCounter === 3) {
+                            slider.style.transition = 'inherit'
+                            slider.style.transform = `translateX(0)`
+                            caseCounter = 0
+                          }
+                        }, timer)
+                        // 设置标志位
+                        window.localStorage.setItem('startHome', 'false')
                       }
                     }
                   ]
@@ -552,26 +604,38 @@ let homeJson = {
                     {
                       "actionType": "custom",
                       "script": function (context: any, doAction: any, event: any) {
+                        let timer = 0
+                        let startHome = window.localStorage.getItem('startHome')
+                        if (startHome === 'yes') {
+                          timer = 100
+                          slider = document.querySelector('.case-slider-wrapper')
+                          if (slider.querySelectorAll('a').length === 7) {
+                            slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
+                          }
+                          if (slider) {
+                            // 初始化位置
+                            caseCounter = 7
+                            targetPosition = -caseCounter * 326
+                            slider.style.transitionProperty = 'none'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          }
+                        }
                         // 处理重新初始化
-                        slider = document.querySelector('.case-slider-wrapper')
-                        if (slider.querySelectorAll('a').length === 7) {
-                          slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
-                        }
-                        if (caseCounter > 0) {
-                          caseCounter-- 
-                          targetPosition = -caseCounter * 326
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = `translateX(${targetPosition}px)`
-                        } else if (caseCounter === 0) {
-                          caseCounter--
-                          slider.style.transition = 'transform 0.8s ease-in-out'
-                          slider.style.transform = "translateX(slideWidth)"
-                          /* setTimeout(() => {
-                            slider.insertBefore(slider.children[6], slider.children[0])
-                            slider.style.transform = "translateX(0%)"
-                            counter++
-                          }, 800); */
-                        }
+                        setTimeout(() => {
+                          slider = document.querySelector('.case-slider-wrapper')
+                          if (caseCounter > 0) {
+                            caseCounter-- 
+                            targetPosition = -caseCounter * 326
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = `translateX(${targetPosition}px)`
+                          } else if (caseCounter === 0) {
+                            caseCounter--
+                            slider.style.transition = 'transform 0.8s ease-in-out'
+                            slider.style.transform = "translateX(slideWidth)"
+                          }
+                        }, timer)
+                        // 设置标志位
+                        window.localStorage.setItem('startHome', 'false')
                       }
                     }
                   ]
