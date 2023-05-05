@@ -804,11 +804,15 @@ export default inject('store')(
               "textAlign": "center"
             },
             "body": {
-              "type": "tpl",
+              "type": "button",
+              "level": "link",
+              "actionType": "url",
+              "url": "http://beian.miit.gov.cn",
+              "blank": false,
               "style": {
                 "color": "#A0A0A0",
               },
-              "tpl": "Copyright © 2023 www.thkjbj.com 京ICP备2023003067号 碳和科技（北京）有限公司"
+              "label": "Copyright © 2023 www.thkjbj.com 京ICP备2023003067号 碳和科技（北京）有限公司"
             }
           }
         ]
