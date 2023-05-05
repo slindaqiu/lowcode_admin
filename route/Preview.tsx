@@ -345,38 +345,6 @@ export default inject('store')(
                             }
                           ]
                         },
-                        /* {
-                          "type": "nav",
-                          "stacked": false,
-                          "className": "sl-nav",
-                          "links": [
-                            {
-                              "label": "首页",
-                              "to": "/home"
-                              // "icon": "fa fa-user"
-                            },
-                            {
-                              "label": "关于我们",
-                              "to": "/about"
-                            },
-                            {
-                              "label": "技术与服务",
-                              "to": "/service",
-                            },
-                            {
-                              "label": "工程案例",
-                              "to": "/case"
-                            },
-                            {
-                              "label": "新闻咨询",
-                              "to": "/news"
-                            },
-                            {
-                              "label": "联系我们",
-                              "to": "/contact"
-                            }
-                          ]
-                        }, */
                         {
                           "type": "tpl",
                           "tpl": "<span class='chinese-span'>中文</span>",
@@ -752,22 +720,38 @@ export default inject('store')(
                   "type": "button",
                   "level": "link",
                   "label": "首页",
-                  "actionType": "link",
-                  "link": "home?active=home"
+                  "onEvent": {
+                    "click": {
+                      "actions": [
+                        {
+                          "actionType": "custom",
+                          "script": function() {
+                            window.localStorage.setItem('startHome', 'yes')
+                          }
+                        },
+                        {
+                          "actionType": "link",
+                          "args": {
+                            "link": "/home?active=home"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 },,
                 {
                   "type": "button",
                   "level": "link",
                   "label": "工程案例",
                   "actionType": "link",
-                  "link": "case?active=case"
+                  "link": "case?catalog=case1&active=case"
                 },
                 {
                   "type": "button",
                   "level": "link",
                   "label": "联系我们",
                   "actionType": "link",
-                  "link": "contact?active=contact"
+                  "link": "contact?contactType=contactInfo&active=contact"
                 }]
               },
               {
@@ -780,14 +764,14 @@ export default inject('store')(
                   "level": "link",
                   "label": "关于我们",
                   "actionType": "link",
-                  "link": "about?active=about"
+                  "link": "about?aboutType=company&active=about"
                 },,
                 {
                   "type": "button",
                   "level": "link",
                   "label": "新闻咨询",
                   "actionType": "link",
-                  "link": "news?active=news"
+                  "link": "/news?catalog=news1&active=news"
                 }]
               },
               {
@@ -797,7 +781,7 @@ export default inject('store')(
                   "level": "link",
                   "label": "技术与服务",
                   "actionType": "link",
-                  "link": "service?active=service"
+                  "link": "service?catalog=service1&active=service"
                 },
                 {
                   "type": "button",
