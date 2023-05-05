@@ -44,30 +44,6 @@ setTimeout(() => {
 
 let homeJson = {
   "type": "service",
-  /* "onEvent": {
-    "selectHome": {
-      "actions": [
-        {
-          "actionType": "toast",
-          "args": {
-            "msgType": "info",
-            "msg": "${counter}"
-          }
-        },
-        {
-          "actionType": "custom",
-          "script": function (context: any, doAction: any, event: any) {
-            counter = 7
-            slider = document.querySelector('.slider-wrapper')
-            targetPosition = -counter * 326
-            slider.style.transition = 'inherit'
-            slider.style.transform = `translateX(${targetPosition}px)`
-            alert('进入首页')
-          }
-        }
-      ]
-    }
-  }, */
   "body": [
     // 轮播图
     {
