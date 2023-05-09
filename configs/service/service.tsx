@@ -12,11 +12,11 @@ const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
       "data": {
         "catalog": catalog
       },
-      "adaptor": function(payload: any) {
+      "adaptor": function (payload: any) {
         let hash = window.location.hash
         let id: any = null
         let currentCatalog: any = null
-        if(hash.length >= 1) {
+        if (hash.length >= 1) {
           let paramsString = hash.slice(hash.indexOf('?') + 1);
           // 解析键值对
           let params = new URLSearchParams(paramsString)
@@ -25,9 +25,9 @@ const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
         }
 
         // 从导航进入，包含 catalog，不包含 id，不处理
-        let tempResult:any[] = []
+        let tempResult: any[] = []
         if (payload.data && payload.data.items) {
-          payload.data.items.forEach((item:any, index: any) => {
+          payload.data.items.forEach((item: any, index: any) => {
             tempResult.push({
               "label": item.title,
               "to": "?id=" + item.id + '&active=service' + '&catalog=' + catalogType,
@@ -41,21 +41,21 @@ const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
           })
           // 从首页进来，包含 catalog 和 id ，默认选中指定文章
           if (currentCatalog) {
-           // 如果 id 不存在，则选择导航默认第一条数据, 默认选中第一个
-           if (
-            (currentCatalog == 'service1' && catalog == '二氧化碳的捕集利用') 
-            || (currentCatalog == 'service2' && catalog == '变压吸附提纯CO技术') 
-            || (currentCatalog == 'service3' && catalog == '变压吸附制氢技术')
-            || (currentCatalog == 'service4' && catalog == '甲烷提浓技术')
-            || (currentCatalog == 'service5' && catalog == '空分PSA制氮、制氧技术')
-            || (currentCatalog == 'service6' && catalog == '气体干燥净化技术')
-            || (currentCatalog == 'service7' && catalog == '吸附剂、催化剂')
+            // 如果 id 不存在，则选择导航默认第一条数据, 默认选中第一个
+            if (
+              (currentCatalog == 'service1' && catalog == '二氧化碳的捕集利用')
+              || (currentCatalog == 'service2' && catalog == '变压吸附提纯CO技术')
+              || (currentCatalog == 'service3' && catalog == '变压吸附制氢技术')
+              || (currentCatalog == 'service4' && catalog == '甲烷提浓技术')
+              || (currentCatalog == 'service5' && catalog == '空分PSA制氮、制氧技术')
+              || (currentCatalog == 'service6' && catalog == '气体干燥净化技术')
+              || (currentCatalog == 'service7' && catalog == '吸附剂、催化剂')
             ) {
               setTimeout(() => {
                 // 使用 js 配合模拟点击实现菜单点击，高亮菜单
                 const temp = document.querySelector(`.${currentCatalog} .cxd-Collapse-header`)
                 if (temp && temp.parentElement && !temp.parentElement.classList.contains('is-active')) {
-                  const event:any = new MouseEvent('click', {
+                  const event: any = new MouseEvent('click', {
                     'view': window,
                     'bubbles': true,
                     'cancelable': true
@@ -66,7 +66,7 @@ const getSubNav = (catalog: any, catalogType: any, isDefaultActive: any) => {
               // id 不存在
               if (!id) {
                 tempResult[0].active = true
-                window.location.href = '/#/service' +'?id=' + tempResult[0].id + '&active=service' + '&catalog=' + catalogType
+                window.location.href = '/#/service' + '?id=' + tempResult[0].id + '&active=service' + '&catalog=' + catalogType
               }
             }
           }
@@ -130,7 +130,7 @@ let serviceJson = {
                       if (temp) {
                         // 如果节点已经选中，则不处理
                         if (temp.parentElement && !temp.parentElement.classList.contains('is-active')) {
-                          const event:any = new MouseEvent('click', {
+                          const event: any = new MouseEvent('click', {
                             'view': window,
                             'bubbles': true,
                             'cancelable': true
@@ -141,7 +141,7 @@ let serviceJson = {
                         // 默认点击下拉框第一个元素
                         const subTemp = document.querySelector(`.${selectedCatalog} .cxd-Nav-item a`)
                         if (subTemp) {
-                          const event2:any = new MouseEvent('click', {
+                          const event2: any = new MouseEvent('click', {
                             'view': window,
                             'bubbles': true,
                             'cancelable': true
@@ -154,7 +154,7 @@ let serviceJson = {
                     }
                   }
                 },
-                
+
               ]
             }
           },
@@ -207,7 +207,7 @@ let serviceJson = {
               "className": "service7",
               "key": "service7",
               "header": "吸附剂、催化剂",
-              "body": getSubNav("吸附剂、催化剂",  "service7", false)
+              "body": getSubNav("吸附剂、催化剂", "service7", false)
             }
           ]
         },
@@ -220,6 +220,14 @@ let serviceJson = {
             "method": "get",
             "url": "/news/info?id=${id}",
             "sendOn": "this.id",
+            "adaptor": function (payload: any) {
+              window.scrollTo(0, 0)
+              return {
+                status: payload.status,
+                msg: payload.msg,
+                data: payload.data
+              }
+            }
           },
           "actions": [],
           "className": "info-detail-wrapper",

@@ -664,7 +664,6 @@ let homeJson = {
                       "width": 300,
                       "height": 192,
                       "innerClassName": "no-border",
-                      // "title": "北京某企业超高纯二氧化碳电子气99.9995"
                       "title": "北京某企业超高纯二氧化碳电子气",
                     },
                     "blank": false,
