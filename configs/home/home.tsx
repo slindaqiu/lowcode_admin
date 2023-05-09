@@ -10,12 +10,12 @@ let targetPosition: any = 0
 
 function sliderInit(slider: any) {
   // 滚动容器的左右移动，增加点击事件，清理 counter 值
-  if(slider) {
+  if (slider) {
     if (slider.querySelectorAll('a').length === 7) {
       slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
       let links = slider.querySelectorAll('a')
       for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener("click", function() {
+        links[i].addEventListener("click", function () {
           counter = 0
           caseCounter = 0
         })
@@ -39,7 +39,7 @@ setTimeout(() => {
   // 工程案例
   caseSlider = document.querySelector('.case-slider-wrapper')
   sliderInit(caseSlider)
-  }, 500) 
+}, 500)
 // }
 
 let homeJson = {
@@ -120,7 +120,7 @@ let homeJson = {
               "tpl": "诚信 创新 高效 发展"
             },
           ]
-        } 
+        }
       ]
     },
     // 技术与服务
@@ -225,7 +225,7 @@ let homeJson = {
                         setTimeout(() => {
                           slider = document.querySelector('.slider-wrapper')
                           if (counter < 17) {
-                            counter++ 
+                            counter++
                             targetPosition = -counter * 326
                             slider.style.transition = 'transform 0.8s ease-in-out'
                             slider.style.transform = `translateX(${targetPosition}px)`
@@ -286,7 +286,7 @@ let homeJson = {
                             slider.innerHTML = slider.innerHTML + slider.innerHTML + slider.innerHTML
                           } */
                           if (counter > 0) {
-                            counter-- 
+                            counter--
                             targetPosition = -counter * 326
                             slider.style.transition = 'transform 0.8s ease-in-out'
                             slider.style.transform = `translateX(${targetPosition}px)`
@@ -324,7 +324,7 @@ let homeJson = {
                 "items": [
                   {
                     "type": "link",
-                    "href": `${BASE_URL}/#/service?id=1&active=service&catalog=service1`,
+                    "href": `${BASE_URL}/#/service?id=4&active=service&catalog=service1`,
                     "body": {
                       "type": "image",
                       "src": "../../assets/home/service/service1.png",
@@ -395,7 +395,7 @@ let homeJson = {
                       "width": 300,
                       "height": 192,
                       "innerClassName": "no-border",
-                     "title": "变压吸附提纯CO"
+                      "title": "变压吸附提纯CO"
                     },
                     "blank": false,
                     "style": {
@@ -542,7 +542,7 @@ let homeJson = {
                         setTimeout(() => {
                           slider = document.querySelector('.case-slider-wrapper')
                           if (caseCounter < 17) {
-                            caseCounter++ 
+                            caseCounter++
                             targetPosition = -caseCounter * 326
                             slider.style.transition = 'transform 0.8s ease-in-out'
                             slider.style.transform = `translateX(${targetPosition}px)`
@@ -600,7 +600,7 @@ let homeJson = {
                         setTimeout(() => {
                           slider = document.querySelector('.case-slider-wrapper')
                           if (caseCounter > 0) {
-                            caseCounter-- 
+                            caseCounter--
                             targetPosition = -caseCounter * 326
                             slider.style.transition = 'transform 0.8s ease-in-out'
                             slider.style.transform = `translateX(${targetPosition}px)`
